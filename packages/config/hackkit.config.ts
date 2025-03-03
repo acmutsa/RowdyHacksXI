@@ -806,12 +806,12 @@ const softwareExperienceOptions = [
 ] as const;
 
 const c = {
-	hackathonName: "HackKit",
-	itteration: "I",
+	hackathonName: "RowdyHacks",
+	itteration: "XI",
 	siteUrl: "https://rowdyhacks.org", // Do not have a trailing slash
-	defaultMetaDataDescription: "Your Metadata Description Here",
+	defaultMetaDataDescription: "Website for RowdyHacks XI",
 	rsvpDefaultLimit: 500,
-	botName: "HackKit",
+	botName: "RowdyHacks",
 	botParticipantRole: "Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schoolOptions[0],

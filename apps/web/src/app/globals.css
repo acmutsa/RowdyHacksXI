@@ -42,6 +42,8 @@
 		--gradient-color-2: #3366ff;
 		--gradient-color-3: #002db3;
 		--gradient-color-4: #1952cc;
+
+		--rh-night: #0f1239;
 	}
 
 	.dark {
@@ -97,6 +99,14 @@
 	-ms-user-select: none;
 }
 
+.night {
+	background: url("/img/star_bg.png") repeat;
+	background-color: var(--rh-night);
+	background-size: 100%;
+	background-attachment: fixed;
+	background-position: center;
+}
+
 .parallax-effect-img {
 	transform-style: preserve-3d;
 	transform: perspective(1000px);
@@ -139,6 +149,7 @@
 }
 
 @keyframes pulseDot {
+
 	0%,
 	100% {
 		transform: scale(1);

@@ -9,14 +9,23 @@ export default function Hero() {
 	const { scrollYProgress } = useScroll();
 	return (
 		<section className="grid w-full grid-cols-1 overflow-hidden">
-			<div className="night relative flex h-screen w-full flex-col justify-end">
+			<motion.div
+				className="night relative flex h-screen w-full flex-col justify-end"
+				style={{
+					backgroundSize: useTransform(
+						scrollYProgress,
+						[0, 1],
+						["100%", "1000%"],
+					),
+				}}
+			>
 				<div className="relative z-20 w-screen">
 					<motion.div
 						style={{
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 10000],
+								[0, 20000],
 							),
 						}}
 					>
@@ -95,7 +104,7 @@ export default function Hero() {
 						unoptimized={true}
 					/>
 				</motion.div>
-			</div>
+			</motion.div>
 		</section>
 	);
 }

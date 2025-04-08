@@ -9,7 +9,7 @@ type Partner = {
 	tier: string;
 };
 
-export default async function Partners() {
+export default function Partners() {
 	// Christian Walker: Aware of weird bug from 1280px to 1286 px where background dissapears
 	const marathon: Partner = {
 		name: "Marathon",

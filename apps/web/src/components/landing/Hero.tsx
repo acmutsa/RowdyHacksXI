@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../shadcn/ui/button";
@@ -10,7 +9,7 @@ export default function Hero() {
 	return (
 		<section className="grid w-full grid-cols-1 overflow-hidden">
 			<motion.div
-				className="night relative flex h-screen w-full flex-col justify-end"
+				className="relative flex h-screen w-full flex-col justify-end"
 				style={{
 					backgroundSize: useTransform(
 						scrollYProgress,
@@ -76,7 +75,7 @@ export default function Hero() {
 					/>
 				</motion.div>
 				<motion.div
-					className="absolute left-1/2 top-1/2 w-full max-w-[1200px]"
+					className="absolute left-1/2 top-1/2 z-30 w-full max-w-[1200px]"
 					style={{
 						translateX: useTransform(
 							scrollYProgress,
@@ -86,7 +85,7 @@ export default function Hero() {
 						translateY: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-100%"],
+							["-60%", "-100%"],
 						),
 						scale: useTransform(scrollYProgress, [0, 1], [1, 10]),
 						rotate: useTransform(
@@ -99,6 +98,7 @@ export default function Hero() {
 					<Image
 						src={"/img/hero-title.svg"}
 						alt={"Rh Xi Hero Title"}
+						className="mx-auto"
 						width={1000}
 						height={1000}
 						unoptimized={true}

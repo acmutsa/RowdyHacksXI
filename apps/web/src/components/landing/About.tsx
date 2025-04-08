@@ -13,7 +13,7 @@ export default function About() {
 	};
 	return (
 		<section
-			className="flex min-h-screen w-full items-center justify-center border-y-2 border-muted-foreground"
+			className="flex min-h-screen w-full items-center justify-center"
 			id="About"
 		>
 			<div className="flex w-full flex-col items-center justify-center">

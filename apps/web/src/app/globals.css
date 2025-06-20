@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Rubik+Glitch&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,10 +9,10 @@
 	src: url("/fonts/Gota.otf") format("opentype");
 }
 
-@font-face {
+/* @font-face {
 	font-family: "League Spartan";
 	src: url("/fonts/League Spartan/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
-}
+} */
 
 @font-face {
 	font-family: "Mokoto";
@@ -55,7 +57,7 @@
 		serif;
 		--font-mokoto: "Mokoto",
 		sans-serif;
-		--font-mokoto-glitch-1: "Mokoto Glitch 1",
+		--font-mokoto-glitch-1: "Rubik Glitch",
 		sans-serif;
 		--font-mokoto-glitch-2: "Mokoto Glitch 2",
 		sans-serif;

@@ -24,7 +24,7 @@ export default function Interest() {
 							),
 						}}
 					>
-						<h2 className="font-mokoto-glitch-1 text-8xl font-bold uppercase text-white">
+						<h2 className="font-mokoto-glitch-1 text-8xl uppercase text-white">
 							Join Us
 						</h2>
 						<p className="font-league-spartan text-3xl font-bold text-white">

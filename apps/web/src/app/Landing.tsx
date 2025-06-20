@@ -11,6 +11,8 @@ import Footer from "@/components/landing/Footer";
 
 import WorkWithUs from "@/components/landing/WorkWithUs";
 
+import Interest from "@/components/landing/Interest";
+
 function sawtoothWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
 	// Calculate the period of the wave
 	const period = 1 / frequency;
@@ -45,7 +47,7 @@ function starOpacity(t: number, frequency = 1, phase = 0) {
 export default function Landing() {
 	const { scrollYProgress } = useScroll();
 	return (
-		<div className="night relative">
+		<div className="night relative overflow-y-hidden">
 			<motion.div
 				className="star-bg fixed left-0 top-0 z-0 h-full w-full bg-transparent"
 				style={{
@@ -86,10 +88,11 @@ export default function Landing() {
 				}}
 			/>
 			<Hero />
-			<About />
+			<Interest />
+			{/* <About />
 			<Partners />
 			<WorkWithUs />
-			<Footer />
+			<Footer /> */}
 		</div>
 	);
 }

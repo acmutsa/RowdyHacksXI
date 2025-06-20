@@ -8,6 +8,8 @@ import NavBarLinksGrouper from "./NavBarLinksGrouper";
 import { Oswald } from "next/font/google";
 import { cn } from "@/lib/utils/client/cn";
 import { getUser } from "db/functions";
+import DashNavItem from "../dash/shared/DashNavItem";
+import NavbarItem from "./NavbarItem";
 
 const oswald = Oswald({
 	variable: "--font-oswald",
@@ -52,7 +54,13 @@ export default async function Navbar({ className }: NavbarProps) {
 						</div>
 					</div>
 
-					<div className="flex items-center justify-between space-x-2 md:justify-center">
+					<div className="flex items-center">
+						<NavbarItem link="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">
+							MLH Code of Conduct
+						</NavbarItem>
+					</div>
+
+					{/* <div className="flex items-center justify-between space-x-2 md:justify-center">
 						<div className="hidden gap-x-4 md:flex">
 							{user ? (
 								<>
@@ -90,7 +98,7 @@ export default async function Navbar({ className }: NavbarProps) {
 							)}
 						</div>
 						<ProfileButton />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

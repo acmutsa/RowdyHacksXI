@@ -22,10 +22,6 @@ module.exports = {
 				"gradient-radial":
 					"radial-gradient(ellipse_at_center, var(--gradient-color-stops))",
 			},
-			fontFamily: {
-				gota: ["var(--font-gota)"],
-				"league-spartan": ["var(--font-league-spartan)"],
-			},
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
@@ -84,7 +80,13 @@ module.exports = {
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 			fontFamily: {
+				gota: ["var(--font-gota)"],
+				"league-spartan": ["var(--font-league-spartan)"],
 				oswald: ["var(--font-oswald)"],
+				mokoto: ["var(--font-mokoto)"],
+				"mokoto-glitch-1": ["var(--font-mokoto-glitch-1)"],
+				"mokoto-glitch-2": ["var(--font-mokoto-glitch-2)"],
+				"mokoto-glitch-outline": ["var(--font-mokoto-glitch-outline)"],
 			},
 		},
 	},

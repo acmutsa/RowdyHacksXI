@@ -12,10 +12,55 @@
 	src: url("/fonts/League Spartan/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
 }
 
+@font-face {
+	font-family: "Mokoto";
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-400.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Mokoto Glitch 1";
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-1-400.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Mokoto Glitch 2";
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-2-400.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Mokoto Glitch Outline";
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-outline-400.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
 @layer base {
 	:root {
-		--font-gota: "Gota", sans-serif;
-		--font-league-spartan: "League Spartan", serif;
+
+		@media (max-aspect-ratio: 1/1) {
+			.title-cactus {
+				display: none;
+			}
+		}
+
+		--font-gota: "Gota",
+		sans-serif;
+		--font-league-spartan: "League Spartan",
+		serif;
+		--font-mokoto: "Mokoto",
+		sans-serif;
+		--font-mokoto-glitch-1: "Mokoto Glitch 1",
+		sans-serif;
+		--font-mokoto-glitch-2: "Mokoto Glitch 2",
+		sans-serif;
+		--font-mokoto-glitch-outline: "Mokoto Glitch Outline",
+		sans-serif;
 
 		--background: 42 100% 98.04%;
 		--foreground: 240 13.73% 10%;
@@ -61,7 +106,9 @@
 		--sidebar-border: 220 13.04% 90.98%;
 		--sidebar-ring: 13.21 73.04% 54.90%;
 
-		--nav: 255, 255, 255;
+		--nav: 255,
+		255,
+		255;
 		--hackathon-primary: 206 86% 52%;
 
 		--radius: 0.75rem;
@@ -72,17 +119,25 @@
 		--gradient-color-4: #1952cc;
 		--rh-night: #0f1239;
 
-		--font-sans: "Gota", sans-serif;
-		--font-serif: Source Serif 4, serif;
-		--font-mono: JetBrains Mono, monospace;
+		--font-sans: "Gota",
+		sans-serif;
+		--font-serif: Source Serif 4,
+		serif;
+		--font-mono: JetBrains Mono,
+		monospace;
 
 		--shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
 		--shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
-		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
-		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
-		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
+		0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
+		0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
+		0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
+		0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
+		0px 8px 10px -1px hsl(0 0% 0% / 0.10);
 		--shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
 	}
 

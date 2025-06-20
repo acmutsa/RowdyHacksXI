@@ -24,10 +24,10 @@ export default function Interest() {
 							),
 						}}
 					>
-						<h2 className="font-sans text-8xl font-bold uppercase text-white">
+						<h2 className="font-mokoto-glitch-1 text-8xl font-bold uppercase text-white">
 							Join Us
 						</h2>
-						<p className="text-3xl font-bold text-white">
+						<p className="font-league-spartan text-3xl font-bold text-white">
 							Fall '25 @ UTSA's San Pedro I
 						</p>
 						<Link href="https://tally.so/r/3qXd25">

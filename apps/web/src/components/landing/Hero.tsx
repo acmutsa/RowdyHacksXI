@@ -86,14 +86,24 @@ export default function Hero() {
 						),
 					}}
 				>
-					<Image
-						src={"/img/hero-title.svg"}
-						alt={"Rowdy Hacks Coming Fall '25"}
-						className="mx-auto"
-						width={1000}
-						height={1000}
-						unoptimized={true}
-					/>
+					<div className="relative mx-auto">
+						<Image
+							src={"/img/hero-title.svg"}
+							alt={"Rowdy Hacks Coming Fall '25"}
+							className="w-full"
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+						<Image
+							src={"/img/cactus.svg"}
+							className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+							alt={"Cactus"}
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+					</div>
 				</motion.div>
 			</div>
 		</section>

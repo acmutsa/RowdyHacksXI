@@ -24,9 +24,9 @@ function sawtoothWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
 	return amplitude * (2 * (adjustedTime / period) - 1);
 }
 
-function sineWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
-	return amplitude * Math.sin(2 * Math.PI * frequency * t + phase);
-}
+// function sineWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
+// 	return amplitude * Math.sin(2 * Math.PI * frequency * t + phase);
+// }
 
 function starOpacity(t: number, frequency = 1, phase = 0) {
 	const period = 1 / frequency;
@@ -53,15 +53,15 @@ export default function Landing() {
 				style={{
 					backgroundSize: useTransform(
 						() =>
-							`${sawtoothWave(scrollYProgress.get(), 50, 5, 1) + 70}%`,
+							`${sawtoothWave(scrollYProgress.get(), 25, 5, 1) + 50}%`,
 					),
 					opacity: useTransform(
 						() =>
-							`${starOpacity(scrollYProgress.get(), 5, 1) * 100}%`,
+							`${starOpacity(scrollYProgress.get(), 3, 11) * 80}%`,
 					),
 				}}
 			/>
-			<motion.div
+			{/* <motion.div
 				className="star-bg fixed left-0 top-0 z-0 h-full w-full bg-transparent"
 				style={{
 					backgroundSize: useTransform(
@@ -70,20 +70,20 @@ export default function Landing() {
 					),
 					opacity: useTransform(
 						() =>
-							`${starOpacity(scrollYProgress.get(), 11, 13) * 100}%`,
+							`${starOpacity(scrollYProgress.get(), 5, 17) * 100}%`,
 					),
 				}}
-			/>
+			/> */}
 			<motion.div
 				className="star-bg fixed left-0 top-0 z-0 h-full w-full bg-transparent"
 				style={{
 					backgroundSize: useTransform(
 						() =>
-							`${sawtoothWave(scrollYProgress.get(), 50, 17, 17) + 70}%`,
+							`${sawtoothWave(scrollYProgress.get(), 25, 17, 5) + 50}%`,
 					),
 					opacity: useTransform(
 						() =>
-							`${starOpacity(scrollYProgress.get(), 17, 17) * 100}%`,
+							`${starOpacity(scrollYProgress.get(), 7, 10) * 80}%`,
 					),
 				}}
 			/>

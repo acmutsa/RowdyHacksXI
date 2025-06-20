@@ -22,6 +22,10 @@ module.exports = {
 				"gradient-radial":
 					"radial-gradient(ellipse_at_center, var(--gradient-color-stops))",
 			},
+			fontFamily: {
+				gota: ["var(--font-gota)"],
+				"league-spartan": ["var(--font-league-spartan)"],
+			},
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",

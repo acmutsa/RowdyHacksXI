@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "../shadcn/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 
@@ -9,43 +9,59 @@ export default function Interest() {
 	const { scrollYProgress } = useScroll();
 	return (
 		<section
-			className="flex min-h-screen w-full items-center justify-center"
+			className="flex h-[80dvh] w-full"
 			// ref={containerRef}
 			id="Interest"
 		>
-			<motion.div
-				className="relative flex w-3/4 flex-col items-center justify-center"
-				style={{
-					translateX: useTransform(
-						scrollYProgress,
-						[0, 1],
-						["100%", "0%"],
-					),
-					translateY: useTransform(
-						scrollYProgress,
-						[0, 1],
-						["100%", "0%"],
-					),
-					rotate: useTransform(scrollYProgress, [0, 1], [-15, 5]),
-					scale: useTransform(scrollYProgress, [0, 1], [1, 1.15]),
-				}}
-			>
-				<img
-					src="/img/rh-ufo.svg"
-					alt="JOIN US! Fall '25 @ UTSA's San Pedro I"
-					className="mx-auto w-1/2"
-					width={1000}
-					height={1000}
-				/>
-				<Link href="https://tally.so/r/3qXd25">
-					<Button
-						size="lg"
-						className="absolute left-1/2 top-[80%] -translate-x-1/2 -translate-y-1/2 bg-green-400 text-xl text-black shadow shadow-green-100 hover:bg-green-300"
+			<div className="z-40 w-full">
+				<div className="relative z-40 text-center">
+					<motion.div
+						style={{
+							opacity: useTransform(
+								scrollYProgress,
+								[0, 0.9, 1],
+								[0, 0.25, 1],
+							),
+						}}
 					>
-						Join Us!
-					</Button>
-				</Link>
-			</motion.div>
+						<h2 className="font-sans text-8xl font-bold uppercase text-white">
+							Join Us
+						</h2>
+						<p className="text-3xl font-bold text-white">
+							Fall '25 @ UTSA's San Pedro I
+						</p>
+						<Link href="https://tally.so/r/3qXd25">
+							<Button size="lg" className="mt-10 text-xl">
+								Interest Form
+							</Button>
+						</Link>
+					</motion.div>
+
+					<motion.div
+						className="absolute left-0 right-0 -z-10"
+						style={{
+							translateX: useTransform(
+								scrollYProgress,
+								[0, 0.5],
+								[1000, 0],
+							),
+							translateY: useTransform(
+								scrollYProgress,
+								[0, 0.5],
+								["0%", "-75%"],
+							),
+						}}
+					>
+						<Image
+							src="/img/ufo3d.png"
+							alt="JOIN US! Fall '25 @ UTSA's San Pedro I"
+							className="mx-auto w-full max-w-7xl"
+							width={1000}
+							height={1000}
+						/>
+					</motion.div>
+				</div>
+			</div>
 		</section>
 	);
 }

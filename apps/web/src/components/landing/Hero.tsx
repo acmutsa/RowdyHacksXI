@@ -15,7 +15,7 @@ export default function Hero() {
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 20000],
+								[0, 5000],
 							),
 						}}
 					>
@@ -51,7 +51,7 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							[0, 1000],
+							[0, 250],
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
 					}}
@@ -71,12 +71,12 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-1000%"],
+							["-50%", "-5000%"],
 						),
 						translateY: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-60%", "-100%"],
+							["-60%", "-80%"],
 						),
 						scale: useTransform(scrollYProgress, [0, 1], [1, 10]),
 						rotate: useTransform(

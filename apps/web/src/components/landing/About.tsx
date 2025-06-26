@@ -59,11 +59,11 @@ export default function About() {
 					</div>
 					<div className="relative flex justify-center w-[50%]">
 						<Image
-							className="absolute bottom-[65%] w-[725px] h-[750px]"
+							className="absolute bottom-[65%] w-[60%]"
 							src={"/img/ufo.svg"}
-							alt="Sign"
+							alt="UFO"
 							width={431}
-							height={4}
+							height={431}
 							unoptimized={true}
 						/>
 					</div>

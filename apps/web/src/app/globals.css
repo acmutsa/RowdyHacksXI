@@ -100,7 +100,7 @@
 }
 
 .night {
-	background: url("/img/star_bg.png") repeat;
+	background: url("/img/new_stars.jpg") repeat;
 	background-color: var(--rh-night);
 	background-size: 100%;
 	background-attachment: fixed;

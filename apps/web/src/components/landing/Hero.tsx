@@ -1,14 +1,12 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "../shadcn/ui/button";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
 	const { scrollYProgress } = useScroll();
 	return (
-		<section className="grid w-full grid-cols-1 overflow-hidden">
+		<section className="grid w-full grid-cols-1">
 			<motion.div
 				className="night relative flex h-screen w-full flex-col justify-end"
 				style={{
@@ -19,13 +17,13 @@ export default function Hero() {
 					),
 				}}  
 			>
-				<div className="relative z-20 w-screen">
+				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div
 						style={{
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 20000],
+								[0, 7500],
 							),
 						}}
 					>
@@ -61,7 +59,7 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							[0, 1000],
+							[0, 250],
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
 					}}
@@ -76,17 +74,17 @@ export default function Hero() {
 					/>
 				</motion.div>
 				<motion.div
-					className="absolute left-1/2 top-1/2 w-full max-w-[1200px]"
+					className="absolute left-1/2 top-1/2 z-30 w-full max-w-[1200px]"
 					style={{
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-1000%"],
+							["-50%", "-5000%"],
 						),
 						translateY: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-100%"],
+							["-60%", "-80%"],
 						),
 						scale: useTransform(scrollYProgress, [0, 1], [1, 10]),
 						rotate: useTransform(
@@ -96,13 +94,24 @@ export default function Hero() {
 						),
 					}}
 				>
-					<Image
-						src={"/img/hero/hero-title.svg"}
-						alt={"Rh Xi Hero Title"}
-						width={1000}
-						height={1000}
-						unoptimized={true}
-					/>
+					<div className="relative mx-auto">
+						<Image
+							src={"/img/hero/hero-title.svg"}
+							alt={"Rowdy Hacks Coming Fall '25"}
+							className="w-full"
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+						<Image
+							src={"/img/hero/cactus.svg"}
+							className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+							alt={"Cactus"}
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+					</div>
 				</motion.div>
 			</motion.div>
 		</section>

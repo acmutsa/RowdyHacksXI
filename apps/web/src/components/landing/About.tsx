@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
 
 export default function About() {
 	const{ scrollYProgress: scrollPage } = useScroll();
@@ -14,6 +14,11 @@ export default function About() {
 		target: inViewRef,
 		offset: ["start end", "end start"]
 	});
+	const smoothScrollY = useSpring(scrollYProgress, {
+		stiffness: 100,
+		damping: 20,
+		mass: 0.5,
+	});
 	useMotionValueEvent(scrollYProgress, "change",
 		(latest) => {
 			console.log(latest);
@@ -23,6 +28,20 @@ export default function About() {
 		console.log(`The section ${isInView ? "is" : "is not"} in view`);
 	}, [isInView]);
 	// End of Scroll Debug Area
+
+	const oscillation = useMotionValue(0);
+
+	useEffect(() => {
+		const controls = animate(oscillation, 2 * Math.PI, {
+			repeat: Infinity,
+			duration: 4,
+			ease: "linear",
+		});
+		return controls.stop;
+	}, []);
+
+	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
+	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
 	
 	return (
 		<section
@@ -44,12 +63,31 @@ export default function About() {
 					className="absolute w-[100%] h-[100%] bg-[url(/img/about/moon.svg)] bg-contain bg-no-repeat bg-bottom"
 				>	
 				</motion.div>
-				<div className="relative flex justify-center w-full h-full">
+				<div className="relative flex justify-center items-center w-full h-full">
 					<motion.div
-						className="relative flex justify-center"
+						className="relative border-4 flex justify-center w-[50%] h-[75%]"
+						style={{
+							translateX: useTransform(
+								scrollYProgress,
+								[0.0, 0.4, 1],
+								["-100%", "0%", "0%"]
+							),
+							translateY: useTransform(
+								scrollYProgress,
+								[0, 0.4, 1],
+								["20%", "0%", "0%"]
+							),
+							scale: useTransform(
+								scrollYProgress,
+								[0, 0.4, 1],
+								[0, 1, 1]
+							),
+							x: floatX,
+							y: floatY
+						}}
 					>
 						<Image
-							src={"/img/about/ufo.svg"}
+							src={"/img/about/ufo3d.png"}
 							alt="UFO"
 							width={500}
 							height={500}

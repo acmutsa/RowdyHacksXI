@@ -41,13 +41,29 @@ export default function About() {
 				}}
 			>
 				<motion.div 
-					className="absolute flex top-[75%] scale-x-[250%] w-[100%] aspect-square bg-gray-500 rounded-full"
+					className="absolute w-[100%] h-[100%] bg-[url(/img/about/moon.svg)] bg-contain bg-no-repeat bg-bottom"
 				>	
 				</motion.div>
-				<motion.div
-					className="relative flex top-[75%] w-full h-[25%]"
-				>
-					<div className="relative flex justify-center w-[25%]">
+				<div className="relative flex justify-center w-full h-full">
+					<motion.div
+						className="relative flex justify-center"
+					>
+						<Image
+							src={"/img/about/ufo.svg"}
+							alt="UFO"
+							width={500}
+							height={500}
+							unoptimized={true}
+						/>
+					</motion.div>
+				</div>
+			</motion.div>
+		</section>
+	);
+}
+
+	{/* 
+		<div className="relative flex justify-center w-[25%]">
 						<Image
 							className="absolute left-[50%] bottom-[70%] w-[60%] h-[100%] rotate-[6.2rad]"
 							src={"/img/saloon.png"}
@@ -57,17 +73,7 @@ export default function About() {
 							unoptimized={true}
 						/>
 					</div>
-					<div className="relative flex justify-center w-[50%]">
-						<Image
-							className="absolute bottom-[65%] w-[60%]"
-							src={"/img/ufo.svg"}
-							alt="UFO"
-							width={431}
-							height={431}
-							unoptimized={true}
-						/>
-					</div>
-					<div className="relative flex justify-center w-[25%]">
+		<div className="relative flex justify-center w-[25%]">
 						<Image
 							className="relative bottom-[20%] right-[50%] w-[20%] h-[55%] rotate-[6.2rad]"
 							alt="Cactus1"
@@ -85,13 +91,8 @@ export default function About() {
 							unoptimized={true}
 						/>
 					</div>
-				</motion.div>
-			</motion.div>
-		</section>
-	);
-}
-
-	{/* <motion.div
+		
+		<motion.div
 						className="relative w-2/3 h-1/3 flex flex-col items-center justify-center border-4"
 						style={{
 							scale: useTransform(scrollYProgress, [0, 1], [0.5, 1.5]),

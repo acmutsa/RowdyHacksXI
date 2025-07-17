@@ -17,7 +17,7 @@ export default function Hero() {
 						[0, 1],
 						["100%", "250%"],
 					),
-				}}
+				}}  
 			>
 				<div className="relative z-20 w-screen">
 					<motion.div
@@ -31,7 +31,7 @@ export default function Hero() {
 					>
 						<Image
 							className="w-full"
-							src={"/img/sands.png"}
+							src={"/img/hero/sands.png"}
 							alt="Sands"
 							width={1000}
 							height={1000}
@@ -39,7 +39,7 @@ export default function Hero() {
 						/>
 						<Image
 							className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
-							src={"/img/tumbleweed.svg"}
+							src={"/img/hero/tumbleweed.svg"}
 							alt="Tumbleweed"
 							width={100}
 							height={100}
@@ -47,7 +47,7 @@ export default function Hero() {
 						/>
 						<Image
 							className="absolute bottom-[15%] left-[60%] z-20 w-[80px]"
-							src={"/img/tumbleweed.svg"}
+							src={"/img/hero/tumbleweed.svg"}
 							alt="Tumbleweed"
 							width={80}
 							height={80}
@@ -68,7 +68,7 @@ export default function Hero() {
 				>
 					<Image
 						className="absolute right-[10%] top-[10%] z-20 w-[120px]"
-						src={"/img/cow.svg"}
+						src={"/img/hero/cow.svg"}
 						alt="Floating Cow"
 						width={120}
 						height={120}
@@ -97,7 +97,7 @@ export default function Hero() {
 					}}
 				>
 					<Image
-						src={"/img/hero-title.svg"}
+						src={"/img/hero/hero-title.svg"}
 						alt={"Rh Xi Hero Title"}
 						width={1000}
 						height={1000}

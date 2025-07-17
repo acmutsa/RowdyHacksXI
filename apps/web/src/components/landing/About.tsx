@@ -46,7 +46,7 @@ export default function About() {
 	return (
 		<section
 			ref={inViewRef}
-			className="flex min-h-screen w-full border-y-2 border-muted-foreground overflow-hidden"
+			className="flex min-h-screen w-full border-muted-foreground overflow-hidden"
 			id="About"
 		>
 			<motion.div
@@ -65,7 +65,7 @@ export default function About() {
 				</motion.div>
 				<div className="relative flex justify-center items-center w-full h-full">
 					<motion.div
-						className="relative border-4 flex justify-center w-[50%] h-[75%]"
+						className="relative flex justify-center w-[50%] h-[75%]"
 						style={{
 							translateX: useTransform(
 								scrollYProgress,

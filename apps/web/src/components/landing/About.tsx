@@ -60,7 +60,7 @@ export default function About() {
 				}}
 			>
 				<motion.div 
-					className="absolute w-[100%] h-[100%] bg-[url(/img/about/moon.svg)] bg-contain bg-no-repeat bg-bottom"
+					className="absolute w-[100%] h-[100%] bg-[url(/img/about/new_moon.svg)] bg-contain bg-no-repeat bg-bottom"
 				>	
 				</motion.div>
 				<div className="relative flex justify-center items-center w-full h-full">
@@ -87,7 +87,7 @@ export default function About() {
 						}}
 					>
 						<Image
-							src={"/img/about/ufo3d.png"}
+							src={"/img/about/test.png"}
 							alt="UFO"
 							width={500}
 							height={500}

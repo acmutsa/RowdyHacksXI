@@ -1,29 +1,34 @@
-"use client";
 import Image from "next/image";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
 	const { scrollYProgress } = useScroll();
+
+	// Figure 8 UFO
+	const oscillation = useMotionValue(0);
+	useEffect(() => {
+		const controls = animate(oscillation, 2 * Math.PI, {
+			repeat: Infinity,
+			duration: 4,
+			ease: "linear",
+		});
+		return controls.stop;
+	}, []);
+	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
+	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
+
 	return (
-		<section className="grid w-full grid-cols-1">
-			<motion.div
-				className="night relative flex h-screen w-full flex-col justify-end"
-				style={{
-					backgroundSize: useTransform(
-						scrollYProgress,
-						[0, 1],
-						["100%", "250%"],
-					),
-				}}  
-			>
+		<section className="h-screen w-screen overflow-hidden">
+			<div className="relative h-screen w-full">
 				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div
 						style={{
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 7500],
+								[0, 5000],
 							),
 						}}
 					>
@@ -62,6 +67,8 @@ export default function Hero() {
 							[0, 250],
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+						x: floatX,
+						y: floatY
 					}}
 				>
 					<Image
@@ -113,7 +120,7 @@ export default function Hero() {
 						/>
 					</div>
 				</motion.div>
-			</motion.div>
+			</div>
 		</section>
 	);
 }

@@ -84,6 +84,7 @@ module.exports = {
 				gota: ["GOTA", "sans-serif"],
 				league: ["League Spartan", "sans-serif"],
 				bitter: ["Bitter", "sans-serif"],
+				spaceranger: ["Space Ranger", "sans-serif"],
 			},
 		},
 	},

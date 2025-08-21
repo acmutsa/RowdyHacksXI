@@ -179,42 +179,6 @@ function CarouselDefault() {
 	);
 }
 
-// function MobileTeam() {
-// 	const [data_rendered, setData_rendered] = useState(false);
-
-// 	useEffect(() => {
-// 		// Basic use effect hook to check if the page has rendered
-// 		setData_rendered(true);
-// 	}, []);
-
-// 	return (
-// 		<>
-// 			{data_rendered ? (
-// 				<div className="flex w-full flex-col items-center justify-center md:hidden">
-// 					<div className="no-scrollbar grid w-[85%] grid-flow-col grid-rows-2 overflow-x-auto overflow-y-hidden">
-// 						{team.map((p: Person, index: React.Key) => (
-// 							<TeamMember person={p} key={index} />
-// 						))}
-// 					</div>
-// 					{/* Change directiom */}
-// 					<div className="flex w-full items-center justify-center">
-// 						<h1 className="[@media (min-width)] pr-3 text-xl text-[#FEF2E6] sm:pr-5 sm:text-2xl">
-// 							More Organizers
-// 						</h1>
-// 						<ArrowRight
-// 							className="arrow_animate h-8 w-8 self-center pt-1 sm:h-10 sm:w-10"
-// 							color="#FEF2E6"
-// 						/>
-// 					</div>
-// 				</div>
-// 			) : (
-// 				<div className="tetx-3xl text-[#FEF2E6] md:hidden">
-// 					Loading...
-// 				</div>
-// 			)}
-// 		</>
-// 	);
-// }
 export default function WorkWithUs() {
 	const sectionRef = useRef(null);
 	const { scrollYProgress } = useScroll({
@@ -237,186 +201,216 @@ export default function WorkWithUs() {
 					),
 				}}
 			>
-				<div className="relative z-20 w-screen">
+				<div className="relative flex h-[1630px] w-full flex-col items-center">
 					<motion.div
 						style={{
+							translateY: useTransform(
+								scrollYProgress,
+								[0.2, 0.5, 0.6, 0.7],
+								["0", "45%", "17.7%", "22%"],
+							),
 							scale: useTransform(
 								scrollYProgress,
-								[0, 0.2, 0.3, 0.5], // Where we are at the page (0 = top, 1 = bottom)
-								[0.3, 0.8, 0.8, 0.6],
-							),
-							translateX: useTransform(
-								scrollYProgress,
-								[0.3, 0.5],
-								["0%", "-20%"],
+								[0.2, 0.5, 0.6],
+								[1, 1.75, 1],
 							),
 						}}
 					>
-						<div className="absolute inset-0 -z-10">
+						<motion.div
+							style={{
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									["30%", "-20%"],
+								),
+							}}
+						>
 							<Image
-								src="/img/GreenLand1.png"
-								alt="Green background1"
-								fill
-								className="translate-y-20 scale-[2.5] object-cover"
-								unoptimized={true}
+								src="/img/Ground1.png"
+								alt="Ground 1"
+								width={1920}
+								height={1080}
+								className="z-1 h-auto w-full object-contain"
+								unoptimized
 							/>
-						</div>
+						</motion.div>
+						<motion.div
+							style={{
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									["-50%", "-120%"],
+								),
+							}}
+						>
+							<Image
+								src="/img/Ground2.png"
+								alt="Ground 2"
+								width={1920}
+								height={1080}
+								className="z-5 h-auto w-full object-contain"
+								unoptimized
+							/>
+						</motion.div>
+						<motion.div
+							style={{
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2], // Where we are at the page (0 = top, 1 = bottom)
+									["-100%", "-220%"],
+								),
+								translateX: useTransform(
+									scrollYProgress,
+									[0.5, 0.65],
+									["0%", "-100%"],
+								),
+							}}
+						>
+							<Image
+								src="/img/Ground3.png"
+								alt="Ground3"
+								width={1920}
+								height={1080}
+								className="z-10 h-auto w-full object-contain"
+								unoptimized
+							/>
+						</motion.div>
+						<motion.div
+							style={{
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									["-200%", "-310%"],
+								),
+								scale: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									[0, 0.7],
+								),
+								translateX: useTransform(
+									scrollYProgress,
+									[0.5, 0.65],
+									["0%", "-100%"],
+								),
+							}}
+						>
+							<Image
+								src={"/img/billboard.png"}
+								alt="Billboard"
+								width={1200}
+								height={800}
+								unoptimized
+								className="z-15 h-auto w-full object-contain"
+							/>
 
-						<Image
-							className="absolute translate-x-[900px] translate-y-[30px] object-cover"
-							src={"/img/YellowTree1.png"}
-							alt="Yellow Tree1"
-							width={1000}
-							height={1000}
-							unoptimized={true}
-						/>
-						<Image
-							className="absolute -translate-x-[500px] object-cover"
-							src={"/img/YellowTree2.png"}
-							alt="Yellow Tree2"
-							width={900}
-							height={900}
-							unoptimized={true}
-						/>
-
-						<div className="flex w-full justify-center">
-							<div className="relative w-[90%] md:w-[80%] xl:w-[70%]">
-								<Image
-									src={"/img/billboard.png"}
-									alt="Billboard"
-									width={1200}
-									height={800}
-									unoptimized
-									className="h-auto w-full object-contain"
-								/>
-
-								<div className="absolute inset-0 flex translate-y-[-22%] flex-col items-center justify-center px-4 py-6">
-									<h1 className="text-outline mb-6 text-center font-gota text-4xl text-[#e9c290] md:text-5xl lg:text-7xl">
-										Work With Us
-									</h1>
-									<div className="ml-3 flex w-full max-w-5xl flex-col gap-6 md:flex-row md:gap-9">
-										<div className="flex aspect-[16/10] w-full flex-col rounded-2xl border-4 border-[#6f3800] bg-white/90 px-5 shadow-2xl">
-											<h2 className="-translate-y-[50%] self-start rounded-full border-4 border-[#6f3800] bg-white px-3 py-2 font-league text-[#6f3800]">
-												Students
-											</h2>
-											<div className="-translate-y-[5%]">
-												<h1 className="font-league text-2xl text-[#6f3800] md:text-3xl lg:text-4xl">
-													Interested in helping?
-												</h1>
-												<p className="my-4 font-bitter text-[#6f3800]">
-													We are always looking for
-													volunteers and mentors to
-													help us make RowdyHacks the
-													best hackathon around! If
-													you are interested in
-													becoming a volunteer or
-													mentor, click below to
-													signup!
-												</p>
-												<div className="flex flex-wrap gap-3">
-													<a href="/">
-														<button className="rounded bg-[#6f3800] px-3 py-3 font-bold text-white transition-colors duration-150">
-															Volunteer Form
-														</button>
-													</a>
-													<a href="/">
-														<button className="rounded bg-[#6f3800] px-3 py-3 font-bold text-white transition-colors duration-150">
-															Mentor Form
-														</button>
-													</a>
-												</div>
+							<div className="absolute inset-0 flex translate-y-[-18%] flex-col items-center justify-center px-4 py-6">
+								<h1 className="font-spaceranger mb-6 text-center text-4xl text-[#4f3b34] md:text-5xl lg:text-7xl">
+									Help Wanted
+								</h1>
+								<div className="h-30%] ml-3 flex w-[50%] max-w-5xl flex-col gap-3 md:flex-row md:gap-4">
+									<div className="flex aspect-[16/10] w-full flex-col rounded-2xl border-4 border-[#4f3b34] bg-white/90 px-2 shadow-2xl">
+										<h2 className="-translate-y-[50%] self-start rounded-full border-4 border-[#4f3b34] bg-white px-3 py-2 font-league text-[#4f3b34]">
+											Students
+										</h2>
+										<div className="-translate-y-[5%]">
+											<h1 className="text-1xl font-league text-[#4f3b34] md:text-2xl lg:text-3xl">
+												Interested in helping?
+											</h1>
+											<p className="my-4 font-bitter text-[#4f3b34]">
+												If you are interested in
+												becoming a volunteer or mentor,
+												click below to signup!
+											</p>
+											<div className="flex flex-wrap gap-3">
+												<a href="/">
+													<button className="rounded bg-[#4f3b34] px-3 py-3 font-bold text-white transition-colors duration-150">
+														Volunteer Form
+													</button>
+												</a>
+												<a href="/">
+													<button className="rounded bg-[#4f3b34] px-3 py-3 font-bold text-white transition-colors duration-150">
+														Mentor Form
+													</button>
+												</a>
 											</div>
 										</div>
+									</div>
 
-										{/* Companies Card */}
-										<div className="mr-3 flex aspect-[16/10] w-full flex-col rounded-2xl border-4 border-[#6f3800] bg-white/90 px-5 shadow-2xl">
-											<h2 className="-translate-y-[50%] self-end rounded-full border-4 border-[#6f3800] bg-white px-3 py-2 font-league text-[#6f3800]">
-												Companies
-											</h2>
-											<div className="mx-auto max-w-xl -translate-y-[5%] text-right">
-												<h1 className="font-league text-2xl text-[#6f3800] md:text-3xl lg:text-4xl">
-													Interested in sponsoring?
-												</h1>
-												<p className="my-4 font-bitter text-[#6f3800]">
-													RowdyHacks would not be
-													possible without our
-													incredible partners! If you
-													or a group you represent are
-													interested in partnering,
-													please click below to view
-													our Partner Packet.
-												</p>
-												<div className="flex flex-wrap justify-end gap-3">
-													<a href="/">
-														<button className="rounded bg-[#6f3800] px-3 py-3 font-bold text-white transition-colors duration-150">
-															Partner Packet
-														</button>
-													</a>
-												</div>
+									<div className="mr-3 flex aspect-[16/10] w-full flex-col rounded-2xl border-4 border-[#4f3b34] bg-white/90 px-2 shadow-2xl">
+										<h2 className="-translate-y-[50%] self-end rounded-full border-4 border-[#4f3b34] bg-white px-3 py-2 font-league text-[#4f3b34]">
+											Companies
+										</h2>
+										<div className="mx-auto max-w-xl -translate-y-[5%] text-right">
+											<h1 className="text-1xl font-league text-[#4f3b34] md:text-2xl lg:text-3xl">
+												Interested in sponsoring?
+											</h1>
+											<p className="my-4 font-bitter text-[#4f3b34]">
+												If you or a group you represent
+												are interested in partnering,
+												please click below to view our
+												Partner Packet.
+											</p>
+											<div className="flex flex-wrap justify-end gap-3">
+												<a href="/">
+													<button className="rounded bg-[#4f3b34] px-3 py-3 font-bold text-white transition-colors duration-150">
+														Partner Packet
+													</button>
+												</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</motion.div>
-					<motion.div
-						style={{
-							scale: useTransform(
-								scrollYProgress,
-								[0, 0.4],
-								[0, 0.9],
-							),
-						}}
-					>
-						<div className="absolute inset-0 z-10">
+						</motion.div>
+						<motion.div
+							style={{
+								translateX: useTransform(
+									scrollYProgress,
+									[0.5, 0.65],
+									["99%", "0%"],
+								),
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									["0%", "-420%"],
+								),
+							}}
+						>
 							<Image
-								src={"/img/GreenLand2.png"}
-								alt="Mountain"
-								fill
-								className="-translate-y-[400px] scale-[2] object-cover"
+								src={"/img/Ground4.png"}
+								alt="Ground4"
+								width={1920}
+								height={1080}
+								className="z-16 h-auto w-full object-contain"
 								unoptimized
 							/>
-						</div>
-						<Image
-							className="absolute z-20 -translate-y-[600px] translate-x-[800px] scale-[1.75] object-cover"
-							src={"/img/YellowBush.png"}
-							alt="Yellow Bush"
-							width={1000}
-							height={1000}
-							unoptimized={true}
-						/>
-						<Image
-							className="absolute z-20 -translate-y-[500px] translate-x-[350px] scale-[1.5] object-cover"
-							src={"/img/YellowBush.png"}
-							alt="Yellow Bush"
-							width={1000}
-							height={1000}
-							unoptimized={true}
-						/>
-						<Image
-							className="absolute z-20 -translate-x-[230px] -translate-y-[650px] scale-[2] object-cover"
-							src={"/img/YellowBush.png"}
-							alt="Yellow Bush"
-							width={1000}
-							height={1000}
-							unoptimized={true}
-						/>
-						<div
-							className="relative z-50 w-full overflow-visible"
-							style={{ height: "90vh", maxHeight: "900px" }}
+						</motion.div>
+						<motion.div
+							style={{
+								translateX: useTransform(
+									scrollYProgress,
+									[0.5, 0.65],
+									["99%", "0%"],
+								),
+								translateY: useTransform(
+									scrollYProgress,
+									[0, 0.2],
+									["0%", "-520%"],
+								),
+							}}
 						>
 							<Image
 								src={"/img/wanted-board.png"}
 								alt="Wanted Board"
-								fill
-								className="-translate-y-40 scale-[1.5] object-contain"
+								width={1200}
+								height={800}
 								unoptimized
+								className="z-20 h-auto w-full object-contain"
 							/>
-							<div className="absolute inset-0 mx-auto flex max-w-5xl -translate-y-[300px] flex-col items-center justify-center px-4 py-6">
-								<CarouselDefault />
+							<div className="absolute inset-0 mx-auto flex max-w-5xl -translate-y-[120px] flex-col items-center justify-center px-4 py-6">
+								{/* <CarouselDefault /> */}
 							</div>
-						</div>
+						</motion.div>
 					</motion.div>
 				</div>
 			</motion.div>

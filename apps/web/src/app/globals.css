@@ -180,3 +180,9 @@
 	font-weight: 400;
 	font-style: normal;
 }
+@font-face {
+	font-family: "Space Ranger";
+	src: url("/fonts/spacerangerboldital.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}

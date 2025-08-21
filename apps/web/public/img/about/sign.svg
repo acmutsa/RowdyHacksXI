@@ -1,0 +1,10 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 385" width="324" height="385">
+	<title>Sign</title>
+	<style>
+		.s0 { fill: #a17e51;stroke: #000000;stroke-miterlimit:100;stroke-width: 2.5 } 
+		.s1 { fill: #ba915d;stroke: #000000;stroke-miterlimit:100;stroke-width: 2.5 } 
+	</style>
+	<path id="Shape 12" fill-rule="evenodd" class="s0" d="m168.3 5v374.1h-19.8v-374.1z"/>
+	<path id="Shape 11" fill-rule="evenodd" class="s1" d="m279.1 24.8v16.3l-10 1.2 10 2.8v25.3l-14.6 3.1 14.6 3.3v29.3h-246.1v-24.3l20.3-3.6-20.3-3.6v-16l9.8-6.5-9.8-0.8v-10.1l6.1-1.3-6.1-4.6v-10.5z"/>
+	<path id="Shape 11 copy 2" fill-rule="evenodd" class="s1" d="m283.6 115.9v23.1l-14.1 3.7 14.1 3.2v21.3l-13.1 2.5 13.1 3.3v20.9h-246.8v-33l11.5-3.7-11.5-3.7v-20.1l13.1-6.4-13.1 1.2v-12.3z"/>
+</svg>

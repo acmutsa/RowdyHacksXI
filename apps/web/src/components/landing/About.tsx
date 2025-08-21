@@ -46,18 +46,29 @@ export default function About() {
 			<motion.div 
 				className="absolute flex bottom-0 w-[100%]"
 			>	
+				<motion.div 
+					className="border-4">
+					<Image
+						className="absolute h-[20%] w-auto bottom-[25%] right-[15%] border-4"
+						src={"/img/about/sign.svg"}
+						alt="Sign"
+						width={500}
+						height={500}
+						unoptimized={true}
+					/>
+				</motion.div>
 				<Image
-					className="w-full h-auto"
-					src={"/img/about/moon3.svg"}
+					className="border-4 w-full h-auto"
+					src={"/img/about/moon.svg"}
 					alt="Moon"
 					width={500}
 					height={500}
 					unoptimized={true}
 				/>
 			</motion.div>
-			<div className="relative flex justify-center border-4 w-full h-full">
+			<div className="relative flex justify-center w-full h-full">
 				<motion.div
-					className="absolute flex top-0 border-4 h-[90%]"
+					className="absolute flex top-0 h-[90%]"
 					style={{
 						translateX: useTransform(
 								scrollYProgress,
@@ -79,7 +90,7 @@ export default function About() {
 					}}
 				>
 					<Image
-						src={"/img/about/ufo3.svg"}
+						src={"/img/about/ufo.svg"}
 						alt="UFO"
 						width={500}
 						height={500}

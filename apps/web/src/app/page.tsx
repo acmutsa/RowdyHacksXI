@@ -10,6 +10,8 @@ import MLHBadge from "@/components/landing/MLHBadge";
 import { Oswald } from "next/font/google";
 import WorkWithUs from "@/components/landing/WorkWithUs";
 
+import Landing from "./Landing";
+
 const oswald = Oswald({
 	variable: "--font-oswald",
 	subsets: ["latin"],
@@ -20,13 +22,8 @@ export default function Home() {
 		<div className={`${oswald.variable} w-full overflow-x-hidden`}>
 			<Navbar />
 			<MLHBadge />
-			<main className="overflow-x-hidden">
-				<Hero />
-
-				<About />
-				<Partners />
-				<WorkWithUs />
-				<Footer />
+			<main className="relative overflow-x-hidden bg-transparent">
+				<Landing />
 			</main>
 		</div>
 	);

@@ -1,37 +1,40 @@
-"use client";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "../shadcn/ui/button";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
 	const { scrollYProgress } = useScroll();
+
+	// Figure 8 UFO
+	const oscillation = useMotionValue(0);
+	useEffect(() => {
+		const controls = animate(oscillation, 2 * Math.PI, {
+			repeat: Infinity,
+			duration: 4,
+			ease: "linear",
+		});
+		return controls.stop;
+	}, []);
+	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
+	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
+
 	return (
-		<section className="grid w-full grid-cols-1 overflow-hidden">
-			<motion.div
-				className="night relative flex h-screen w-full flex-col justify-end"
-				style={{
-					backgroundSize: useTransform(
-						scrollYProgress,
-						[0, 1],
-						["100%", "1000%"],
-					),
-				}}
-			>
-				<div className="relative z-20 w-screen">
+		<section className="h-screen w-full overflow-hidden">
+			<div className="relative h-screen w-full">
+				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div
 						style={{
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 20000],
+								[0, 5000],
 							),
 						}}
 					>
 						<Image
 							className="w-full"
-							src={"/img/sands.png"}
+							src={"/img/hero/sands.png"}
 							alt="Sands"
 							width={1000}
 							height={1000}
@@ -39,7 +42,7 @@ export default function Hero() {
 						/>
 						<Image
 							className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
-							src={"/img/tumbleweed.svg"}
+							src={"/img/hero/tumbleweed.svg"}
 							alt="Tumbleweed"
 							width={100}
 							height={100}
@@ -47,7 +50,7 @@ export default function Hero() {
 						/>
 						<Image
 							className="absolute bottom-[15%] left-[60%] z-20 w-[80px]"
-							src={"/img/tumbleweed.svg"}
+							src={"/img/hero/tumbleweed.svg"}
 							alt="Tumbleweed"
 							width={80}
 							height={80}
@@ -61,14 +64,16 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							[0, 1000],
+							[0, 250],
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+						x: floatX,
+						y: floatY
 					}}
 				>
 					<Image
 						className="absolute right-[10%] top-[10%] z-20 w-[120px]"
-						src={"/img/cow.svg"}
+						src={"/img/hero/cow.svg"}
 						alt="Floating Cow"
 						width={120}
 						height={120}
@@ -76,17 +81,17 @@ export default function Hero() {
 					/>
 				</motion.div>
 				<motion.div
-					className="absolute left-1/2 top-1/2 w-full max-w-[1200px]"
+					className="absolute left-1/2 top-1/2 z-30 w-full max-w-[1200px]"
 					style={{
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-1000%"],
+							["-50%", "-5000%"],
 						),
 						translateY: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-100%"],
+							["-60%", "-80%"],
 						),
 						scale: useTransform(scrollYProgress, [0, 1], [1, 10]),
 						rotate: useTransform(
@@ -96,15 +101,26 @@ export default function Hero() {
 						),
 					}}
 				>
-					<Image
-						src={"/img/hero-title.svg"}
-						alt={"Rh Xi Hero Title"}
-						width={1000}
-						height={1000}
-						unoptimized={true}
-					/>
+					<div className="relative mx-auto">
+						<Image
+							src={"/img/hero/hero-title.svg"}
+							alt={"Rowdy Hacks Coming Fall '25"}
+							className="w-full"
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+						<Image
+							src={"/img/hero/cactus.svg"}
+							className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+							alt={"Cactus"}
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+					</div>
 				</motion.div>
-			</motion.div>
+			</div>
 		</section>
 	);
 }

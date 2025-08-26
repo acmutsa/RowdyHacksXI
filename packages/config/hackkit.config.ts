@@ -895,10 +895,10 @@ const c = {
 		guide: "https://go.rowdyhacks.org/discord",
 	},
 	icon: {
-		sm: "/img/logo/hackkit.svg",
-		md: "/img/logo/hackkit-md.png",
-		lg: "/img/logo/hackkit-lg.png",
-		svg: "/img/logo/hackkit.svg",
+		sm: "/img/logo/rhxi-logo.png",
+		md: "/img/logo/rhxi-logo.png",
+		lg: "/img/logo/rhxi-logo.png",
+		svg: "/img/logo/rhxi-logo.png",
 	},
 	dashPaths: {
 		dash: {

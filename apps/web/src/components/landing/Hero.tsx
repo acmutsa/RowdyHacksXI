@@ -20,7 +20,7 @@ export default function Hero() {
 	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
 
 	return (
-		<section className="h-screen w-screen overflow-hidden">
+		<section className="h-screen w-full overflow-hidden">
 			<div className="relative h-screen w-full">
 				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div

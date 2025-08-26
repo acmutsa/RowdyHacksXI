@@ -1,29 +1,102 @@
-import Balancer from "react-wrap-balancer";
+"use client";
 import Image from "next/image";
-import D1 from "../../../public/img/landing/d1.svg";
-import D2 from "../../../public/img/landing/d2.svg";
-import D3 from "../../../public/img/landing/d3.svg";
-import D4 from "../../../public/img/landing/d4.svg";
-import Dino_Coding from "../../../public/img/landing/dinos_coding.png";
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
+
 export default function About() {
-	const d1_stylesheet = {
-		width: "25rem",
-		height: "auto",
-		sm: "width: 30rem",
-	};
+	const{ scrollYProgress: scrollPage } = useScroll();
+
+	// Scroll Debug Area
+	const inViewRef = useRef<HTMLDivElement>(null);
+	const isInView = useInView(inViewRef, {
+		amount: "some",
+	});
+	const { scrollYProgress } = useScroll({
+		target: inViewRef,
+		offset: ["start end", "end start"]
+	});
+	useMotionValueEvent(scrollYProgress, "change",
+		(latest) => {
+			console.log(latest);
+		}
+	);
+	useEffect(() => {
+		console.log(`The section ${isInView ? "is" : "is not"} in view`);
+	}, [isInView]);
+
+	// Figure 8 UFO
+	const oscillation = useMotionValue(0);
+	useEffect(() => {
+		const controls = animate(oscillation, 2 * Math.PI, {
+			repeat: Infinity,
+			duration: 4,
+			ease: "linear",
+		});
+		return controls.stop;
+	}, []);
+	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
+	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
+	
 	return (
 		<section
-			className="flex min-h-screen w-full items-center justify-center"
+			ref={inViewRef}
+			className="relative flex h-screen w-full"
 			id="About"
 		>
-			<div className="flex w-full flex-col items-center justify-center">
-				<h1 className="text-center text-4xl font-black md:text-5xl">
-					About Section
-				</h1>
-				<h3 className="px-4 text-center text-lg font-bold md:px-0 md:text-2xl">
-					Introduce the hackathon and its purpose! Make it sound
-					enticing
-				</h3>
+			<motion.div 
+				className="absolute flex bottom-0 w-[100%]"
+			>	
+				<motion.div 
+					className="border-4">
+					<Image
+						className="absolute h-[20%] w-auto bottom-[25%] right-[15%] border-4"
+						src={"/img/about/sign.svg"}
+						alt="Sign"
+						width={500}
+						height={500}
+						unoptimized={true}
+					/>
+				</motion.div>
+				<Image
+					className="border-4 w-full h-auto"
+					src={"/img/about/moon.svg"}
+					alt="Moon"
+					width={500}
+					height={500}
+					unoptimized={true}
+				/>
+			</motion.div>
+			<div className="relative flex justify-center w-full h-full">
+				<motion.div
+					className="absolute flex top-0 h-[90%]"
+					style={{
+						translateX: useTransform(
+								scrollYProgress,
+							[0.0, 0.4, 1],
+							["-100%", "0%", "0%"]
+							),
+						translateY: useTransform(
+							scrollYProgress,
+							[0, 0.4, 1],
+							["20%", "0%", "0%"]
+						),
+						scale: useTransform(
+							scrollYProgress,
+							[0, 0.4, 1],
+							[0, 1, 1]
+						),
+						x: floatX,
+						y: floatY
+					}}
+				>
+					<Image
+						src={"/img/about/ufo.svg"}
+						alt="UFO"
+						width={500}
+						height={500}
+						unoptimized={true}
+					/>
+				</motion.div>
 			</div>
 		</section>
 	);

@@ -80,11 +80,9 @@ module.exports = {
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 			fontFamily: {
+				gota: ["var(--font-gota)"],
+				"league-spartan": ["var(--font-league-spartan)"],
 				oswald: ["var(--font-oswald)"],
-				gota: ["GOTA", "sans-serif"],
-				league: ["League Spartan", "sans-serif"],
-				bitter: ["Bitter", "sans-serif"],
-				spaceranger: ["Space Ranger", "sans-serif"],
 			},
 		},
 	},

@@ -202,6 +202,10 @@
 	width: 300%;
 }
 
+.text-outline {
+	-webkit-text-stroke: 4px #6f3800;
+}
+
 @keyframes pulseRing {
 	0% {
 		transform: scale(0.5);
@@ -214,7 +218,6 @@
 }
 
 @keyframes pulseDot {
-
 	0%,
 	100% {
 		transform: scale(1);
@@ -223,4 +226,28 @@
 	50% {
 		transform: scale(1.1);
 	}
+}
+@font-face {
+	font-family: "GOTA";
+	src: url("/fonts/Gota.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "League Spartan";
+	src: url("/fonts/LeagueSpartan.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Bitter";
+	src: url("/fonts/Bitter.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Space Ranger";
+	src: url("/fonts/spacerangerboldital.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
 }

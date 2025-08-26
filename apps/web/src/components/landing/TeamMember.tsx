@@ -17,7 +17,6 @@ const oswald = Oswald({
 	subsets: ["latin"],
 });
 
-// Using the raw svg tag is inefficient. Will need to change later
 function LinkedIn({ fillColor }: { fillColor: string }) {
 	return (
 		<svg
@@ -67,11 +66,11 @@ export default function TeamMember({ person }: { person: Person }) {
 
 	const [src, setSrc] = useState(person.imgLink);
 	const [styling, setStyling] = useState(
-		"max-w-[110px] md:max-w-[140px] lg:max-w-[160px] 2xl:max-w-[200px] h-auto rounded-lg",
+		"max-w-[160px] md:max-w-[200px] lg:max-w-[240px] 2xl:max-w-[280px] h-auto rounded-lg",
 	);
 
 	const FallBackStyling =
-		"max-w-[105px] md:max-w-[132px] lg:max-w-[150px] xl:max-w-[151px] 2xl:max-w-[188px] rounded-lg";
+		"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
 
 	return (
 		<Card
@@ -91,15 +90,15 @@ export default function TeamMember({ person }: { person: Person }) {
 				<CardContent className="flex items-center justify-center">
 					{/* This also needs to be fixed */}
 					<Image
-						width={300}
-						height={300}
+						width={400}
+						height={400}
 						src={src}
 						className={`${styling}`}
 						quality={100}
 						priority={true}
 						alt="Person Placeholder"
 						onError={(e) => {
-							setSrc("/img/logo/hackkit.svg");
+							setSrc("/img/Josh_Silva.jpg");
 							setStyling(FallBackStyling);
 						}}
 					/>

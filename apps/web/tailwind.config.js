@@ -81,6 +81,10 @@ module.exports = {
 			},
 			fontFamily: {
 				oswald: ["var(--font-oswald)"],
+				gota: ["GOTA", "sans-serif"],
+				league: ["League Spartan", "sans-serif"],
+				bitter: ["Bitter", "sans-serif"],
+				spaceranger: ["Space Ranger", "sans-serif"],
 			},
 		},
 	},

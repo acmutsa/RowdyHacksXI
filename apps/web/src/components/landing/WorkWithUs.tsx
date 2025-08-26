@@ -304,7 +304,7 @@ export default function WorkWithUs() {
 							/>
 
 							<div className="absolute inset-0 flex translate-y-[-18%] flex-col items-center justify-center px-4 py-6">
-								<h1 className="font-spaceranger mb-6 text-center text-4xl text-[#4f3b34] md:text-5xl lg:text-7xl">
+								<h1 className="mb-6 text-center font-spaceranger text-4xl text-[#4f3b34] md:text-5xl lg:text-7xl">
 									Help Wanted
 								</h1>
 								<div className="h-30%] ml-3 flex w-[50%] max-w-5xl flex-col gap-3 md:flex-row md:gap-4">
@@ -408,7 +408,7 @@ export default function WorkWithUs() {
 								className="z-20 h-auto w-full object-contain"
 							/>
 							<div className="absolute inset-0 mx-auto flex max-w-5xl -translate-y-[120px] flex-col items-center justify-center px-4 py-6">
-								{/* <CarouselDefault /> */}
+								<CarouselDefault />
 							</div>
 						</motion.div>
 					</motion.div>

@@ -5,25 +5,30 @@ export default function About() {
 	return (
 		<section className="relative flex justify-center w-full h-screen border-4 border-white">
 			{/* UFO and Text Container */}
-			<motion.div className="absolute flex justify-center items-center w-auto h-[80%] top-0 border-4 border-red-500 z-20">
+			<motion.div className="absolute flex justify-center items-center w-auto h-[80%] top-0 border-4 border-red-500 z-40">
 				{/* UFO */}
 				<Image
 					className="w-auto h-full"
-					src="/img/about/ufo.svg"
+					src="/img/about/ufo_wo_text.svg"
 					width={500}
 					height={500}
 					alt="UFO"
 				/>
 				{/* Text */}
-				{/* <p className="absolute border-4">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum ipsa dolorum distinctio esse, eius maiores. Maiores eos laudantium qui placeat repellendus voluptates aut natus, itaque ad fugit, libero ipsa sed.
-				</p> */}
+				<div className="absolute bottom-0 px-10 text-center">
+					<h1 className="pb-2 text-4xl font-bold text-black">About Us</h1>
+					<p className="text-lg md:text-lg/6 font-[500] text-black tracking-tight">
+						RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
+						It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
+						together to collaborate, innovate, and build real-world projects in 24 hours.
+					</p>
+				</div>
 			</motion.div>
 			{/* Container for Moon and Sign */}
 			<motion.div className="absolute flex justify-center items-center w-full h-auto bottom-0 border-4 border-blue-500 z-10">
 				{/* Moon */}
 				<Image 
-					className="w-full h-auto"
+					className="w-full h-auto z-20"
 					src="/img/about/moon.svg"
 					width={500}
 					height={500}
@@ -31,7 +36,7 @@ export default function About() {
 				/>
 				{/* Sign */}
 				<Image 
-					className="absolute w-[8%] h-auto border-4"
+					className="absolute w-[8%] h-auto border-4 z-30"
 					src="/img/about/sign.svg"
 					width={500}
 					height={500}

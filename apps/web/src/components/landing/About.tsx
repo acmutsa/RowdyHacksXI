@@ -10,13 +10,13 @@ export default function About() {
 		offset: ["start start", "end center"],
 	})
 
-	const scale = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
-	const zoomMoon = useTransform(scrollYProgress, [0, 1,], [1, 4]);
+	const scale = useTransform(scrollYProgress, [0, 1], [0.2, 1.5]);
+	const zoomMoon = useTransform(scrollYProgress, [0, 1,], [1, 2]);
 
 	return (
 		<section 
 			ref={containerRef} 
-			className="relative flex justify-center w-full h-screen min-h-[800px] min-w-[340px] overflow-hidden z-10"
+			className="relative flex justify-center w-full h-screen min-h-[800px] min-w-[340px] overflow-hidden z-10 border-4"
 		>
 			{/* UFO and Text Container */}
 			<motion.div className="absolute flex justify-center items-center w-auto h-[80%] top-0 z-0">
@@ -38,8 +38,27 @@ export default function About() {
 					</p>
 				</div>
 			</motion.div>
+			{/* Sign */}
+			<motion.div style={{scale}} className="absolute flex justify-center items-center w-auto h-[60%] left-[25%] bottom-[10%] z-40 border-4 origin-bottom">
+				<Image 
+					className="w-auto h-full"
+					src="/img/about/sign.svg"
+					width={500}
+					height={500}
+					alt="UFO"
+				/>
+				<div className="absolute top-[7%] px-6 text-center">
+					<h1 className="font-texas-tango text-2xl/6 text-black tracking-tighter">Who Can Attend?</h1>
+					<p className="font-bang-bang text-2xl/6 text-black">
+						Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
+					</p>
+					<p className="mt-9 md:mt-6 font-bang-bang text-2xl/6 text-black">
+						Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
+					</p>
+				</div>
+			</motion.div>
 			{/* Container for Moon and Sign */}
-			<motion.div className="absolute flex justify-center items-center w-full h-auto bottom-0 z-20">
+			<motion.div style={{scale: zoomMoon}} className="absolute flex justify-center items-center w-full h-auto bottom-0 z-20 origin-bottom">
 				{/* Moon */}
 				<Image 
 					className="w-full h-auto z-30"
@@ -48,23 +67,6 @@ export default function About() {
 					height={500}
 					alt="Moon Background"
 				/>
-				{/* Sign */}
-				<motion.div className="absolute flex justify-center items-center w-[50%] h-auto z-40 border-4">
-					<Image 
-						className="w-auto h-full"
-						src="/img/about/sign.svg"
-						width={500}
-						height={500}
-						alt="UFO"
-					/>
-					<div className="absolute text-center">
-						<h1 className="">Who Can Attend?</h1>
-						<p className="">
-							Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
-                        	Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
-						</p>
-					</div>
-				</motion.div>
 			</motion.div>
 		</section>
 	)

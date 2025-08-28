@@ -15,9 +15,9 @@ export default function About() {
 					alt="UFO"
 				/>
 				{/* Text */}
-				<div className="absolute top-[38%] px-20 text-center">
+				<div className="absolute top-[35%] px-20 text-center">
 					<h1 className="text-2xl md:text-4xl font-bold text-black tracking-tight">About Us</h1>
-					<p className="w-[20ch] text-lg md:text-xl/6 font-[500] text-black tracking-tighter md:tracking-wide">
+					<p className="w-[20ch] text-lg font-[500] text-black tracking-tighter md:tracking-tighter">
 						RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 						It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 						together to collaborate, innovate, and build real-world projects in 24 hours.

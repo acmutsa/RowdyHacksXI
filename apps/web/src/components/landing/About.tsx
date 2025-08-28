@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 export default function About() {
 	return (
-		<section className="relative flex justify-center w-full h-screen border-4 border-white">
+		<section className="relative flex justify-center w-full h-screen min-h-[800px] min-w-[340px] z-10">
 			{/* UFO and Text Container */}
-			<motion.div className="absolute flex justify-center items-center w-auto h-[80%] top-0 border-4 border-red-500 z-40">
+			<motion.div className="absolute flex justify-center items-center w-auto h-[80%] top-0 z-50">
 				{/* UFO */}
 				<Image
 					className="w-auto h-full"
@@ -15,9 +15,9 @@ export default function About() {
 					alt="UFO"
 				/>
 				{/* Text */}
-				<div className="absolute bottom-0 px-10 text-center">
-					<h1 className="pb-2 text-4xl font-bold text-black">About Us</h1>
-					<p className="text-lg md:text-lg/6 font-[500] text-black tracking-tight">
+				<div className="absolute top-[38%] px-20 text-center">
+					<h1 className="text-2xl md:text-4xl font-bold text-black tracking-tight">About Us</h1>
+					<p className="w-[20ch] text-lg md:text-xl/6 font-[500] text-black tracking-tighter md:tracking-wide">
 						RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 						It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 						together to collaborate, innovate, and build real-world projects in 24 hours.
@@ -25,23 +25,25 @@ export default function About() {
 				</div>
 			</motion.div>
 			{/* Container for Moon and Sign */}
-			<motion.div className="absolute flex justify-center items-center w-full h-auto bottom-0 border-4 border-blue-500 z-10">
+			<motion.div className="absolute flex justify-center items-center w-full h-auto bottom-0 z-20">
 				{/* Moon */}
 				<Image 
-					className="w-full h-auto z-20"
+					className="w-full h-auto z-30"
 					src="/img/about/moon.svg"
 					width={500}
 					height={500}
 					alt="Moon Background"
 				/>
 				{/* Sign */}
-				<Image 
-					className="absolute w-[8%] h-auto border-4 z-30"
-					src="/img/about/sign.svg"
-					width={500}
-					height={500}
-					alt="UFO"
-				/>
+				<motion.div className="absolute w-[8%] h-auto z-40 border-4">
+					<Image 
+						className="w-auto h-full"
+						src="/img/about/sign.svg"
+						width={500}
+						height={500}
+						alt="UFO"
+					/>
+				</motion.div>
 			</motion.div>
 		</section>
 	)

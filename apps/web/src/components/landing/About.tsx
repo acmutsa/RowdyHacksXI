@@ -6,10 +6,12 @@ export default function About() {
 	const ufoRef = useRef(null);
 	const moonRef = useRef(null);
 
+	// UFO scrollYProgress
 	const { scrollYProgress: scrollYProgressUfo } = useScroll({
 		target: ufoRef,
 		offset: ["start end", "end start"],
 	})
+	// Moon scrollYProgress
 	const { scrollYProgress: scrollYProgressMoon } = useScroll({
 		target: moonRef,
 		offset: ["center end", "end end"],
@@ -56,15 +58,12 @@ export default function About() {
 					</div>
 				</motion.div>
 			</div>
-			{/* Container for Moon and Sign */}
-			{/* style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }} */}
-			{/* Div for Moon Section */}
+			{/* Div for Moon and Sign */}
 			<div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20">
 				{/* MotionDiv for Moon Animation*/}
 				<motion.div 
 					className="w-full h-auto origin-center"
 					style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }}
-					// style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }}
 				>
 					{/* Moon */}
 					<Image 
@@ -80,6 +79,7 @@ export default function About() {
 					className="absolute flex justify-center items-center w-full h-full origin-center border-4 border-blue-500"
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
+					{/* Div for Sign & Text */}
 					<div className="absolute flex justify-center items-center w-auto h-screen min-h-[725px] bottom-0 z-30">
 						{/* Sign */}
 						<Image 
@@ -89,6 +89,7 @@ export default function About() {
 							height={500}
 							alt="Sign"
 						/>
+						{/* MotionDiv for Text Animation */}
 						<motion.div className="absolute flex flex-col w-full h-full pt-[13%]">
 							<div className="relative w-full h-[28%] px-6 text-center">
 								<h1 className="font-texas-tango text-2xl/6 text-black tracking-tighter">Who Can Attend?</h1>

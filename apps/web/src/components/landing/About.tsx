@@ -20,19 +20,18 @@ export default function About() {
 	// Ufo Animation with UfoRef 
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
-	const translateYUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["10%", "0%"]);
 	// Ufo Animation with MoonRef
-	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.4, 0.7], [1, 4]);
-	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.4, 0.7], ["0%", "100%"]);
-	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.4, 0.7], ["0%", "-100%"]);
+	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], [1, 4]);
+	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "100%"]);
+	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "-100%"]);
 	// Moon Animation
-	const scaleMoon = useTransform(scrollYProgressMoon, [0.4, 0.7], [1, 10]);
-	const translateXMoon = useTransform(scrollYProgressMoon, [0.4, 0.7], ["0%", "10%"]);
-	const translateYMoon = useTransform(scrollYProgressMoon, [0.4, 0.7], ["0%", "150%"]);
+	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], [1, 10]);
+	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "10%"]);
+	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "150%"]);
 	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.4, 0.7], [0.05, 1]);
-	const translateXSign = useTransform(scrollYProgressMoon, [0.4, 0.7], ["-10%", "0%"]);
-	const translateYSign = useTransform(scrollYProgressMoon, [0.4, 0.7], ["-15%", "0%"]);
+	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.7], [0.05, 1]);
+	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-10%", "0%"]);
+	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-15%", "0%"]);
 
 	return (
 		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
@@ -41,7 +40,7 @@ export default function About() {
 				{/* MotionDiv for UFO & Text Animation */}
 				<motion.div 
 					className="absolute w-full h-full bottom-0 origin-bottom"
-					style={{ scale: scaleUfo, translateX: translateXUfo, translateY: translateYUfo }}
+					style={{ scale: scaleUfo, translateX: translateXUfo }}
 				>
 					<motion.div 
 						className="absolute flex justify-center items-center w-full h-full bottom-0 origin-bottom"
@@ -91,25 +90,25 @@ export default function About() {
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-auto h-[667px]">
+					<div className="absolute flex justify-center items-center w-auto h-[540px]">
 						{/* Sign */}
 						<Image 
 							className="w-auto h-full"
-							src="/img/about/sign_test.svg"
+							src="/img/about/sign_final.svg"
 							width={500}
 							height={500}
 							alt="Sign"
 						/>
 						{/* MotionDiv for Text Animation */}
-						<motion.div className="absolute flex flex-col w-full h-full pt-[13%]">
-							<div className="relative w-full h-[28%] px-6 text-center">
+						<motion.div className="absolute flex flex-col w-full h-full pt-[17%]">
+							<div className="relative w-full h-[28%] px-14 text-center">
 								<h1 className="font-texas-tango text-2xl/6 text-black tracking-tighter">Who Can Attend?</h1>
-								<p className="font-bang-bang text-2xl/6 text-black">
+								<p className="font-bang-bang text-3xl/6 text-black">
 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
 								</p>
 							</div>
-							<div className="relative w-full h-[28%] mt-[8%] px-6 text-center">
-								<p className="font-bang-bang text-2xl/6 text-black">
+							<div className="relative w-full h-[28%] mt-[11%] px-14 text-center">
+								<p className="font-bang-bang text-3xl/6 text-black">
 									Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
 								</p>
 							</div>

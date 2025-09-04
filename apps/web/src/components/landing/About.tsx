@@ -29,7 +29,7 @@ export default function About() {
 	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "10%"]);
 	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "150%"]);
 	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.7], [0.05, 1]);
+	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.7], [0.075, 1]);
 	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-10%", "0%"]);
 	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-15%", "0%"]);
 

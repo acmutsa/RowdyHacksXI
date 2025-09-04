@@ -31,9 +31,9 @@ export default function About() {
 	const translateYSign = useTransform(scrollYProgressMoon, [0, 0.7], ["-15%", "0%"]);
 
 	return (
-		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
+		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden border-4">
 			{/* Div for UFO Section */}
-			<div ref={ufoRef} className="relative flex justify-center items-center w-auto h-screen min-w-[375px] min-h-[800px] z-40">
+			<div ref={ufoRef} className="relative flex justify-center items-center w-auto h-screen min-w-[375px] min-h-[800px] z-50 border-4 border-white">
 				{/* MotionDiv for UFO & Text Animation */}
 				<motion.div 
 					className="absolute flex justify-center items-center w-auto h-[90%] bottom-0"
@@ -62,7 +62,7 @@ export default function About() {
 			<div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20">
 				{/* MotionDiv for Moon Animation*/}
 				<motion.div 
-					className="w-full h-auto origin-center"
+					className="w-full h-auto origin-center z-30"
 					style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }}
 				>
 					{/* Moon */}
@@ -76,11 +76,11 @@ export default function About() {
 				</motion.div>
 				{/* MotionDiv for Sign Animation */}
 				<motion.div 
-					className="absolute flex justify-center items-center w-full h-full origin-center border-4 border-blue-500"
+					className="absolute flex justify-center items-center w-full h-full origin-center z-40"
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-auto h-screen min-h-[725px] bottom-0 z-30">
+					<div className="absolute flex justify-center items-center w-auto h-[667px]">
 						{/* Sign */}
 						<Image 
 							className="w-auto h-full"

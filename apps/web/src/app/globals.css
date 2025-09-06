@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Rubik+Glitch&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Rubik+Glitch&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,28 +16,32 @@
 
 @font-face {
 	font-family: "Mokoto";
-	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-400.otf") format("opentype");
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-400.otf")
+		format("opentype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Mokoto Glitch 1";
-	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-1-400.otf") format("opentype");
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-1-400.otf")
+		format("opentype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Mokoto Glitch 2";
-	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-2-400.otf") format("opentype");
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-2-400.otf")
+		format("opentype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Mokoto Glitch Outline";
-	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-outline-400.otf") format("opentype");
+	src: url("/fonts/Mokoto Font/otf/mokoto-mokoto-regular-glitch-mark-outline-400.otf")
+		format("opentype");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -72,25 +76,18 @@
 
 @layer base {
 	:root {
-
 		@media (max-aspect-ratio: 1/1) {
 			.title-cactus {
 				display: none;
 			}
 		}
 
-		--font-gota: "Gota",
-		sans-serif;
-		--font-league-spartan: "League Spartan",
-		serif;
-		--font-mokoto: "Mokoto",
-		sans-serif;
-		--font-mokoto-glitch-1: "Rubik Glitch",
-		sans-serif;
-		--font-mokoto-glitch-2: "Mokoto Glitch 2",
-		sans-serif;
-		--font-mokoto-glitch-outline: "Mokoto Glitch Outline",
-		sans-serif;
+		--font-gota: "Gota", sans-serif;
+		--font-league-spartan: "League Spartan", serif;
+		--font-mokoto: "Mokoto", sans-serif;
+		--font-mokoto-glitch-1: "Rubik Glitch", sans-serif;
+		--font-mokoto-glitch-2: "Mokoto Glitch 2", sans-serif;
+		--font-mokoto-glitch-outline: "Mokoto Glitch Outline", sans-serif;
 
 		--background: 42 100% 98.04%;
 		--foreground: 240 13.73% 10%;
@@ -107,38 +104,36 @@
 		--secondary: 20.85 84.54% 38.04%;
 		--secondary-foreground: 44 100% 97.06%;
 
-		--muted: 40.80 71.43% 93.14%;
-		--muted-foreground: 240 13.97% 35.10%;
+		--muted: 40.8 71.43% 93.14%;
+		--muted-foreground: 240 13.97% 35.1%;
 
-		--accent: 41.92 100% 55.10%;
+		--accent: 41.92 100% 55.1%;
 		--accent-foreground: 240 13.73% 10%;
 
 		--destructive: 9.72 69.61% 40%;
 		--destructive-foreground: 0 0% 100%;
 
 		--border: 30 29.41% 80%;
-		--input: 30 30.77% 94.90%;
+		--input: 30 30.77% 94.9%;
 
-		--ring: 41.92 100% 55.10%;
+		--ring: 41.92 100% 55.1%;
 
-		--chart-1: 41.92 100% 55.10%;
-		--chart-2: 30.17 70.20% 50%;
-		--chart-3: 13.10 69.61% 40%;
-		--chart-4: 221.05 14.96% 24.90%;
+		--chart-1: 41.92 100% 55.1%;
+		--chart-2: 30.17 70.2% 50%;
+		--chart-3: 13.1 69.61% 40%;
+		--chart-4: 221.05 14.96% 24.9%;
 		--chart-5: 240 13.43% 13.14%;
 
 		--sidebar: 216 7.94% 87.65%;
 		--sidebar-foreground: 0 0% 20%;
-		--sidebar-primary: 13.21 73.04% 54.90%;
+		--sidebar-primary: 13.21 73.04% 54.9%;
 		--sidebar-primary-foreground: 0 0% 100%;
 		--sidebar-accent: 207.69 46.43% 89.02%;
 		--sidebar-accent-foreground: 224.44 64.29% 32.94%;
 		--sidebar-border: 220 13.04% 90.98%;
-		--sidebar-ring: 13.21 73.04% 54.90%;
+		--sidebar-ring: 13.21 73.04% 54.9%;
 
-		--nav: 255,
-		255,
-		255;
+		--nav: 255, 255, 255;
 		--hackathon-primary: 206 86% 52%;
 
 		--radius: 0.75rem;
@@ -149,25 +144,22 @@
 		--gradient-color-4: #1952cc;
 		--rh-night: #0f1239;
 
-		--font-sans: "Gota",
-		sans-serif;
-		--font-serif: Source Serif 4,
-		serif;
-		--font-mono: JetBrains Mono,
-		monospace;
+		--font-sans: "Gota", sans-serif;
+		--font-serif: Source Serif 4, serif;
+		--font-mono: JetBrains Mono, monospace;
 
 		--shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
 		--shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
-		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
-		0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
-		0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
-		0px 2px 4px -1px hsl(0 0% 0% / 0.10);
-		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
-		0px 4px 6px -1px hsl(0 0% 0% / 0.10);
-		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10),
-		0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 2px 4px -1px hsl(0 0% 0% / 0.1);
+		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 4px 6px -1px hsl(0 0% 0% / 0.1);
+		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 8px 10px -1px hsl(0 0% 0% / 0.1);
 		--shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
 	}
 
@@ -175,7 +167,7 @@
 		--background: 240 13.73% 10%;
 		--foreground: 44.71 100% 90%;
 
-		--card: 240 14.29% 15.10%;
+		--card: 240 14.29% 15.1%;
 		--card-foreground: 0 0% 100%;
 
 		--popover: 240 13.43% 13.14%;
@@ -190,7 +182,7 @@
 		--muted: 240 14.29% 17.84%;
 		--muted-foreground: 41.96 100% 70%;
 
-		--accent: 41.92 100% 55.10%;
+		--accent: 41.92 100% 55.1%;
 		--accent-foreground: 240 13.43% 13.14%;
 
 		--destructive: 9.72 69.61% 40%;
@@ -199,22 +191,22 @@
 		--border: 30.67 29.41% 30%;
 		--input: 240 14.29% 17.84%;
 
-		--ring: 41.92 100% 55.10%;
+		--ring: 41.92 100% 55.1%;
 
-		--chart-1: 41.92 100% 55.10%;
-		--chart-2: 30.17 70.20% 50%;
-		--chart-3: 13.10 69.61% 40%;
-		--chart-4: 221.05 14.96% 24.90%;
+		--chart-1: 41.92 100% 55.1%;
+		--chart-2: 30.17 70.2% 50%;
+		--chart-3: 13.1 69.61% 40%;
+		--chart-4: 221.05 14.96% 24.9%;
 		--chart-5: 240 13.43% 13.14%;
 
 		--sidebar: 222.86 20% 20.59%;
-		--sidebar-foreground: 0 0% 89.80%;
-		--sidebar-primary: 13.21 73.04% 54.90%;
+		--sidebar-foreground: 0 0% 89.8%;
+		--sidebar-primary: 13.21 73.04% 54.9%;
 		--sidebar-primary-foreground: 0 0% 100%;
-		--sidebar-accent: 223.64 34.38% 25.10%;
+		--sidebar-accent: 223.64 34.38% 25.1%;
 		--sidebar-accent-foreground: 213.33 96.92% 87.25%;
 		--sidebar-border: 224.35 15.86% 28.43%;
-		--sidebar-ring: 13.21 73.04% 54.90%;
+		--sidebar-ring: 13.21 73.04% 54.9%;
 
 		--nav: 0, 0, 0;
 
@@ -222,7 +214,7 @@
 		--gradient-color-2: #3366ff;
 		--gradient-color-3: #002db3;
 		--gradient-color-4: #1952cc;
-		--rh-night: #0F1827;
+		--rh-night: #0f1827;
 
 		--font-sans: "Gota", sans-serif;
 		--font-serif: Source Serif 4, serif;
@@ -230,15 +222,19 @@
 
 		--shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
 		--shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
-		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
-		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
-		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
-		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+		--shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+		--shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+		--shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 2px 4px -1px hsl(0 0% 0% / 0.1);
+		--shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 4px 6px -1px hsl(0 0% 0% / 0.1);
+		--shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.1),
+			0px 8px 10px -1px hsl(0 0% 0% / 0.1);
 		--shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
 	}
 }
-
 
 @layer base {
 	* {
@@ -300,6 +296,10 @@
 	width: 300%;
 }
 
+.text-outline {
+	-webkit-text-stroke: 4px #6f3800;
+}
+
 @keyframes pulseRing {
 	0% {
 		transform: scale(0.5);
@@ -312,7 +312,6 @@
 }
 
 @keyframes pulseDot {
-
 	0%,
 	100% {
 		transform: scale(1);
@@ -321,4 +320,28 @@
 	50% {
 		transform: scale(1.1);
 	}
+}
+@font-face {
+	font-family: "GOTA";
+	src: url("/fonts/Gota.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "League Spartan";
+	src: url("/fonts/LeagueSpartan.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Bitter";
+	src: url("/fonts/Bitter.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Space Ranger";
+	src: url("/fonts/spacerangerboldital.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
 }

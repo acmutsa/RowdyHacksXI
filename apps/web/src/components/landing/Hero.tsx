@@ -1,6 +1,15 @@
 import Image from "next/image";
 
-import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
+import {
+	motion,
+	useScroll,
+	useTransform,
+	useInView,
+	useMotionValueEvent,
+	useMotionValue,
+	useSpring,
+	animate,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 
 export default function Hero() {
@@ -16,11 +25,11 @@ export default function Hero() {
 		});
 		return controls.stop;
 	}, []);
-	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
-	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));
+	const floatX = useTransform(oscillation, (v) => 15 * Math.sin(v));
+	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
 
 	return (
-		<section className="h-screen w-full overflow-hidden">
+		<section className="h-screen w-full">
 			<div className="relative h-screen w-full">
 				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div
@@ -28,12 +37,12 @@ export default function Hero() {
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 5000],
+								[0, 10000],
 							),
 						}}
 					>
 						<Image
-							className="w-full"
+							className="z-30 w-full"
 							src={"/img/hero/sands.png"}
 							alt="Sands"
 							width={1000}
@@ -68,7 +77,7 @@ export default function Hero() {
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
 						x: floatX,
-						y: floatY
+						y: floatY,
 					}}
 				>
 					<Image

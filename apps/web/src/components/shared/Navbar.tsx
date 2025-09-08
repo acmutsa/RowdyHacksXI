@@ -46,7 +46,7 @@ export default async function Navbar({ className }: NavbarProps) {
 							/>
 							{/* <div className="bg-muted-foreground h-[45%] rotate-[25deg] w-[2px]" /> */}
 							<h2 className="font-oswald text-lg font-bold text-[#A7866A] dark:text-[#FEF2E6]">
-								{c.hackathonName}
+								{c.hackathonName} {c.itteration}
 							</h2>
 						</Link>
 						<div className="col-span-2 hidden items-center justify-start gap-x-5 md:flex">
@@ -54,13 +54,7 @@ export default async function Navbar({ className }: NavbarProps) {
 						</div>
 					</div>
 
-					<div className="flex items-center">
-						<NavbarItem link="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md">
-							MLH Code of Conduct
-						</NavbarItem>
-					</div>
-
-					{/* <div className="flex items-center justify-between space-x-2 md:justify-center">
+					<div className="flex items-center justify-between space-x-2 md:justify-center">
 						<div className="hidden gap-x-4 md:flex">
 							{user ? (
 								<>
@@ -98,7 +92,7 @@ export default async function Navbar({ className }: NavbarProps) {
 							)}
 						</div>
 						<ProfileButton />
-					</div> */}
+					</div>
 				</div>
 			</div>
 		</div>

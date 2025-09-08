@@ -146,16 +146,12 @@ function CarouselDefault() {
 			{data_rendered ? (
 				<Carousel
 					opts={{ align: "end", loop: true }}
-					// Christian Walker: Typescript was complaining here so I suppressed. This use of the carousel is correct according to the docs
-					// See docs for example code: https://ui.shadcn.com/docs/components/carousel#plugins
 					// @ts-ignore
-					plugins={[
-						Autoplay({ delay: 2500, stopOnInteraction: true }),
-					]}
+					plugins={[plugin.current]}
 					onMouseEnter={plugin.current.stop}
 					onMouseLeave={plugin.current.reset}
 					className="flex max-w-7xl items-center justify-center md:w-[75%] xl:w-[85%] 2xl:w-full 2xl:max-w-[92rem]"
-				>
+					>
 					<CarouselContent>
 						{team.map((p: Person, index: React.Key) => (
 							<CarouselItem
@@ -189,10 +185,10 @@ export default function WorkWithUs() {
 	return (
 		<section
 			ref={sectionRef}
-			className="grid w-full grid-cols-1 overflow-hidden"
+			className="relative z-10 grid w-full grid-cols-1 overflow-hidden"
 		>
 			<motion.div
-				className="night relative flex w-full flex-col justify-end"
+				className="relative flex w-full flex-col justify-end"
 				style={{
 					backgroundSize: useTransform(
 						scrollYProgress,
@@ -230,7 +226,7 @@ export default function WorkWithUs() {
 								alt="Ground 1"
 								width={1920}
 								height={1080}
-								className="z-1 h-auto w-full object-contain"
+								className="z-10 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -248,7 +244,7 @@ export default function WorkWithUs() {
 								alt="Ground 2"
 								width={1920}
 								height={1080}
-								className="z-5 h-auto w-full object-contain"
+								className="z-20 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -271,7 +267,7 @@ export default function WorkWithUs() {
 								alt="Ground3"
 								width={1920}
 								height={1080}
-								className="z-10 h-auto w-full object-contain"
+								className="z-30 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -300,7 +296,7 @@ export default function WorkWithUs() {
 								width={1200}
 								height={800}
 								unoptimized
-								className="z-15 h-auto w-full object-contain"
+								className="z-40 h-auto w-full object-contain"
 							/>
 
 							<div className="absolute inset-0 flex translate-y-[-18%] flex-col items-center justify-center px-4 py-6">
@@ -327,7 +323,7 @@ export default function WorkWithUs() {
 														Volunteer Form
 													</button>
 												</a>
-												<a href="/">
+												<a href="/" aria-label="Mentor Form">
 													<button className="rounded bg-[#4f3b34] px-3 py-3 font-bold text-white transition-colors duration-150">
 														Mentor Form
 													</button>
@@ -337,23 +333,21 @@ export default function WorkWithUs() {
 									</div>
 
 									<div className="mr-3 flex aspect-[16/10] w-full flex-col rounded-2xl border-4 border-[#4f3b34] bg-white/90 px-2 shadow-2xl">
-										<h2 className="-translate-y-[50%] self-end rounded-full border-4 border-[#4f3b34] bg-white px-3 py-2 font-league text-[#4f3b34]">
+										<h2 className="self-end rounded-full border-4 border-[#4f3b34] bg-white px-3 py-2 font-league text-[#4f3b34]">
 											Companies
 										</h2>
-										<div className="mx-auto max-w-xl -translate-y-[5%] text-right">
-											<h1 className="text-1xl font-league text-[#4f3b34] md:text-2xl lg:text-3xl">
+										<div className="mx-auto max-w-xl text-right">
+											<h1 className="text-xl font-league text-[#4f3b34] md:text-2xl lg:text-3xl">
 												Interested in sponsoring?
 											</h1>
 											<p className="my-4 font-bitter text-[#4f3b34]">
-												If you or a group you represent
-												are interested in partnering,
-												please click below to view our
-												Partner Packet.
+												If you or a group you represent are interested in partnering,
+												please click below to view our Partner Packet.
 											</p>
 											<div className="flex flex-wrap justify-end gap-3">
-												<a href="/">
+												<a href="/" aria-label="Partner Packet">
 													<button className="rounded bg-[#4f3b34] px-3 py-3 font-bold text-white transition-colors duration-150">
-														Partner Packet
+														View Partner Packet
 													</button>
 												</a>
 											</div>
@@ -381,7 +375,7 @@ export default function WorkWithUs() {
 								alt="Ground4"
 								width={1920}
 								height={1080}
-								className="z-16 h-auto w-full object-contain"
+								className="z-50 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -396,24 +390,29 @@ export default function WorkWithUs() {
 									scrollYProgress,
 									[0, 0.2],
 									["0%", "-520%"],
-								),
-							}}
-						>
+									),
+								}}
+								className="relative z-50"
+							>
 							<Image
 								src={"/img/wanted-board.png"}
 								alt="Wanted Board"
 								width={1200}
 								height={800}
-								unoptimized
-								className="z-20 h-auto w-full object-contain"
+								unoptimized={false}
+								loading="lazy"
+								className="z-60 h-auto w-full object-contain"
 							/>
 							<div className="absolute inset-0 mx-auto flex max-w-5xl -translate-y-[120px] flex-col items-center justify-center px-4 py-6">
-								{/* <CarouselDefault /> */}
+								{/* Content */}
 							</div>
 						</motion.div>
 					</motion.div>
 				</div>
 			</motion.div>
+			<section className="relative z-0 bg-transparent min-h-[20vh] w-full items-center justify-center border-muted-foreground p-1 py-8 sm:p-8 md:px-10">
+				{/* Footer content */}
+			</section>
 		</section>
 	);
 }

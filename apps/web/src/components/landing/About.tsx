@@ -47,9 +47,9 @@ export default function About() {
 				className="absolute flex bottom-0 w-[100%]"
 			>	
 				<motion.div 
-					className="border-4">
+					className="">
 					<Image
-						className="absolute h-[20%] w-auto bottom-[25%] right-[15%] border-4"
+						className="absolute h-[20%] w-auto bottom-[25%] right-[15%]"
 						src={"/img/about/sign.svg"}
 						alt="Sign"
 						width={500}
@@ -58,7 +58,7 @@ export default function About() {
 					/>
 				</motion.div>
 				<Image
-					className="border-4 w-full h-auto"
+					className=" w-full h-auto"
 					src={"/img/about/moon.svg"}
 					alt="Moon"
 					width={500}

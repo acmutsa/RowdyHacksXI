@@ -30,9 +30,12 @@ export default function Interest() {
 						<p className="font-league-spartan text-3xl font-bold text-white">
 							Fall '25 @ UTSA's San Pedro I
 						</p>
-						<Link href="https://tally.so/r/3qXd25">
-							<Button size="lg" className="mt-10 text-xl">
-								Interest Form
+						<Link href="/register">
+							<Button
+								size="lg"
+								className="mt-10 text-2xl opacity-100"
+							>
+								Register Now!
 							</Button>
 						</Link>
 					</motion.div>

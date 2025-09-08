@@ -77,7 +77,7 @@ export default function WorkWithUs() {
 	return (
 		<section
 			ref={sectionRef}
-			className="grid w-full grid-cols-1 overflow-hidden"
+			className="relative z-10 grid w-full grid-cols-1 overflow-hidden"
 		>
 			<div className="relative h-[200vh] w-full">
 				<div className="absolute left-[50%] h-full w-full -translate-x-[50%]">
@@ -127,7 +127,7 @@ export default function WorkWithUs() {
 								alt="Ground 2"
 								width={1920}
 								height={1080}
-								className="z-5 h-auto w-full object-contain"
+								className="z-20 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -153,7 +153,7 @@ export default function WorkWithUs() {
 								alt="Ground3"
 								width={1920}
 								height={1080}
-								className="z-10 h-auto w-full object-contain"
+								className="z-30 h-auto w-full object-contain"
 								unoptimized
 							/>
 						</motion.div>

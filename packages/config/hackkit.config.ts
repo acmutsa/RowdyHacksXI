@@ -812,7 +812,7 @@ const c = {
 	defaultMetaDataDescription: "Website for RowdyHacks XI",
 	rsvpDefaultLimit: 500,
 	botName: "RowdyBotXI",
-	botParticipantRole: "RowdyHacksXI Participant",
+	botParticipantRole: "RHXI Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schoolOptions[0],
 	localUniversitySchoolIDName: "UTSA id (abc123)",

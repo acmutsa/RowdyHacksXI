@@ -133,8 +133,10 @@
 		--sidebar-border: 220 13.04% 90.98%;
 		--sidebar-ring: 13.21 73.04% 54.9%;
 
-		--nav: 255, 255, 255;
-		--hackathon-primary: 206 86% 52%;
+		--nav: 255,
+		255,
+		255;
+		--hackathon-primary: 41.92 100% 55.10%;
 
 		--radius: 0.75rem;
 
@@ -142,7 +144,7 @@
 		--gradient-color-2: #3366ff;
 		--gradient-color-3: #002db3;
 		--gradient-color-4: #1952cc;
-		--rh-night: #0f1239;
+		--rh-night: #010103;
 
 		--font-sans: "Gota", sans-serif;
 		--font-serif: Source Serif 4, serif;

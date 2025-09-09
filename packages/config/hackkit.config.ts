@@ -925,19 +925,19 @@ const c = {
 		Social: "#2196F3",
 		Other: "#795548",
 	},
-	days: {
-		Saturday: new Date(2023, 6, 15),
-	},
-	Sunday: new Date(2023, 6, 16),
+	// days: {
+	// 	Saturday: new Date(2023, 6, 15),
+	// },
+	// Sunday: new Date(2023, 6, 16),
 	maxResumeSizeInBytes: 4194304,
 	maxProfilePhotoSizeInBytes: 3145728,
 	maxFileSizeInBytes: 4194304,
-	eventPassBgImage: "/img/dash/pass/bg.webp",
+	eventPassBgImage: "/img/dash/pass/pass-icon.svg",
 	noResumeProvidedURL:
 		"https://static.acmutsa.org/No%20Resume%20Provided.pdf",
 	// Come in and change this date to whenever the hackathon starts
-	startDate: new Date(new Date(2024, 1, 24).setHours(9)),
-	prettyLocation: "Location of Hackathon",
+	startDate: new Date(new Date(2025, 10, 25).setHours(9)),
+	prettyLocation: "UTSA San Pedro I Building",
 	roleBadges: {
 		hacker: {
 			title: "Hacker",
@@ -948,8 +948,8 @@ const c = {
 		volunteer: {
 			title: "Volunteer",
 			foreground: "#ffffff",
-			checked: false,
 			color: "#4CAF50",
+			checked: false,
 		},
 		mentor: {
 			title: "Mentor",
@@ -957,7 +957,6 @@ const c = {
 			foreground: "#ffffff",
 			checked: false,
 		},
-		// Why is the checked set to a color?
 		mlh: {
 			title: "MLH",
 			color: "#ffffff",

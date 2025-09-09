@@ -30,10 +30,14 @@ export function Questions() {
 export function TitleBubble() {
 	return (
 		<div className="relative col-span-1 !col-start-1 !row-start-1 aspect-video h-full w-full overflow-hidden rounded-xl border border-hackathon p-5 sm:col-span-2 sm:row-span-2 lg:!col-start-auto lg:!row-start-auto lg:aspect-auto">
-			<GradientHero />
+			{/* <GradientHero /> */}
+			<div
+				className="star-bg absolute inset-0 bg-contain"
+				style={{ backgroundSize: "25%" }}
+			></div>
 			<div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-y-2 rounded-xl">
 				<h1 className="text-7xl font-black text-white">
-					{c.hackathonName}
+					{c.hackathonName} {c.itteration}
 				</h1>
 				<h2 className="text-center font-mono text-xs text-white sm:text-sm">
 					{`${format(c.startDate, "h:mma, MMM d, yyyy")}`} @{" "}

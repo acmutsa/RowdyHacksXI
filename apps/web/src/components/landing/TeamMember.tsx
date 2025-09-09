@@ -62,7 +62,7 @@ export default function TeamMember({ person }: { person: Person }) {
 
 	return (
 		<Card
-			className={`flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300 hover:z-50 hover:scale-[1.15]`}
+			className={`flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}
 		>
 			<div className="text-[#FEF2E6]">
 				<CardContent className="flex items-center justify-center">

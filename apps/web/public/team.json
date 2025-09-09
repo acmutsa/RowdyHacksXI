@@ -1,11 +1,32 @@
 {
     "team": [
         {
+            "fname": "Alex",
+            "imgLink": "/img/team/Alex.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Trae",
+            "imgLink": "/img/team/Trae.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
             "fname": "Josh",
             "imgLink": "/img/team/Josh.png",
             "linkedin": "https://www.linkedin.com/in/joshuasilva414/",
             "website": "",
             "github": "https://github.com/joshuasilva414"
+        },
+        {
+            "fname": "Carter",
+            "imgLink": "/img/team/Carter.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
         },
         {
             "fname": "Eric",
@@ -24,13 +45,6 @@
         {
             "fname": "Adan",
             "imgLink": "/img/team/Adan.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
-            "fname": "Alex",
-            "imgLink": "/img/team/Alex.png",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -66,13 +80,6 @@
         {
             "fname": "Bill",
             "imgLink": "/img/team/Bill.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
-            "fname": "Carter",
-            "imgLink": "/img/team/Carter.png",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -147,13 +154,7 @@
             "website": "",
             "github": ""
         },
-        {
-            "fname": "Trae",
-            "imgLink": "/img/team/Trae.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
+
         {
             "fname": "Vivian",
             "imgLink": "/img/team/Vivian.png",

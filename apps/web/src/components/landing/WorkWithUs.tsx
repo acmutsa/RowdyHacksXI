@@ -20,12 +20,15 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 
-function CarouselDefault() {
+const CarouselDefault = () => {
 	const [team, setTeam] = useState<Person[]>([]);
 	const [loading, setLoading] = useState(true);
+
 	const plugin = React.useRef(
-		Autoplay({ delay: 4000, stopOnInteraction: true }),
+		Autoplay({ delay: 4000, stopOnInteraction: true })
 	);
+
+	// LOAD TEAM
 	useEffect(() => {
 		setLoading(true);
 		axios.get("/team.json").then((res) => {
@@ -36,18 +39,16 @@ function CarouselDefault() {
 
 	if (loading || team === undefined) return <div>Loading...</div>;
 	if (team.length === 0) return <div>No team members found.</div>;
+
 	return (
-		//Where Carousel will go
 		<>
 			<Carousel
 				opts={{ align: "end", loop: true }}
-				// Christian Walker: Typescript was complaining here so I suppressed. This use of the carousel is correct according to the docs
-				// See docs for example code: https://ui.shadcn.com/docs/components/carousel#plugins
-				// @ts-ignore
-				plugins={[Autoplay({ delay: 2500, stopOnInteraction: true })]}
+				// @ts-ignore - TypeScript complains, but this usage is correct per docs
+				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
-				className="flex-row] flex w-full max-w-fit"
+				className="flex w-full max-w-fit flex-row"
 			>
 				<CarouselContent>
 					{team.map((p, index) => (
@@ -59,13 +60,13 @@ function CarouselDefault() {
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				{/* NOTE: Source image of carousel previous and next are modified with color prop  */}
-				<CarouselPrevious className="border-none bg-transparent hover:cursor-pointer" />
-				<CarouselNext className="border-none bg-transparent hover:cursor-pointer" />
+				<CarouselPrevious className="border-none bg-transparent hover:cursor-pointer [&>svg]:h-20 [&>svg]:w-20" />
+				<CarouselNext className="border-none bg-transparent hover:cursor-pointer [&>svg]:h-20 [&>svg]:w-20" />
 			</Carousel>
 		</>
 	);
-}
+};
+
 
 export default function WorkWithUs() {
 	const sectionRef = useRef(null);
@@ -77,10 +78,11 @@ export default function WorkWithUs() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative z-10 grid w-full grid-cols-1 overflow-hidden"
+			className="relative z-10 grid w-full grid-cols-1 overflow-visible bg-transparent"
 		>
-			<div className="relative h-[200vh] w-full">
-				<div className="absolute left-[50%] h-full w-full -translate-x-[50%]">
+			<div className="relative h-[200vh] w-full ">
+				<div className="absolute left-[50%] h-full w-full -translate-x-[50%] ">
+					
 					<motion.div
 						style={{
 							backgroundSize: useTransform(
@@ -232,7 +234,7 @@ export default function WorkWithUs() {
 
 						{/* Ground 4 */}
 						<motion.div
-							className="absolute bottom-0"
+							className=" absolute bottom-0"
 							style={{
 								translateX: useTransform(
 									scrollYProgress,
@@ -258,6 +260,7 @@ export default function WorkWithUs() {
 
 						{/* Wanted Board */}
 						<motion.div
+
 							className="absolute bottom-0 overflow-visible"
 							style={{
 								translateX: useTransform(
@@ -280,13 +283,17 @@ export default function WorkWithUs() {
 								unoptimized
 								className="z-20 h-auto w-full"
 							/>
+							
 							<div className="absolute inset-0 z-[60] mx-auto flex h-[50%] w-[62%] translate-y-[25%] flex-col items-center justify-center overflow-visible px-4 py-6">
 								<CarouselDefault />
 							</div>
 						</motion.div>
+						
 					</motion.div>
+					
 				</div>
 			</div>
+			
 		</section>
 	);
 }

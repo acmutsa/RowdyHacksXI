@@ -811,8 +811,8 @@ const c = {
 	siteUrl: "https://rowdyhacks.org", // Do not have a trailing slash
 	defaultMetaDataDescription: "Website for RowdyHacks XI",
 	rsvpDefaultLimit: 500,
-	botName: "RowdyHacks",
-	botParticipantRole: "Participant",
+	botName: "RowdyBotXI",
+	botParticipantRole: "RowdyHacksXI Participant",
 	hackathonTimezone: "America/Chicago",
 	localUniversityName: schoolOptions[0],
 	localUniversitySchoolIDName: "UTSA id (abc123)",

@@ -1013,6 +1013,8 @@ const publicRoutes = [
 	/^\/schedule(\/.*)?$/,
 	/^\/@/,
 	/^\/user\//,
+	/^\/sign-in(\/.*)?$/,
+	/^\/sign-up(\/.*)?$/,
 	"/404",
 	"/bugreport",
 	/^\/sign-in(\/.*)?$/,

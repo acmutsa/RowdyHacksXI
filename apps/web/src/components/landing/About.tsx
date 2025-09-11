@@ -17,6 +17,9 @@ export default function About() {
 		offset: ["start end", "end end"],
 	})
 
+	// Reason why UFO is using 2 different refs is because one is for the start of the
+	// section and the second one is so it can be in sync with the sign animation 
+	// when it is zooming out.
 	// Ufo Animation with UfoRef 
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
@@ -37,33 +40,35 @@ export default function About() {
 		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
 			{/* Div for UFO Section */}
 			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-50">
-				{/* MotionDiv for UFO & Text Animation */}
+				{/* MotionDiv for UFO (start animation) */}
 				<motion.div 
 					className="absolute w-full h-full bottom-0 origin-bottom"
 					style={{ scale: scaleUfo, translateX: translateXUfo }}
 				>
+					{/* MotionDiv for UFO (sync animation with sign) */}
 					<motion.div 
 						className="absolute flex justify-center items-center w-full h-full bottom-0 origin-bottom"
 						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync}}
 					>
+						{/* Div for UFO and Text */}
 						<div className="absolute flex justify-center items-center w-auto h-[90%] bottom-0 origin-bottom">
 							{/* UFO */}
 							<Image
-								className="w-auto h-full"
-								src="/img/about/ufo_wo_text.svg"
+								className="w-auto h-full object-cover overflow-visible"
+								src="/img/about/ufo.svg"
 								width={500}
 								height={500}
 								alt="UFO"
 							/>
-							{/* Text */}
-							<div className="absolute top-[35%] px-20 text-center">
+							{/* MotionDiv for Text Animation */}
+							<motion.div className="absolute top-[35%] px-20 text-center">
 								<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
 								<p className="w-[17ch] font-xolonium text-base text-black tracking-tight">
 									RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 									It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 									together to collaborate, innovate, and build real-world projects in 24 hours.
 								</p>
-							</div>
+							</motion.div>
 						</div>
 					</motion.div>
 				</motion.div>
@@ -78,7 +83,7 @@ export default function About() {
 					{/* Moon */}
 					<Image 
 						className="w-full h-auto"
-						src="/img/about/moon_test_3.svg"
+						src="/img/about/moon.svg"
 						width={500}
 						height={500}
 						alt="Moon Background"
@@ -90,11 +95,11 @@ export default function About() {
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-auto h-[540px]">
+					<div className="absolute flex justify-center items-center w-[415px] h-[600px] z-50">
 						{/* Sign */}
 						<Image 
-							className="w-auto h-full"
-							src="/img/about/sign_final.svg"
+							className="w-[415px] h-[600px] object-cover overflow-visible"
+							src="/img/about/sign.svg"
 							width={500}
 							height={500}
 							alt="Sign"
@@ -107,56 +112,23 @@ export default function About() {
 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
 								</p>
 							</div>
-							<div className="relative w-full h-[28%] mt-[11%] px-14 text-center">
-								<p className="font-xolonium text-base/5 text-black">
+							<div className="relative w-full h-[28%] mt-[14%] px-14 text-center">
+								<p className="font-bang-bang text-3xl/6 text-black">
 									Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
 								</p>
 							</div>
 						</motion.div>
 					</div>
+					<Image 
+						className="absolute w-full h-full z-60"
+						src="/img/about/sign_background.svg"
+						width={500}
+						height={500}
+						alt="Sign_Background"
+					/>
 				</motion.div>
 			</div>
 			<div className="relative w-full h-[240px] z-60"></div>
 		</section>
 	)
 }
-
-
-// "use client";
-// import Image from "next/image";
-// import { useEffect, useRef } from "react";
-// import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
-
-// export default function About() {
-// 	const{ scrollYProgress: scrollPage } = useScroll();
-
-// 	// Scroll Debug Area
-// 	const inViewRef = useRef<HTMLDivElement>(null);
-// 	const isInView = useInView(inViewRef, {
-// 		amount: "some",
-// 	});
-// 	const { scrollYProgress } = useScroll({
-// 		target: inViewRef,
-// 		offset: ["start end", "end start"]
-// 	});
-// 	useMotionValueEvent(scrollYProgress, "change",
-// 		(latest) => {
-// 			console.log(latest);
-// 		}
-// 	);
-// 	useEffect(() => {
-// 		console.log(`The section ${isInView ? "is" : "is not"} in view`);
-// 	}, [isInView]);
-
-// 	// Figure 8 UFO
-// 	const oscillation = useMotionValue(0);
-// 	useEffect(() => {
-// 		const controls = animate(oscillation, 2 * Math.PI, {
-// 			repeat: Infinity,
-// 			duration: 4,
-// 			ease: "linear",
-// 		});
-// 		return controls.stop;
-// 	}, []);
-// 	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
-// 	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));

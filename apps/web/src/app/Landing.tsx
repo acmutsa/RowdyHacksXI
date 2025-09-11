@@ -47,7 +47,7 @@ function starOpacity(t: number, frequency = 1, phase = 0) {
 export default function Landing() {
 	const { scrollYProgress } = useScroll();
 	return (
-		<div className="night relative overflow-y-hidden">
+		<div className="night relative overflow-hidden">
 			<motion.div
 				className="star-bg fixed left-0 top-0 z-0 h-full w-full bg-transparent"
 				style={{

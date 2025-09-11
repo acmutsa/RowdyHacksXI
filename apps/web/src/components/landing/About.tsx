@@ -112,7 +112,7 @@ export default function About() {
 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
 								</p>
 							</div>
-							<div className="relative w-full h-[28%] mt-[11%] px-14 text-center">
+							<div className="relative w-full h-[28%] mt-[14%] px-14 text-center">
 								<p className="font-bang-bang text-3xl/6 text-black">
 									Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
 								</p>

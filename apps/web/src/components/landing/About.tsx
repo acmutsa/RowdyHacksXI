@@ -54,8 +54,8 @@ export default function About() {
 						<div className="absolute flex justify-center items-center w-auto h-[90%] bottom-0 origin-bottom">
 							{/* UFO */}
 							<Image
-								className="w-auto h-full"
-								src="/img/about/spaceship.svg"
+								className="w-auto h-full object-cover overflow-visible"
+								src="/img/about/ufo.svg"
 								width={500}
 								height={500}
 								alt="UFO"

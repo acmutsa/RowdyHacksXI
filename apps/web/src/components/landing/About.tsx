@@ -17,6 +17,9 @@ export default function About() {
 		offset: ["start end", "end end"],
 	})
 
+	// Reason why UFO is using 2 different refs is because one is for the start of the
+	// section and the second one is so it can be in sync with the sign animation 
+	// when it is zooming out.
 	// Ufo Animation with UfoRef 
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
@@ -37,33 +40,35 @@ export default function About() {
 		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
 			{/* Div for UFO Section */}
 			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-50">
-				{/* MotionDiv for UFO & Text Animation */}
+				{/* MotionDiv for UFO (start animation) */}
 				<motion.div 
 					className="absolute w-full h-full bottom-0 origin-bottom"
 					style={{ scale: scaleUfo, translateX: translateXUfo }}
 				>
+					{/* MotionDiv for UFO (sync animation with sign) */}
 					<motion.div 
 						className="absolute flex justify-center items-center w-full h-full bottom-0 origin-bottom"
 						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync}}
 					>
+						{/* Div for UFO and Text */}
 						<div className="absolute flex justify-center items-center w-auto h-[90%] bottom-0 origin-bottom">
 							{/* UFO */}
 							<Image
 								className="w-auto h-full"
-								src="/img/about/ufo_wo_text.svg"
+								src="/img/about/spaceship.svg"
 								width={500}
 								height={500}
 								alt="UFO"
 							/>
-							{/* Text */}
-							<div className="absolute top-[35%] px-20 text-center">
+							{/* MotionDiv for Text Animation */}
+							<motion.div className="absolute top-[35%] px-20 text-center">
 								<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
 								<p className="w-[17ch] font-xolonium text-base text-black tracking-tight">
 									RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 									It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 									together to collaborate, innovate, and build real-world projects in 24 hours.
 								</p>
-							</div>
+							</motion.div>
 						</div>
 					</motion.div>
 				</motion.div>
@@ -78,7 +83,7 @@ export default function About() {
 					{/* Moon */}
 					<Image 
 						className="w-full h-auto"
-						src="/img/about/moon_final_dark.svg"
+						src="/img/about/moon.svg"
 						width={500}
 						height={500}
 						alt="Moon Background"
@@ -94,7 +99,7 @@ export default function About() {
 						{/* Sign */}
 						<Image 
 							className="w-auto h-full"
-							src="/img/about/sign_final.svg"
+							src="/img/about/sign.svg"
 							width={500}
 							height={500}
 							alt="Sign"

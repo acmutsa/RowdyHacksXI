@@ -78,7 +78,7 @@ export default function About() {
 					{/* Moon */}
 					<Image 
 						className="w-full h-auto"
-						src="/img/about/moon_test_3.svg"
+						src="/img/about/moon_final_dark.svg"
 						width={500}
 						height={500}
 						alt="Moon Background"

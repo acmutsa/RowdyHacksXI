@@ -95,10 +95,10 @@ export default function About() {
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-auto h-[540px]">
+					<div className="absolute flex justify-center items-center w-[415px] h-[600px] z-50">
 						{/* Sign */}
 						<Image 
-							className="w-auto h-full"
+							className="w-[415px] h-[600px] object-cover overflow-visible"
 							src="/img/about/sign.svg"
 							width={500}
 							height={500}
@@ -119,6 +119,13 @@ export default function About() {
 							</div>
 						</motion.div>
 					</div>
+					<Image 
+						className="absolute w-full h-full z-60"
+						src="/img/about/sign_background.svg"
+						width={500}
+						height={500}
+						alt="Sign_Background"
+					/>
 				</motion.div>
 			</div>
 			<div className="relative w-full h-[240px] z-60"></div>

@@ -99,7 +99,7 @@ export default function About() {
 						{/* Sign */}
 						<Image 
 							className="w-[415px] h-[600px] object-cover overflow-visible"
-							src="/img/about/sign.svg"
+							src="/img/about/new_sign.svg"
 							width={500}
 							height={500}
 							alt="Sign"
@@ -108,7 +108,7 @@ export default function About() {
 						<motion.div className="absolute flex flex-col w-full h-full pt-[17%]">
 							<div className="relative w-full h-[28%] px-14 text-center">
 								<h1 className="font-texas-tango text-2xl/6 text-black tracking-tighter">Who Can Attend?</h1>
-								<p className="font-xolonium text-base/5 text-black">
+								<p className="font-bang-bang text-3xl/6 text-black">
 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
 								</p>
 							</div>

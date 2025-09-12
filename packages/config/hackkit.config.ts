@@ -854,35 +854,35 @@ const c = {
 		},
 	},
 	groups: {
-		"Guild A | Group A": {
-			discordRole: "Guild A Role",
+		"Cowboy | Group A": {
+			discordRole: "Cowboy",
 		},
-		"Guild A | Group B": {
-			discordRole: "Guild A Role",
+		"Cowboy | Group B": {
+			discordRole: "Cowboy",
 		},
-		"Guild B | Group A": {
-			discordRole: "Guild B Role",
+		"Alien | Group A": {
+			discordRole: "Alien",
 		},
-		"Guild B | Group B": {
-			discordRole: "Guild B Role",
+		"Alien | Group B": {
+			discordRole: "Alien",
 		},
-		"Guild C | Group A": {
-			discordRole: "Guild C Role",
+		"Sheriff | Group A": {
+			discordRole: "Sheriff",
 		},
-		"Guild C | Group B": {
-			discordRole: "Guild C Role",
+		"Sheriff | Group B": {
+			discordRole: "Sheriff",
 		},
-		"Guild D | Group A": {
-			discordRole: "Guild D Role",
+		"Outlaw | Group A": {
+			discordRole: "Outlaw",
 		},
-		"Guild D | Group B": {
-			discordRole: "Guild D Role",
+		"Outlaw | Group B": {
+			discordRole: "Outlaw",
 		},
-		"Guild E | Group A": {
-			discordRole: "Guild E Role",
+		"Martian | Group A": {
+			discordRole: "Martian",
 		},
-		"Guild E | Group B": {
-			discordRole: "Guild E Role",
+		"Martian | Group B": {
+			discordRole: "Martian",
 		},
 	},
 	issueEmail: "team@rowdyhacks.org",
@@ -1014,8 +1014,6 @@ const publicRoutes = [
 	/^\/schedule(\/.*)?$/,
 	/^\/@/,
 	/^\/user\//,
-	/^\/sign-in(\/.*)?$/,
-	/^\/sign-up(\/.*)?$/,
 	"/404",
 	"/bugreport",
 	/^\/sign-in(\/.*)?$/,

@@ -78,9 +78,9 @@ export default function WorkWithUs() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative z-10 grid w-full grid-cols-1 overflow-visible bg-transparent"
+			className="relative z-10 grid w-full h- full grid-cols-1 bg-transparent"
 		>
-			<div className="relative h-[200vh] w-full ">
+			<div className="border border-red-500  relative h-[200vh] w-full ">
 				<div className="absolute left-[50%] h-full w-full -translate-x-[50%] ">
 					
 					<motion.div

@@ -5,16 +5,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 export default function About() {
 	const ufoRef = useRef(null);
 	const moonRef = useRef(null);
+	const transitionRef = useRef(null);
 
 	// UFO scrollYProgress
 	const { scrollYProgress: scrollYProgressUfo } = useScroll({
 		target: ufoRef,
-		offset: ["start end", "end start"],
+		offset: ["start end", "end start"]
 	})
 	// Moon scrollYProgress
 	const { scrollYProgress: scrollYProgressMoon } = useScroll({
 		target: moonRef,
-		offset: ["start end", "end end"],
+		offset: ["start end", "end end"]
+	})
+	// TransitionOut scrollYProgress
+	const { scrollYProgress: scrollYProgressTransition } = useScroll({
+		target: transitionRef,
+		offset: ["center end", "end end"]
 	})
 
 	// Reason why UFO is using 2 different refs is because one is for the start of the
@@ -24,22 +30,27 @@ export default function About() {
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
 	// Ufo Animation with MoonRef
-	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], [1, 4]);
-	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "100%"]);
-	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "-100%"]);
+	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], [1, 4]);
+	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "100%"]);
+	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "-100%"]);
 	// Moon Animation
-	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], [1, 10]);
-	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "10%"]);
-	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.7], ["0%", "150%"]);
+	const scaleMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], [1, 10]);
+	const translateXMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "10%"]);
+	const translateYMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "150%"]);
 	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.7], [0.075, 1]);
-	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-10%", "0%"]);
-	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.7], ["-15%", "0%"]);
+	const scaleSign = useTransform(scrollYProgressMoon, [0.35, 0.7], [0.075, 1]);
+	const translateXSign = useTransform(scrollYProgressMoon, [0.35, 0.7], ["-10%", "0%"]);
+	const translateYSign = useTransform(scrollYProgressMoon, [0.35, 0.7], ["-15%", "0%"]);
+	// Transition Animation
+	const scaleTransition = useTransform(scrollYProgressTransition, [0, 1], [1, 0.4]);
+	const translateXTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "25%"]);
+	const translateYTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "200%"]);
+
 
 	return (
 		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
 			{/* Div for UFO Section */}
-			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-50">
+			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-30">
 				{/* MotionDiv for UFO (start animation) */}
 				<motion.div 
 					className="absolute w-full h-full bottom-0 origin-bottom"
@@ -48,7 +59,7 @@ export default function About() {
 					{/* MotionDiv for UFO (sync animation with sign) */}
 					<motion.div 
 						className="absolute flex justify-center items-center w-full h-full bottom-0 origin-bottom"
-						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync}}
+						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync }}
 					>
 						{/* Div for UFO and Text */}
 						<div className="absolute flex justify-center items-center w-auto h-[90%] bottom-0 origin-bottom">
@@ -74,10 +85,12 @@ export default function About() {
 				</motion.div>
 			</div>
 			{/* Div for Moon and Sign */}
-			<div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20">
+			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20"
+				style={{ scale: scaleTransition }}
+			>
 				{/* MotionDiv for Moon Animation*/}
 				<motion.div 
-					className="relative w-full h-auto origin-center z-30"
+					className="relative w-full h-auto origin-center z-10"
 					style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }}
 				>
 					{/* Moon */}
@@ -91,11 +104,11 @@ export default function About() {
 				</motion.div>
 				{/* MotionDiv for Sign Animation */}
 				<motion.div 
-					className="absolute flex justify-center items-center w-full h-full origin-center z-40"
+					className="absolute flex justify-center items-center w-full h-full origin-center z-20"
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-[415px] h-[600px] z-50">
+					<div className="absolute flex justify-center items-center w-[415px] h-[600px] z-20">
 						{/* Sign */}
 						<Image 
 							className="w-[415px] h-[600px] object-cover overflow-visible"
@@ -120,55 +133,15 @@ export default function About() {
 						</motion.div>
 					</div>
 					<Image 
-						className="absolute w-full h-full z-60"
+						className="absolute w-full h-full z-10"
 						src="/img/about/sign_background.svg"
 						width={500}
 						height={500}
-						alt="Sign_Background"
+						alt="Sign Background"
 					/>
 				</motion.div>
-			</div>
-			<div className="relative w-full h-[240px] z-60"></div>
+			</motion.div>
+			<motion.div ref={transitionRef} className="relative w-full h-[400px] z-10"/>
 		</section>
 	)
 }
-
-
-// "use client";
-// import Image from "next/image";
-// import { useEffect, useRef } from "react";
-// import { motion, useScroll, useTransform, useInView, useMotionValueEvent, useMotionValue, useSpring, animate } from "framer-motion";
-
-// export default function About() {
-// 	const{ scrollYProgress: scrollPage } = useScroll();
-
-// 	// Scroll Debug Area
-// 	const inViewRef = useRef<HTMLDivElement>(null);
-// 	const isInView = useInView(inViewRef, {
-// 		amount: "some",
-// 	});
-// 	const { scrollYProgress } = useScroll({
-// 		target: inViewRef,
-// 		offset: ["start end", "end start"]
-// 	});
-// 	useMotionValueEvent(scrollYProgress, "change",
-// 		(latest) => {
-// 			console.log(latest);
-// 		}
-// 	);
-// 	useEffect(() => {
-// 		console.log(`The section ${isInView ? "is" : "is not"} in view`);
-// 	}, [isInView]);
-
-// 	// Figure 8 UFO
-// 	const oscillation = useMotionValue(0);
-// 	useEffect(() => {
-// 		const controls = animate(oscillation, 2 * Math.PI, {
-// 			repeat: Infinity,
-// 			duration: 4,
-// 			ease: "linear",
-// 		});
-// 		return controls.stop;
-// 	}, []);
-// 	const floatX = useTransform(oscillation, v => 15 * Math.sin(v));
-// 	const floatY = useTransform(oscillation, v => 8 * Math.sin(2 * v));

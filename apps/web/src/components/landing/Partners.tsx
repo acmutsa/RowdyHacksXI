@@ -7,7 +7,16 @@ export default function Partners() {
 
 
 	return (
-		<section className="flex min-h-screen w-full items-center justify-center border-y-2 border-muted-foreground">
+		<section className="relative flex min-h-screen w-full items-center justify-center">
+			<div className="absolute top-0 w-full h-auto"> 
+				<Image 
+					className="w-full h-[100px] object-cover overflow-visible"
+					src="/img/about/edge.svg"
+					width={500}
+					height={500}
+					alt="Sign"
+				/>
+			</div>
 		</section>
 	);
 }

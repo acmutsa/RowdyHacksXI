@@ -30,17 +30,17 @@ export default function About() {
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
 	// Ufo Animation with MoonRef
-	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], [1, 4]);
-	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "100%"]);
-	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "-100%"]);
+	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], [1, 4]);
+	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "100%"]);
+	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "-100%"]);
 	// Moon Animation
-	const scaleMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], [1, 10]);
-	const translateXMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "10%"]);
-	const translateYMoon = useTransform(scrollYProgressMoon, [0.35, 0.7], ["0%", "150%"]);
+	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], [1, 10]);
+	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "10%"]);
+	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "150%"]);
 	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.35, 0.7], [0.075, 1]);
-	const translateXSign = useTransform(scrollYProgressMoon, [0.35, 0.7], ["-10%", "0%"]);
-	const translateYSign = useTransform(scrollYProgressMoon, [0.35, 0.7], ["-15%", "0%"]);
+	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.8], [0.075, 1]);
+	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-10%", "0%"]);
+	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-15%", "0%"]);
 	// Transition Animation
 	const scaleTransition = useTransform(scrollYProgressTransition, [0, 1], [1, 0.4]);
 	const translateXTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "25%"]);
@@ -85,8 +85,8 @@ export default function About() {
 				</motion.div>
 			</div>
 			{/* Div for Moon and Sign */}
-			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20"
-				style={{ scale: scaleTransition }}
+			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20 border-4"
+				// style={{ scale: scaleTransition }}
 			>
 				{/* MotionDiv for Moon Animation*/}
 				<motion.div 

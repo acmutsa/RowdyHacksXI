@@ -923,7 +923,7 @@ const c = {
 		Workshop: "#10b981",
 		Ceremony: "#9C27B0",
 		Social: "#2196F3",
-		Other: "#795548",
+		Other: "#703a66",
 	},
 	// days: {
 	// 	Saturday: new Date(2023, 6, 15),

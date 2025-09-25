@@ -20,15 +20,15 @@ const oswald = Oswald({
 
 export default function Home() {
 	return (
-		<ReactLenis root>
 		<div className={`${oswald.variable} w-full overflow-x-hidden`}>
 			<Navbar />
 			<MLHBadge />
-			<main className="relative overflow-x-hidden bg-transparent">
-				<Landing />
-			</main>
+			<ReactLenis root>
+				<main className="relative overflow-x-hidden bg-transparent">
+					<Landing />
+				</main>
+			</ReactLenis>
 		</div>
-		</ReactLenis>
 	);
 }
 

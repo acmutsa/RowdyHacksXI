@@ -13,23 +13,34 @@ import {
 import { useEffect, useRef } from "react";
 
 export default function Hero() {
-	const { scrollYProgress } = useScroll();
-
-	// Figure 8 UFO
+	const sectionRef = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["end end", "end start"]
+	});
+	
+	// Figure 8 COW
 	const oscillation = useMotionValue(0);
+	const isInView = useInView(sectionRef);
 	useEffect(() => {
-		const controls = animate(oscillation, 2 * Math.PI, {
-			repeat: Infinity,
-			duration: 4,
-			ease: "linear",
-		});
-		return controls.stop;
-	}, []);
+		let controls: ReturnType<typeof animate> | undefined;
+		if (isInView){
+			controls = animate(oscillation, 2 * Math.PI, {
+				repeat: Infinity,
+				duration: 4,
+				ease: "linear",
+			});
+		} else {
+			oscillation.set(0);
+			controls?.stop();
+		}
+		return () => controls?.stop();
+	}, [isInView, oscillation]);
 	const floatX = useTransform(oscillation, (v) => 15 * Math.sin(v));
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
 
 	return (
-		<section className="h-screen w-full overflow-hidden">
+		<section ref={sectionRef} className="h-screen w-full">
 			<div className="relative h-screen w-full">
 				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div

@@ -1,0 +1,166 @@
+{
+    "team": [
+        {
+            "fname": "Alex",
+            "imgLink": "/img/team/Alex.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Trae",
+            "imgLink": "/img/team/Trae.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Josh",
+            "imgLink": "/img/team/Josh.png",
+            "linkedin": "https://www.linkedin.com/in/joshuasilva414/",
+            "website": "",
+            "github": "https://github.com/joshuasilva414"
+        },
+        {
+            "fname": "Carter",
+            "imgLink": "/img/team/Carter.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Eric",
+            "imgLink": "/img/team/Eric.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Aby",
+            "imgLink": "/img/team/Aby.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Adan",
+            "imgLink": "/img/team/Adan.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Anh",
+            "imgLink": "/img/team/Anh.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Arnav",
+            "imgLink": "/img/team/Arnav.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Atticus",
+            "imgLink": "/img/team/Atticus.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Bidisha",
+            "imgLink": "/img/team/Bidisha.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Bill",
+            "imgLink": "/img/team/Bill.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Diego",
+            "imgLink": "/img/team/Diego.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Ilana",
+            "imgLink": "/img/team/Ilana.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Inor",
+            "imgLink": "/img/team/Inor.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Jibril",
+            "imgLink": "/img/team/Jibril.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Joseph",
+            "imgLink": "/img/team/Joseph.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Miguel",
+            "imgLink": "/img/team/Miguel.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Rashi",
+            "imgLink": "/img/team/Rashi.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Reese",
+            "imgLink": "/img/team/Reese.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Savannah",
+            "imgLink": "/img/team/Savannah.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Sean",
+            "imgLink": "/img/team/Sean.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+
+        {
+            "fname": "Vivian",
+            "imgLink": "/img/team/Vivian.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        }
+    ]
+}

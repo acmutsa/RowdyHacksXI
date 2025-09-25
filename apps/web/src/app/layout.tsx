@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./styles/partners.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { cookies } from "next/headers";
 import { Analytics } from "@vercel/analytics/react";

@@ -1,0 +1,84 @@
+/* Infinite leftward scroll for orbit rows */
+@keyframes scroll {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll { animation: scroll 40s linear infinite; }
+
+/* Gentle vertical wobble for cards */
+@keyframes wobble {
+	0%, 100% { transform: translateY(0); }
+	50%      { transform: translateY(-15px); }
+}
+.animate-wobble { animation: wobble 3s ease-in-out infinite; }
+
+
+/* Multiple soft up/down wobbles for rocks and cow */
+@keyframes float-wobble-1 {
+	0%, 100% { transform: translateY(0); }
+	25%      { transform: translateY(-12px); }
+	50%      { transform: translateY(8px); }
+	75%      { transform: translateY(-10px); }
+}
+@keyframes float-wobble-2 {
+	0%, 100% { transform: translateY(0); }
+	20%      { transform: translateY(-10px); }
+	60%      { transform: translateY(10px); }
+	80%      { transform: translateY(-8px); }
+}
+@keyframes float-wobble-3 {
+	0%, 100% { transform: translateY(0); }
+	30%      { transform: translateY(-14px); }
+	55%      { transform: translateY(6px); }
+	85%      { transform: translateY(-7px); }
+}
+.animate-float-wobble-1 { animation: float-wobble-1 3.1s ease-in-out infinite; }
+.animate-float-wobble-2 { animation: float-wobble-2 2.7s ease-in-out infinite; }
+.animate-float-wobble-3 { animation: float-wobble-3 3.4s ease-in-out infinite; }
+
+/* ===== Motion Path core ===== */
+
+.mp-follower {
+	position: absolute; /* required so offset-path anchors to the stage */
+	top: 0; left: 0;
+	/* read the path from the stage’s CSS variable */
+	offset-path: path(var(--orbitPath));
+	offset-rotate: 0deg; /* keep upright */
+	animation: travel var(--dur, 20s) linear var(--delay, 0s) infinite;
+	pointer-events: auto;
+	z-index: 10;
+}
+
+/* Move along the path (offset-distance: 0% -> 100%) */
+@keyframes travel { to { offset-distance: 100%; } }
+
+@font-face {
+  font-family: "Texatbold";
+  src: url("/fonts/Texatbold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class if you don't want to touch tailwind.config */
+.font-texatbold {
+  font-family: "Texatbold", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Western Bang Bang Regular */
+@font-face {
+  font-family: "WesternBangBang";
+  src: url("/fonts/Western Bang Bang/WesternBangBangClean-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utility class for sponsor names */
+.font-western {
+  font-family: "WesternBangBang", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-weight: 400; /* keep it regular */
+}

@@ -112,7 +112,7 @@ export default function About() {
 						{/* Sign */}
 						<Image 
 							className="w-[415px] h-[600px] object-cover overflow-visible"
-							src="/img/about/sign.svg"
+							src="/img/about/new_sign.svg"
 							width={500}
 							height={500}
 							alt="Sign"

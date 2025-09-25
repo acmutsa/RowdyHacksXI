@@ -11,6 +11,7 @@ import { Oswald } from "next/font/google";
 import WorkWithUs from "@/components/landing/WorkWithUs";
 
 import Landing from "./Landing";
+import { ReactLenis } from "../lib/utils/lenis";
 
 const oswald = Oswald({
 	variable: "--font-oswald",
@@ -19,6 +20,7 @@ const oswald = Oswald({
 
 export default function Home() {
 	return (
+		<ReactLenis root>
 		<div className={`${oswald.variable} w-full overflow-x-hidden`}>
 			<Navbar />
 			<MLHBadge />
@@ -26,6 +28,7 @@ export default function Home() {
 				<Landing />
 			</main>
 		</div>
+		</ReactLenis>
 	);
 }
 

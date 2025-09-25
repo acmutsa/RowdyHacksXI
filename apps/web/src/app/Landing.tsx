@@ -13,6 +13,8 @@ import WorkWithUs from "@/components/landing/WorkWithUs";
 
 import Interest from "@/components/landing/Interest";
 
+
+
 function sawtoothWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
 	// Calculate the period of the wave
 	const period = 1 / frequency;

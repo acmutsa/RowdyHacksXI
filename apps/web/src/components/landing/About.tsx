@@ -85,7 +85,7 @@ export default function About() {
 				</motion.div>
 			</div>
 			{/* Div for Moon and Sign */}
-			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20 border-4"
+			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20"
 				// style={{ scale: scaleTransition }}
 			>
 				{/* MotionDiv for Moon Animation*/}

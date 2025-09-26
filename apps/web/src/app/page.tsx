@@ -11,7 +11,6 @@ import { Oswald } from "next/font/google";
 import WorkWithUs from "@/components/landing/WorkWithUs";
 
 import Landing from "./Landing";
-import { ReactLenis } from "../lib/utils/lenis";
 
 const oswald = Oswald({
 	variable: "--font-oswald",

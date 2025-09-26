@@ -30,17 +30,17 @@ export default function About() {
 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
 	// Ufo Animation with MoonRef
-	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], [1, 4]);
-	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "100%"]);
-	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "-100%"]);
+	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.6, 1], [1, 4]);
+	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.6, 1], ["0%", "100%"]);
+	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.6, 1], ["0%", "-100%"]);
 	// Moon Animation
-	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], [1, 10]);
-	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "10%"]);
-	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.9], ["0%", "150%"]);
+	const scaleMoon = useTransform(scrollYProgressMoon, [0.6, 1], [1, 10]);
+	const translateXMoon = useTransform(scrollYProgressMoon, [0.6, 1], ["0%", "10%"]);
+	const translateYMoon = useTransform(scrollYProgressMoon, [0.6, 1], ["0%", "150%"]);
 	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.8], [0.075, 1]);
-	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-10%", "0%"]);
-	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-15%", "0%"]);
+	const scaleSign = useTransform(scrollYProgressMoon, [0.6, 1], [0.075, 1]);
+	const translateXSign = useTransform(scrollYProgressMoon, [0.6, 1], ["-10%", "0%"]);
+	const translateYSign = useTransform(scrollYProgressMoon, [0.6, 1], ["-15%", "0%"]);
 	// Transition Animation
 	const scaleTransition = useTransform(scrollYProgressTransition, [0, 1], [1, 0.4]);
 	const translateXTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "25%"]);
@@ -48,7 +48,7 @@ export default function About() {
 
 
 	return (
-		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 overflow-hidden">
+		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10 border-4 overflow-hidden">
 			{/* Div for UFO Section */}
 			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-30">
 				{/* MotionDiv for UFO (start animation) */}
@@ -74,7 +74,7 @@ export default function About() {
 							{/* MotionDiv for Text Animation */}
 							<motion.div className="absolute top-[35%] px-20 text-center">
 								<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
-								<p className="w-[17ch] font-xolonium text-base text-black tracking-tight">
+								<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
 									RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 									It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 									together to collaborate, innovate, and build real-world projects in 24 hours.
@@ -108,25 +108,25 @@ export default function About() {
 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
 				>
 					{/* Div for Sign & Text */}
-					<div className="absolute flex justify-center items-center w-[415px] h-[600px] z-20">
+					<div className="absolute flex justify-center items-center w-[500px] h-[700px] z-20 border-4">
 						{/* Sign */}
 						<Image 
-							className="w-[415px] h-[600px] object-cover overflow-visible"
+							className="w-[500px] h-[700px] object-cover overflow-visible border-4"
 							src="/img/about/new_sign.svg"
 							width={500}
 							height={500}
 							alt="Sign"
 						/>
 						{/* MotionDiv for Text Animation */}
-						<motion.div className="absolute flex flex-col w-full h-full pt-[17%]">
-							<div className="relative w-full h-[28%] px-14 text-center">
-								<h1 className="font-texas-tango text-2xl/6 text-black tracking-tighter">Who Can Attend?</h1>
-								<p className="font-bang-bang text-3xl/6 text-black">
+						<motion.div className="absolute flex flex-col w-full h-full pt-[15%]">
+							<div className="relative w-full h-[26%] px-[16%] text-center">
+								<h1 className="font-texas-tango text-3xl/6 text-black tracking-tighter">Who Can Attend?</h1>
+								<p className="font-bang-bang text-[33px]/8 text-black">
 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
 								</p>
 							</div>
-							<div className="relative w-full h-[28%] mt-[14%] px-14 text-center">
-								<p className="font-bang-bang text-3xl/6 text-black">
+							<div className="relative w-full h-[21%] mt-[14%] px-[15%] text-center">
+								<p className="font-bang-bang text-[33px]/8 text-black">
 									Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
 								</p>
 							</div>

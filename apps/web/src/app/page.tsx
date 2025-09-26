@@ -22,11 +22,9 @@ export default function Home() {
 		<div className={`${oswald.variable} w-full overflow-x-hidden`}>
 			<Navbar />
 			<MLHBadge />
-			<ReactLenis root>
-				<main className="relative overflow-x-hidden bg-transparent">
+			<main className="relative overflow-x-hidden bg-transparent">
 					<Landing />
-				</main>
-			</ReactLenis>
+			</main>
 		</div>
 	);
 }

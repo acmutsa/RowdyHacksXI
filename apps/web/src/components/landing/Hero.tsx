@@ -16,7 +16,7 @@ export default function Hero() {
 	const sectionRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
-		offset: ["end end", "end start"]
+		offset: ["end end", "end center"]
 	});
 	
 	// Figure 8 COW
@@ -40,7 +40,7 @@ export default function Hero() {
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
 
 	return (
-		<section ref={sectionRef} className="h-screen w-full">
+		<section ref={sectionRef} className="h-screen w-full overflow-hidden">
 			<div className="relative h-screen w-full">
 				<div className="absolute bottom-0 z-20 w-screen">
 					<motion.div

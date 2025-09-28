@@ -28,34 +28,23 @@ export default function Footer() {
 						data={section.data}
 						/>
 					))}
-					<div className="col-span-2 flex w-full items-center justify-between lg:col-span-5 -mt-6 sm:-mt-8">
-						{/* HackKit on the left */}
-						<div className="justify-self-start">
-							<CreatedWithHackkit />
-						</div>
-
-						{/* Center text */}
-						<p className="text-center font-mono text-xs text-white-500 px-2">
-							Made with &lt;/&gt; &amp; ♥ @ RowdyHacks
-							<br />© RowdyHacks &amp; Association of Computing Machinery
-							at UTSA 2024. All Rights Reserved.
-						</p>
-
-						{/* Social bar on the right */}
-						<div className="flex items-center gap-x-2 rounded-lg border-black bg-[#222222] py-[6px] pl-[7px] pr-4 min-h-[48px]">
-							<Link href="https://twitter.com/rowdyhacks/">
+					<div className="col-span-2 flex flex-col gap-y-3 justify-self-center lg:col-span-1">
+						<CreatedWithHackkit />
+					</div>
+					<div className="col-span-2 flex h-[41px] w-[200px] items-center justify-between gap-2 justify-self-center rounded-lg bg-black px-2 lg:col-span-1 lg:col-start-5">
+						<Link href="https://twitter.com/rowdyhacks/">
 							<Twitter className="invert dark:invert-0" />
-							</Link>
-							<Link href="https://www.instagram.com/rowdyhacks/">
+						</Link>
+						<Link href="https://www.instagram.com/rowdyhacks/">
 							<Instagram className="invert dark:invert-0" />
-							</Link>
-							<Link href="https://www.facebook.com/UTSA.ACM">
+						</Link>
+						<Link href="https://www.facebook.com/UTSA.ACM">
 							<Facebook className="invert dark:invert-0" />
-							</Link>
-							<Link href="https://github.com/acmutsa/RowdyHacksX">
+						</Link>
+						<Link href="https://github.com/acmutsa/RowdyHacksX">
 							<Github className="invert dark:invert-0" />
-							</Link>
-							<Link href="https://go.rowdyhacks.org/discord">
+						</Link>
+						<Link href="https://go.rowdyhacks.org/discord">
 							<Image
 								className="select-none"
 								src="/img/discord_icon.svg"
@@ -63,9 +52,13 @@ export default function Footer() {
 								width={20}
 								height={20}
 							/>
-							</Link>
-						</div>
+						</Link>
 					</div>
+					<p className="col-span-2 self-center justify-self-center text-center font-mono text-xs text-white-500 sm:col-start-2 md:py-0 lg:col-span-3 lg:col-start-2 lg:row-start-2 lg:w-11/12">
+						Made with &lt;/&gt; &amp; ♥ @ RowdyHacks
+						<br />© RowdyHacks &amp; Association of Computing Machinery
+						at UTSA 2024. All Rights Reserved.
+					</p>
 				</div>
 			</footer>
 		</>

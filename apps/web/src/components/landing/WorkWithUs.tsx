@@ -78,11 +78,10 @@ export default function WorkWithUs() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative z-10 grid w-full h- full grid-cols-1 bg-transparent"
+			className="relative z-10 grid w-full h- full grid-cols-1"
 		>
-			<div className="border border-red-500  relative h-[200vh] w-full ">
+			<div className="relative h-[200vh] w-full ">
 				<div className="absolute left-[50%] h-full w-full -translate-x-[50%] ">
-					
 					<motion.div
 						style={{
 							backgroundSize: useTransform(
@@ -293,7 +292,10 @@ export default function WorkWithUs() {
 					
 				</div>
 			</div>
-			
+			<div
+			aria-hidden
+			className="z-[-10] pointer-events-none absolute bottom-0 left-0 right-0 h-[160px] bg-[#3B3486]"
+			/>
 		</section>
 	);
 }

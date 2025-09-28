@@ -48,7 +48,7 @@ const CarouselDefault = () => {
 				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
-				className="flex w-full max-w-fit flex-row"
+				className="flex w-full max-w-fit flex-row overflow-hidden"
 			>
 				<CarouselContent>
 					{team.map((p, index) => (

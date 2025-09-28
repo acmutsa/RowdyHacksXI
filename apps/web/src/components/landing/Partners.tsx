@@ -177,7 +177,7 @@ export default function Partners() {
           <motion.div
             key={tier}
             ref={tierRef}
-            className="w-full flex flex-col justify-center items-center mb-[-40px]"
+            className="w-full flex flex-col justify-center items-center mb-[-40px] overflow-hidden"
             style={{ scale }}
           >
 

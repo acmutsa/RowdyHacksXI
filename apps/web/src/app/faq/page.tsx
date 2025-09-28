@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
         <Navbar />
-            <div className="min-h-96 gap-4 bg-[#3B3486] px-2 pb-48 pt-12 font-oswald md:px-10 lg:gap-6">
+            <div className="min-h-96 gap-4 star-bg px-2 pb-48 pt-12 font-oswald md:px-10 lg:gap-6">
                 <Accordion
                     type="single"
                     collapsible

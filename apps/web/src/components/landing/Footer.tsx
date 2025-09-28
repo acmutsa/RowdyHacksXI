@@ -28,11 +28,18 @@ export default function Footer() {
 						data={section.data}
 						/>
 					))}
-					<div className="col-span-2 flex w-full items-start justify-between lg:col-span-5 -mt-6 sm:-mt-8">
+					<div className="col-span-2 flex w-full items-center justify-between lg:col-span-5 -mt-6 sm:-mt-8">
 						{/* HackKit on the left */}
 						<div className="justify-self-start">
 							<CreatedWithHackkit />
 						</div>
+
+						{/* Center text */}
+						<p className="text-center font-mono text-xs text-white-500 px-2">
+							Made with &lt;/&gt; &amp; ♥ @ RowdyHacks
+							<br />© RowdyHacks &amp; Association of Computing Machinery
+							at UTSA 2024. All Rights Reserved.
+						</p>
 
 						{/* Social bar on the right */}
 						<div className="flex items-center gap-x-2 rounded-lg border-black bg-[#222222] py-[6px] pl-[7px] pr-4 min-h-[48px]">
@@ -59,13 +66,6 @@ export default function Footer() {
 							</Link>
 						</div>
 					</div>
-
-					<p className=" col-span-2 self-center justify-self-center text-center font-mono text-xs text-white-500 sm:col-start-2 md:py-0 lg:col-span-3 lg:col-start-2 lg:row-start-2 lg:w-11/12">
-						Made with &lt;/&gt; &amp; ♥ @ RowdyHacks
-						<br />© RowdyHacks &amp; Association of Computing Machinery
-						at UTSA 2024. All Rights Reserved.
-					</p>
-
 				</div>
 			</footer>
 		</>

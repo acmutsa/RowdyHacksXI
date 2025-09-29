@@ -47,7 +47,49 @@ export default function About() {
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px] border-4 overflow-hidden">
+			<div className="relative flex flex-col justify-end w-full h-[250vh] border-4">
+				<div className="sticky bottom-0 w-full min-h-screen">
+					<div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px] border-4 overflow-hidden">
+						<motion.div className="w-full h-full"
+							style={{ scale: scaleUfo, translateX: translateXUfo }}
+						>
+							<motion.div className="flex justify-center w-full h-full"
+								style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync }}
+							>
+								<Image
+									className="w-auto h-full object-cover overflow-visible"
+									src="/img/about/ufo.svg"
+									width={500}
+									height={500}
+									alt="UFO"
+								/>	
+								<motion.div className="absolute top-[35%] px-20 text-center">
+									<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
+									<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
+										RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
+										It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
+										together to collaborate, innovate, and build real-world projects in 24 hours.
+									</p>
+								</motion.div>
+							</motion.div>
+						</motion.div>
+					</div>
+					<div ref={moonRef} className="relative flex flex-col w-full">
+						<div ref={ufoTransition} className="relative bottom-0 w-full">
+							<motion.div>
+								<Image 
+									className="w-full h-auto"
+									src="/img/about/moon_test.svg"
+									width={500}
+									height={500}
+									alt="Moon Background"
+								/>
+							</motion.div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/* <div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px] border-4 overflow-hidden">
 				<motion.div className="w-full h-full"
 					style={{ scale: scaleUfo, translateX: translateXUfo }}
 				>
@@ -84,7 +126,7 @@ export default function About() {
 						/>
 					</motion.div>
 				</div>
-			</div>
+			</div> */}
 		</section>
 	)
 }

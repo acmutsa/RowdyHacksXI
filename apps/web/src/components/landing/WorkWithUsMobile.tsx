@@ -67,11 +67,11 @@ const CarouselDefault = () => {
 	);
 };
 
-export default function WorkWithUs() {
+export default function WorkWithUsMobile() {
 	const sectionRef = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: sectionRef,
-		offset: ["start end", "end start"],
+		offset: ["start center", "end start"],
 	});
 
 	return (
@@ -79,7 +79,7 @@ export default function WorkWithUs() {
 			ref={sectionRef}
 			className="relative z-10 h-full w-full grid-cols-1"
 		>
-			<div className="relative h-[200vh] w-full">
+			<div className="relative h-[100vh] w-full">
 				<div className="absolute left-[50%] h-full w-full -translate-x-[50%]">
 					<motion.div
 						style={{
@@ -106,7 +106,7 @@ export default function WorkWithUs() {
 								alt="Ground 1"
 								width={1920}
 								height={1080}
-								className="z-1 h-[auto] w-full object-contain"
+								className="z-1 h-[auto] w-full overflow-y-hidden object-contain"
 								unoptimized
 							/>
 						</motion.div>
@@ -159,77 +159,47 @@ export default function WorkWithUs() {
 							<div className="absolute left-0 right-0 top-[100%] h-[100vh] w-full bg-[#3B3486]"></div>
 						</motion.div>
 
-						{/* Billboard */}
-						<motion.div
-							className="absolute bottom-0 origin-bottom"
-							style={{
-								translateY: useTransform(
-									scrollYProgress,
-									[0, 0.15, 0.4, 0.6],
-									["-80%", "-130%", "-50%", "15%"],
-								),
-								scale: useTransform(
-									scrollYProgress,
-									[0, 0.15, 0.4],
-									[0, 0.7, 1.3],
-								),
-								translateX: useTransform(
-									scrollYProgress,
-									[0.4, 0.6],
-									["0%", "-100%"],
-								),
-							}}
-						>
-							<Image
-								src={"/img/billboard.png"}
-								alt="Billboard"
-								width={1200}
-								height={800}
-								unoptimized
-								className="z-15 h-auto w-full origin-bottom object-contain"
-							/>
-
-							<div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
-								<div className="h-[45%] w-[50%] -translate-y-[40%]">
-									<h1 className="mb-6 text-center font-spaceranger text-2xl text-[#9EFF3C] drop-shadow-xl md:text-5xl lg:text-7xl">
-										Help Wanted
-									</h1>
-									<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
-										Want to get involved?
-									</h2>
-									<div className="flex flex-col items-center justify-center gap-5 pb-5 md:flex-row">
-										<Link
-											href={
-												"https://form.rowdyhacks.org/volunteer"
-											}
-										>
-											<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-												Volunteer Form
-											</button>
-										</Link>
-										<Link
-											href={
-												"https://form.rowdyhacks.org/mentor"
-											}
-										>
-											<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-												Mentor Form
-											</button>
-										</Link>
-									</div>
-									<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
-										Ready to become a sponsor?
-									</h2>
-									<div className="flex items-center justify-center pb-5">
-										<Link href="https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf">
-											<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-												Partner Packet
-											</button>
-										</Link>
-									</div>
+						{/* Help Wanted */}
+						<div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
+							<div className="h-[45%] w-[50%] -translate-y-[40%]">
+								<h1 className="mb-6 text-center font-spaceranger text-2xl text-[#9EFF3C] drop-shadow-xl md:text-5xl lg:text-7xl">
+									Help Wanted
+								</h1>
+								<h2 className="text-center font-league text-2xl text-white">
+									Want to get involved?
+								</h2>
+								<div className="flex flex-col items-center justify-center gap-5 pb-5 md:flex-row">
+									<Link
+										href={
+											"https://form.rowdyhacks.org/volunteer"
+										}
+									>
+										<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+											Volunteer Form
+										</button>
+									</Link>
+									<Link
+										href={
+											"https://form.rowdyhacks.org/mentor"
+										}
+									>
+										<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+											Mentor Form
+										</button>
+									</Link>
+								</div>
+								<h2 className="text-center font-league text-2xl text-white">
+									Ready to become a sponsor?
+								</h2>
+								<div className="flex items-center justify-center pb-5">
+									<Link href="https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf">
+										<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+											Partner Packet
+										</button>
+									</Link>
 								</div>
 							</div>
-						</motion.div>
+						</div>
 
 						{/* Ground 4 */}
 						<motion.div
@@ -255,12 +225,11 @@ export default function WorkWithUs() {
 								className="z-15 h-auto w-full object-contain"
 								unoptimized
 							/>
-							<div className="absolute left-0 right-0 top-[100%] h-[100vh] w-full bg-[#3B3486]"></div>
 						</motion.div>
 
 						{/* Wanted Board */}
 						<motion.div
-							className="absolute bottom-0 overflow-visible"
+							className="overflow absolute bottom-0"
 							style={{
 								translateX: useTransform(
 									scrollYProgress,

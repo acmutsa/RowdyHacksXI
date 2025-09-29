@@ -12,6 +12,7 @@ import Footer from "@/components/landing/Footer";
 import WorkWithUs from "@/components/landing/WorkWithUs";
 
 import Interest from "@/components/landing/Interest";
+import WorkWithUsMobile from "@/components/landing/WorkWithUsMobile";
 
 function sawtoothWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
 	// Calculate the period of the wave
@@ -90,7 +91,14 @@ export default function Landing() {
 			<Hero />
 			<About />
 			<Partners />
-			<WorkWithUs />
+			<>
+				<span className="hidden md:block">
+					<WorkWithUs />
+				</span>
+				<span className="block md:hidden">
+					<WorkWithUsMobile />
+				</span>
+			</>
 			<Footer />
 		</div>
 	);

@@ -19,7 +19,7 @@ const oswald = Oswald({
 
 export default function Home() {
 	return (
-		<div className={`${oswald.variable} w-full`}>
+		<div className={`${oswald.variable} w-full h-[100vh] min-w-[375px] min-h-[800px]`}>
 			<Navbar />
 			<MLHBadge />
 			<main className="relative bg-transparent">

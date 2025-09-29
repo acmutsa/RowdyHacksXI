@@ -33,98 +33,100 @@ export default function Hero() {
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
 	
 	return (
-		<section className="relative w-full min-h-screen">
+		<section className="relative w-full min-w-[375px]">
 			<div ref={secRef} className="relative flex flex-col justify-end w-full h-[150vh]">
 				<div className="sticky bottom-0 w-full min-h-screen">
-					<div className="relative flex flex-col justify-center items-center w-full h-full overflow-hidden">
-						<motion.div className="absolute bottom-0" style={{ translateY: translateYSand }}>
-							<Image 
-								className="w-full"
-								src={"/img/hero/sands.png"}
-								alt="Sands"
-								width={1000}
-								height={1000}
-								unoptimized={true}
-							/>
-							<Image
-								className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
-								src={"/img/hero/tumbleweed.svg"}
-								alt="Tumbleweed"
-								width={100}
-								height={100}
-								unoptimized={true}
-							/>
-							<Image
-								className="absolute bottom-[15%] left-[60%] z-20 w-[80px]"
-								src={"/img/hero/tumbleweed.svg"}
-								alt="Tumbleweed"
-								width={80}
-								height={80}
-								unoptimized={true}
-							/>
-						</motion.div>
-						<motion.div
-							className="absolute right-[10%] top-[10%] z-20 w-[120px]"
-							style={{
-								translateX: useTransform(
-									scrollYProgress,
-									[0, 1],
-									["0%", "150%"],
-								),
-								rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
-								x: floatX,
-								y: floatY,
-							}}
-						>
-							<Image
-								className="absolute right-[10%] top-[10%] z-20 w-[120px]"
-								src={"/img/hero/cow.svg"}
-								alt="Floating Cow"
-								width={120}
-								height={120}
-								unoptimized={true}
-							/>
-						</motion.div>
-						<motion.div
-							className="absolute z-30 w-full max-w-[1000px]"
-							style={{
-								translateX: useTransform(
-									scrollYProgress,
-									[0, 1],
-									["0", "-300%"],
-								),
-								translateY: useTransform(
-									scrollYProgress,
-									[0, 1],
-									["0%", "-100%"],
-								),
-								scale: useTransform(scrollYProgress, [0, 1], [1, 2]),
-								rotate: useTransform(
-									scrollYProgress,
-									[0, 1],
-									[0, -180],
-								),
-							}}
-						>
-							<div className="relative mx-auto">
-								<Image
-									src={"/img/hero/hero-title.svg"}
-									alt={"Rowdy Hacks Coming Fall '25"}
+					<div className="relative w-full h-full overflow-hidden">
+						<div className="relative flex flex-col justify-center items-center w-full h-full">
+							<motion.div className="absolute bottom-0" style={{ translateY: translateYSand }}>
+								<Image 
 									className="w-full"
+									src={"/img/hero/sands.png"}
+									alt="Sands"
 									width={1000}
 									height={1000}
 									unoptimized={true}
 								/>
 								<Image
-									src={"/img/hero/cactus.svg"}
-									className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
-									alt={"Cactus"}
-									width={1000}
-									height={1000}
+									className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
+									src={"/img/hero/tumbleweed.svg"}
+									alt="Tumbleweed"
+									width={100}
+									height={100}
 									unoptimized={true}
 								/>
-							</div>
-						</motion.div>
+								<Image
+									className="absolute bottom-[15%] left-[60%] z-20 w-[80px]"
+									src={"/img/hero/tumbleweed.svg"}
+									alt="Tumbleweed"
+									width={80}
+									height={80}
+									unoptimized={true}
+								/>
+							</motion.div>
+							<motion.div
+								className="absolute right-[10%] top-[10%] z-20 w-[120px]"
+								style={{
+									translateX: useTransform(
+										scrollYProgress,
+										[0, 1],
+										["0%", "150%"],
+									),
+									rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+									x: floatX,
+									y: floatY,
+								}}
+							>
+								<Image
+									className="absolute right-[10%] top-[10%] z-20 w-[120px]"
+									src={"/img/hero/cow.svg"}
+									alt="Floating Cow"
+									width={120}
+									height={120}
+									unoptimized={true}
+								/>
+							</motion.div>
+							<motion.div
+								className="absolute z-30 w-full max-w-[1000px]"
+								style={{
+									translateX: useTransform(
+										scrollYProgress,
+										[0, 1],
+										["0", "-300%"],
+									),
+									translateY: useTransform(
+										scrollYProgress,
+										[0, 1],
+										["0%", "-100%"],
+									),
+									scale: useTransform(scrollYProgress, [0, 1], [1, 2]),
+									rotate: useTransform(
+										scrollYProgress,
+										[0, 1],
+										[0, -180],
+									),
+								}}
+							>
+								<div className="relative mx-auto">
+									<Image
+										src={"/img/hero/hero-title.svg"}
+										alt={"Rowdy Hacks Coming Fall '25"}
+										className="w-full"
+										width={1000}
+										height={1000}
+										unoptimized={true}
+									/>
+									<Image
+										src={"/img/hero/cactus.svg"}
+										className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+										alt={"Cactus"}
+										width={1000}
+										height={1000}
+										unoptimized={true}
+									/>
+								</div>
+							</motion.div>
+						</div>
 					</div>
 				</div>
 			</div>

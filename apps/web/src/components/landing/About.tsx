@@ -1,281 +1,133 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, useMotionValue, useMotionValueEvent } from "framer-motion";
+import { relative } from 'path';
+import { MoonStarIcon } from 'lucide-react';
 
 export default function About() {
-	const ufoRef = useRef(null);
-	const ufoTransition = useRef(null);
+	const secRef = useRef(null);
 	const moonRef = useRef(null);
-	const transitionRef = useRef(null);
+	const ufoRef = useRef(null);
 
-	const { scrollYProgress: scrollYProgressUfo } = useScroll({
+	const { scrollYProgress: secScroll } = useScroll({
+		target: secRef,
+		offset: ["start end", "end end"]
+	})
+	const { scrollYProgress: ufoScroll } = useScroll({
 		target: ufoRef,
 		offset: ["start end", "start start"]
 	})
-	const { scrollYProgress: scrollYProgressUfoTransition } = useScroll({
-		target: ufoTransition,
-		offset: ["end end", "start start"]
-	})
-	const { scrollYProgress: scrollYProgressMoon } = useScroll({
-		target: moonRef,
-		offset: ["start end", "end end"]
-	})
-	const { scrollYProgress: scrollYProgressTransition } = useScroll({
-		target: transitionRef,
-		offset: ["center end", "end end"]
-	})
 
-	// Ufo Animation with UfoRef 
-	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.8], [0.1, 1]);
-	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.8], ["-100%", "0%"]);
-	// Ufo Animation with MoonRef
-	const scaleUfoSync = useTransform(scrollYProgressUfoTransition, [0, 1], [1, 4]);
-	const translateXUfoSync = useTransform(scrollYProgressUfoTransition, [0.5, 0.8], ["0%", "100%"]);
-	const translateYUfoSync = useTransform(scrollYProgressUfoTransition, [0.5, 0.8], ["0%", "-100%"]);
-	// Moon Animation
-	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], [1, 10]);
-	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "10%"]);
-	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "150%"]);
-	// Sign Animation
-	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.8], [0.075, 1]);
-	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-10%", "0%"]);
-	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-15%", "0%"]);
-	// Transition Animation
-	const scaleTransition = useTransform(scrollYProgressTransition, [0, 1], [1, 0.4]);
-	const translateXTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "25%"]);
-	const translateYTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "200%"]);
+	const inView = useInView(moonRef, { amount: "all" });
+	const [startValue, setStartValue] = useState(null);
+
+	useEffect(() => {
+		return secScroll.on("change", (latest) => {
+			if (inView && startValue == null) {
+				setStartValue(latest);
+			}
+		});
+	}, [inView, startValue, secScroll])
+	
+	const relativeScroll = useTransform(secScroll, latest => {
+		if (startValue == null) return 0;
+		return (latest - startValue) / (1 - startValue);
+	});
+
+	const scaleUfo = useTransform(ufoScroll, [0, 0.8], [0.1, 1]);
+	const xUfo = useTransform(ufoScroll, [0, 0.8], ["-100%", "0%"]);
+
+	const scaleUfoTransition = useTransform(relativeScroll, [0, 0.35], [1, 4]);
+	const xUfoTransition = useTransform(relativeScroll, [0, 0.35], ["0%", "250%"]);
+
+	const scaleMoon = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], [1, 8, 1, 1, 4]);
+	const yMoon = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], ["0%", "100%", "0%", "0%", "400%"]);
+
+	const scaleSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.7], [0.075, 1, 1, 0.075]);
+	const xSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.7], ["-10%", "0%", "0%", "-10%"]);
+	const ySign = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], ["-25%", "0%", "-40%", "-40%", "400%"]);
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div className="relative flex flex-col justify-end w-full h-[250vh] border-4">
+			<div ref={secRef} className="relative flex flex-col justify-end w-full h-[350vh] min-h-[calc(800px*3)]">
 				<div className="sticky bottom-0 w-full min-h-screen">
-					<div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px] border-4 overflow-hidden">
-						<motion.div className="w-full h-full"
-							style={{ scale: scaleUfo, translateX: translateXUfo }}
-						>
-							<motion.div className="flex justify-center w-full h-full"
-								style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync }}
+					<div className="w-full h-full overflow-hidden">
+						<div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px]">
+							<motion.div className="w-full h-full"
+								style={{ scale: scaleUfo, translateX: xUfo }}
 							>
-								<Image
-									className="w-auto h-full object-cover overflow-visible"
-									src="/img/about/ufo.svg"
-									width={500}
-									height={500}
-									alt="UFO"
-								/>	
-								<motion.div className="absolute top-[35%] px-20 text-center">
-									<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
-									<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
-										RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
-										It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
-										together to collaborate, innovate, and build real-world projects in 24 hours.
-									</p>
+								<motion.div className="flex justify-center w-full h-full"
+									style={{ scale: scaleUfoTransition, translateX: xUfoTransition }}	
+								>
+									<Image
+										className="w-auto h-full object-cover overflow-visible"
+										src="/img/about/ufo.svg"
+										width={500}
+										height={500}
+										alt="UFO"
+									/>	
+									<motion.div className="absolute top-[35%] px-20 text-center">
+										<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
+										<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
+											RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
+											It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
+											together to collaborate, innovate, and build real-world projects in 24 hours.
+										</p>
+									</motion.div>
 								</motion.div>
 							</motion.div>
-						</motion.div>
-					</div>
-					<div ref={moonRef} className="relative flex flex-col w-full">
-						<div ref={ufoTransition} className="relative bottom-0 w-full">
-							<motion.div>
+						</div>
+						<div ref={moonRef} className="relative w-full h-auto">
+							<motion.div className="relative w-full h-auto origin-bottom"
+								style={{ scale: scaleMoon, translateY: yMoon }}
+							>
 								<Image 
 									className="w-full h-auto"
 									src="/img/about/moon_test.svg"
 									width={500}
 									height={500}
-									alt="Moon Background"
+									alt="Moon"
 								/>
+							</motion.div>
+							<motion.div className="absolute w-full h-full bottom-0 origin-bottom"
+								style={{ scale: scaleSign, translateX: xSign,  translateY: ySign }}
+							>
+								<div className="absolute flex justify-center items-center w-full h-screen bottom-0">
+									<div className="absolute flex justify-center items-center w-[500px] h-[700px] z-20">
+										<Image 
+											className="absolute w-[500px] h-[700px] object-cover overflow-visible"
+											src="/img/about/new_sign.svg"
+											width={500}
+											height={500}
+											alt="Sign"
+										/>
+										<motion.div className="absolute flex flex-col w-full h-full pt-[15%]">
+											<div className="relative w-full h-[26%] px-[16%] text-center">
+												<h1 className="font-texas-tango text-3xl/6 text-black tracking-tighter">Who Can Attend?</h1>
+												<p className="font-bang-bang text-[33px]/8 text-black">
+													Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
+												</p>
+											</div>
+											<div className="relative w-full h-[21%] mt-[14%] px-[15%] text-center">
+												<p className="font-bang-bang text-[33px]/8 text-black">
+													Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
+												</p>
+											</div>
+										</motion.div>
+									</div>
+									<Image 
+										className="absolute w-full h-full z-10 overflow-visible object-cover"
+										src="/img/about/sign_background.svg"
+										width={500}
+										height={500}
+										alt="Sign Background"
+									/>
+								</div>
 							</motion.div>
 						</div>
 					</div>
 				</div>
 			</div>
-			{/* <div ref={ufoRef} className="relative w-full h-screen min-w-[375px] min-h-[800px] border-4 overflow-hidden">
-				<motion.div className="w-full h-full"
-					style={{ scale: scaleUfo, translateX: translateXUfo }}
-				>
-					<motion.div className="flex justify-center w-full h-full"
-						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync }}
-					>
-						<Image
-							className="w-auto h-full object-cover overflow-visible"
-							src="/img/about/ufo.svg"
-							width={500}
-							height={500}
-							alt="UFO"
-						/>	
-						<motion.div className="absolute top-[35%] px-20 text-center">
-							<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
- 							<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
- 								RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
- 								It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
-								together to collaborate, innovate, and build real-world projects in 24 hours.
- 							</p>
-						</motion.div>
-					</motion.div>
-				</motion.div>
-			</div>
-			<div ref={moonRef} className="relative flex flex-col justify-end w-full h-[150vh] border-4">
-				<div ref={ufoTransition} className="sticky bottom-0 w-full min-auto border-4 border-blue-500">
-					<motion.div>
-						<Image 
-							className="w-full h-auto"
-							src="/img/about/moon_test.svg"
-							width={500}
-							height={500}
-							alt="Moon Background"
-						/>
-					</motion.div>
-				</div>
-			</div> */}
 		</section>
 	)
 }
-
-
-// import Image from "next/image";
-// import { useRef } from "react";
-// import { motion, useScroll, useTransform } from "framer-motion";
-
-// export default function About() {
-// 	const ufoRef = useRef(null);
-// 	const moonRef = useRef(null);
-// 	const transitionRef = useRef(null);
-
-// 	// UFO scrollYProgress
-// 	const { scrollYProgress: scrollYProgressUfo } = useScroll({
-// 		target: ufoRef,
-// 		offset: ["start end", "end start"]
-// 	})
-// 	// Moon scrollYProgress
-// 	const { scrollYProgress: scrollYProgressMoon } = useScroll({
-// 		target: moonRef,
-// 		offset: ["start end", "end end"]
-// 	})
-// 	// TransitionOut scrollYProgress
-// 	const { scrollYProgress: scrollYProgressTransition } = useScroll({
-// 		target: transitionRef,
-// 		offset: ["center end", "end end"]
-// 	})
-
-// 	// Reason why UFO is using 2 different refs is because one is for the start of the
-// 	// section and the second one is so it can be in sync with the sign animation 
-// 	// when it is zooming out.
-// 	// Ufo Animation with UfoRef 
-// 	const scaleUfo = useTransform(scrollYProgressUfo, [0, 0.5], [0.1, 1]);
-// 	const translateXUfo = useTransform(scrollYProgressUfo, [0, 0.5], ["-100%", "0%"]);
-// 	// Ufo Animation with MoonRef
-// 	const scaleUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.8], [1, 4]);
-// 	const translateXUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "100%"]);
-// 	const translateYUfoSync = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "-100%"]);
-// 	// Moon Animation
-// 	const scaleMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], [1, 10]);
-// 	const translateXMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "10%"]);
-// 	const translateYMoon = useTransform(scrollYProgressMoon, [0.5, 0.8], ["0%", "150%"]);
-// 	// Sign Animation
-// 	const scaleSign = useTransform(scrollYProgressMoon, [0.5, 0.8], [0.075, 1]);
-// 	const translateXSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-10%", "0%"]);
-// 	const translateYSign = useTransform(scrollYProgressMoon, [0.5, 0.8], ["-15%", "0%"]);
-// 	// Transition Animation
-// 	const scaleTransition = useTransform(scrollYProgressTransition, [0, 1], [1, 0.4]);
-// 	const translateXTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "25%"]);
-// 	const translateYTransition = useTransform(scrollYProgressTransition, [0, 1], ["0%", "200%"]);
-
-
-// 	return (
-// 		<section className="relative flex flex-col justify-center w-full h-auto min-w-[375px] min-h-[800px] z-10">
-// 			{/* Div for UFO Section */}
-// 			<div ref={ufoRef} className="relative w-auto h-screen min-w-[375px] min-h-[800px] z-30">
-// 				{/* MotionDiv for UFO (start animation) */}
-// 				<motion.div 
-// 					className="absolute w-full h-full bottom-0 origin-bottom"
-// 					style={{ scale: scaleUfo, translateX: translateXUfo }}
-// 				>
-// 					{/* MotionDiv for UFO (sync animation with sign) */}
-// 					<motion.div 
-// 						className="absolute flex justify-center items-center w-full h-full bottom-0 origin-bottom"
-// 						style={{ scale: scaleUfoSync, translateX: translateXUfoSync, translateY: translateYUfoSync }}
-// 					>
-// 						{/* Div for UFO and Text */}
-// 						<div className="absolute flex justify-center items-center w-auto h-[90%] bottom-0 origin-bottom">
-// 							{/* UFO */}
-// 							<Image
-// 								className="w-auto h-full object-cover overflow-visible"
-// 								src="/img/about/ufo.svg"
-// 								width={500}
-// 								height={500}
-// 								alt="UFO"
-// 							/>
-// 							{/* MotionDiv for Text Animation */}
-// 							<motion.div className="absolute top-[35%] px-20 text-center">
-// 								<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
-// 								<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
-// 									RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
-// 									It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
-// 									together to collaborate, innovate, and build real-world projects in 24 hours.
-// 								</p>
-// 							</motion.div>
-// 						</div>
-// 					</motion.div>
-// 				</motion.div>
-// 			</div>
-// 			{/* Div for Moon and Sign */}
-// 			<motion.div ref={moonRef} className="relative flex justify-center items-center w-full h-auto min-w-[375px] z-20"
-// 				// style={{ scale: scaleTransition }}
-// 			>
-// 				{/* MotionDiv for Moon Animation*/}
-// 				<motion.div 
-// 					className="relative w-full h-auto origin-center z-10"
-// 					style={{ scale: scaleMoon, translateX: translateXMoon, translateY: translateYMoon }}
-// 				>
-// 					{/* Moon */}
-// 					<Image 
-// 						className="w-full h-auto"
-// 						src="/img/about/moon.svg"
-// 						width={500}
-// 						height={500}
-// 						alt="Moon Background"
-// 					/>
-// 				</motion.div>
-// 				{/* MotionDiv for Sign Animation */}
-// 				<motion.div 
-// 					className="absolute flex justify-center items-center w-full h-full origin-center z-20"
-// 					style={{ scale: scaleSign, translateX: translateXSign, translateY: translateYSign }}
-// 				>
-// 					{/* Div for Sign & Text */}
-// 					<div className="absolute flex justify-center items-center w-[500px] h-[700px] z-20">
-// 						{/* Sign */}
-// 						<Image 
-// 							className="w-[500px] h-[700px] object-cover overflow-visible"
-// 							src="/img/about/new_sign.svg"
-// 							width={500}
-// 							height={500}
-// 							alt="Sign"
-// 						/>
-// 						{/* MotionDiv for Text Animation */}
-// 						<motion.div className="absolute flex flex-col w-full h-full pt-[15%]">
-// 							<div className="relative w-full h-[26%] px-[16%] text-center">
-// 								<h1 className="font-texas-tango text-3xl/6 text-black tracking-tighter">Who Can Attend?</h1>
-// 								<p className="font-bang-bang text-[33px]/8 text-black">
-// 									Everyone is welcome. RowdyHacks is open to all students and beginners no matter your major, skill level, or background. 
-// 								</p>
-// 							</div>
-// 							<div className="relative w-full h-[21%] mt-[14%] px-[15%] text-center">
-// 								<p className="font-bang-bang text-[33px]/8 text-black">
-// 									Whether you're a first-time hacker, an experienced developer, or just curious about tech, there's a place for you here.
-// 								</p>
-// 							</div>
-// 						</motion.div>
-// 					</div>
-// 					<Image 
-// 						className="absolute min-w-[1000px] w-full h-auto z-10"
-// 						src="/img/about/sign_background.svg"
-// 						width={500}
-// 						height={500}
-// 						alt="Sign Background"
-// 					/>
-// 				</motion.div>
-// 			</motion.div>
-// 			<motion.div ref={transitionRef} className="relative w-full h-[400px] z-10"/>
-// 		</section>
-// 	)
-// }

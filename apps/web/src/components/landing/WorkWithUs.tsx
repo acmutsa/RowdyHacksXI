@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from 'next/image';
+import Link from 'next/link';
 import axios from "axios";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "../shadcn/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -57,11 +58,11 @@ export default function WorkWithUs() {
 	})
 
 	return (
-		<section className="relative w-full min-w-[375px] min-h-[800px]">
+		<section className="relative w-full min-w-[500px] min-h-[800px]">
 			<div ref={secRef} className="relative flex justify-center items-end w-full h-[200vh] min-h-[800px]">
 				<div className="sticky bottom-0 w-full h-screen min-h-screen">
-					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden border-4 border-blue-500">
-						<motion.div className="relative w-full h-full border-4">
+					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden">
+						<motion.div className="relative w-full h-full">
 							<Image 
 								className="absolute w-full h-auto bottom-0"
 								src="/img/work/Ground1.png"
@@ -76,13 +77,64 @@ export default function WorkWithUs() {
 								height={1080}
 								alt="Ground2"
 							/>
-							<Image 
+						</motion.div>
+						<motion.div className="absolute flex justify-center w-full h-full bottom-0">
+							<Image
 								className="absolute w-full h-auto bottom-0"
 								src="/img/work/Ground3.png"
 								width={1920}
 								height={1080}
 								alt="Ground3"
 							/>
+							<div className="absolute flex justify-center min-w-[500px] h-[500px] bottom-0 border-4 border-blue-500">
+								<Image
+									className="absolute w-full h-auto bottom-0 border-4"
+									src="/img/work/billboard_new.png"
+									width={1920}
+									height={1080}
+									alt="Billboard"
+								/>
+								<div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
+									<div className="h-[45%] w-[50%] -translate-y-[40%]">
+										<h1 className="mb-6 text-center font-spaceranger text-2xl text-[#9EFF3C] drop-shadow-xl md:text-5xl lg:text-7xl">
+											Help Wanted
+										</h1>
+										<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
+											Want to get involved?
+										</h2>
+										<div className="flex flex-col items-center justify-center gap-5 pb-5 md:flex-row">
+											<Link
+												href={
+													"https://form.rowdyhacks.org/volunteer"
+												}
+											>
+												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+													Volunteer Form
+												</button>
+											</Link>
+											<Link
+												href={
+													"https://form.rowdyhacks.org/mentor"
+												}
+											>
+												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+													Mentor Form
+												</button>
+											</Link>
+										</div>
+										<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
+											Ready to become a sponsor?
+										</h2>
+										<div className="flex items-center justify-center pb-5">
+											<Link href="https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf">
+												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
+													Partner Packet
+												</button>
+											</Link>
+										</div>
+									</div>
+								</div>
+							</div>
 						</motion.div>
 					</div>
 				</div>

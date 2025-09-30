@@ -58,20 +58,20 @@ export default function WorkWithUs() {
 	})
 
 	return (
-		<section className="relative w-full min-w-[500px] min-h-[800px]">
+		<section className="relative w-full min-w-[375px] min-h-[800px]">
 			<div ref={secRef} className="relative flex justify-center items-end w-full h-[200vh] min-h-[800px]">
 				<div className="sticky bottom-0 w-full h-screen min-h-screen">
 					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden">
 						<motion.div className="relative w-full h-full">
 							<Image 
-								className="absolute w-full h-auto bottom-0"
+								className="absolute w-full h-full object-cover overflow-visible bottom-0"
 								src="/img/work/Ground1.png"
 								width={1920}
 								height={1080}
 								alt="Ground1"
 							/>
 							<Image 
-								className="absolute w-full h-auto bottom-0"
+								className="absolute w-full h-full object-cover overflow-visible bottom-0"
 								src="/img/work/Ground2.png"
 								width={1920}
 								height={1080}
@@ -80,21 +80,24 @@ export default function WorkWithUs() {
 						</motion.div>
 						<motion.div className="absolute flex justify-center w-full h-full bottom-0">
 							<Image
-								className="absolute w-full h-auto bottom-0"
+								className="absolute w-full h-full object-cover overflow-visible bottom-0 border-4 border-blue-500"
 								src="/img/work/Ground3.png"
 								width={1920}
 								height={1080}
 								alt="Ground3"
 							/>
-							<div className="absolute flex justify-center min-w-[500px] h-[500px] bottom-0 border-4 border-blue-500">
+							<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
 								<Image
-									className="absolute w-full h-auto bottom-0 border-4"
+									className="absolute w-full h-auto bottom-0 object-cover overflow-visible"
 									src="/img/work/billboard_new.png"
 									width={1920}
 									height={1080}
 									alt="Billboard"
 								/>
-								<div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
+								<div className="relative w-full h-full border-4 border-yellow-500">
+
+								</div>
+								{/* <div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
 									<div className="h-[45%] w-[50%] -translate-y-[40%]">
 										<h1 className="mb-6 text-center font-spaceranger text-2xl text-[#9EFF3C] drop-shadow-xl md:text-5xl lg:text-7xl">
 											Help Wanted
@@ -133,7 +136,7 @@ export default function WorkWithUs() {
 											</Link>
 										</div>
 									</div>
-								</div>
+								</div> */}
 							</div>
 						</motion.div>
 					</div>

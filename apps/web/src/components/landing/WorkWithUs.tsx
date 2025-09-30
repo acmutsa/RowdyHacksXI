@@ -56,24 +56,24 @@ export default function WorkWithUs() {
 		target: secRef,
 		offset: ["start start", "end end"]
 	})
-	const xBillboard = useTransform(secScroll, [0, 0.5], ["0%", "-100%"]);
-	
+	const xBillboard = useTransform(secScroll, [0.2, 0.9], ["0%", "-100%"]);
+	const xWantedBoard = useTransform(secScroll, [0, 0.2, 0.9], ["100%", "100%", "0%"])
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={secRef} className="relative flex justify-center items-end w-full h-[200vh] min-h-[800px]">
+			<div ref={secRef} className="relative flex justify-center items-end w-full h-[175vh] min-h-[800px]">
 				<div className="sticky bottom-0 w-full h-screen min-h-screen">
-					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden">
-						<motion.div className="relative w-full h-full">
+					<div className="relative flex flex-col justify-center items-center w-full h-full overflow-hidden">
+						<motion.div className="absolute w-full h-full bottom-0">
 							<Image 
-								className="absolute w-full h-full object-cover object-bottom overflow-visible bottom-0"
+								className="absolute w-full h-auto md:h-full md:object-cover object-bottom overflow-visible bottom-0"
 								src="/img/work/Ground1.png"
 								width={1920}
 								height={1080}
 								alt="Ground1"
 							/>
 							<Image 
-								className="absolute w-full h-full object-cover object-bottom overflow-visible bottom-0"
+								className="absolute w-full h-auto md:h-full md:object-cover object-bottom overflow-visible bottom-0"
 								src="/img/work/Ground2.png"
 								width={1920}
 								height={1080}
@@ -81,7 +81,7 @@ export default function WorkWithUs() {
 							/>
 						</motion.div>
 						<Billboard xBillboard={xBillboard}/>
-						<WantedBoard />
+						<WantedBoard xWantedBoard={xWantedBoard}/>
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@ function Billboard({ xBillboard }: { xBillboard: MotionValue<string> }) {
 			style={{ translateX: xBillboard}}
 		>
 			<Image
-				className="absolute w-full h-full object-cover object-bottom object-visible bottom-0"
+				className="absolute w-full h-auto md:h-full md:object-cover object-bottom object-visible bottom-0"
 				src="/img/work/Ground3.png"
 				width={1920}
 				height={1080}
@@ -103,7 +103,7 @@ function Billboard({ xBillboard }: { xBillboard: MotionValue<string> }) {
 			/>
 			<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
 				<Image
-					className="absolute w-full h-full bottom-0 object-cover object-bottom overflow-visible"
+					className="absolute w-full h-full bottom-0 md:object-cover object-bottom overflow-visible"
 					src="/img/work/billboard_new.png"
 					width={1920}
 					height={1080}
@@ -136,11 +136,13 @@ function Billboard({ xBillboard }: { xBillboard: MotionValue<string> }) {
 	)
 }
 
-function WantedBoard() {
+function WantedBoard({ xWantedBoard }: { xWantedBoard: MotionValue<string> }) {
 	return (
-		<motion.div className="absolute flex justify-center w-full h-full bottom-0">
+		<motion.div className="absolute flex justify-center w-full h-full bottom-0"
+			style={{ translateX: xWantedBoard }}
+		>
 			<Image
-				className="absolute w-full h-full object-cover object-bottom object-visible bottom-0"
+				className="absolute w-full h-auto md:h-full md:object-cover object-bottom object-visible bottom-0"
 				src="/img/work/Ground4.png"
 				width={1920}
 				height={1080}
@@ -148,7 +150,7 @@ function WantedBoard() {
 			/>
 			<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
 				<Image 
-					className="absolute w-full h-full bottom-0 object-cover object-bottom overflow-visible"
+					className="absolute w-full h-full bottom-0 md:object-cover object-bottom overflow-visible"
 					src="/img/work/wanted_new.png"
 					width={1920}
 					height={1080}

@@ -108,7 +108,7 @@ export default function Partners() {
   const rockImgs = ["rock1.png", "rock2.png", "rock3.png"];
 
   return (
-    <section className="min-h-screen w-full">
+    <section className="relative w-full min-w-[375px] min-h-[800px] overflow-hidden">
       {/* ===== centered title sponsor (the sun) ===== */}
       {titlePartners.length > 0 && (
         <div className="w-full flex flex-col items-center justify-center py-16">
@@ -177,7 +177,7 @@ export default function Partners() {
           <motion.div
             key={tier}
             ref={tierRef}
-            className="w-full flex flex-col justify-center items-center mb-[-40px] overflow-hidden"
+            className="w-full flex flex-col justify-center items-center mb-[-40px]"
             style={{ scale }}
           >
 

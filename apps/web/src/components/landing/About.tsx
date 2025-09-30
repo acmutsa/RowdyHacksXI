@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useInView, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { relative } from 'path';
-import { MoonStarIcon } from 'lucide-react';
 
 export default function About() {
 	const secRef = useRef(null);
@@ -40,12 +38,13 @@ export default function About() {
 	const scaleUfoTransition = useTransform(relativeScroll, [0, 0.35], [1, 4]);
 	const xUfoTransition = useTransform(relativeScroll, [0, 0.35], ["0%", "250%"]);
 
-	const scaleMoon = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], [1, 8, 1, 1, 4]);
-	const yMoon = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], ["0%", "100%", "0%", "0%", "400%"]);
+	const scaleMoon = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9, 0.925, 1], [1, 8, 8, 1, 1.5, 3, 5]);
+	const xMoon = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8], ["0%", "50%", "50%", "0%"]);	
+	const yMoon = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9, 0.925, 1], ["0%", "250%", "50%", "0%", "50%", "200%", "450%"]);
 
-	const scaleSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.7], [0.075, 1, 1, 0.075]);
-	const xSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.7], ["-10%", "0%", "0%", "-10%"]);
-	const ySign = useTransform(relativeScroll, [0, 0.35, 0.7, 0.85, 1], ["-25%", "0%", "-40%", "-40%", "400%"]);
+	const scaleSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], [0.075, 1, 1, 0.075, 0.1]);
+	const xSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], ["-10%", "0%", "0%", "-10%", "-15%"]);
+	const ySign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], ["-30%", "40%", "-30%", "-30%", "20%"]);
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
@@ -72,14 +71,14 @@ export default function About() {
 											RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
 											It's a weekend-long event where students, tech enthusiasts, and creative minds from all backgrounds come
 											together to collaborate, innovate, and build real-world projects in 24 hours.
-										</p>
+										</p> 
 									</motion.div>
 								</motion.div>
 							</motion.div>
 						</div>
 						<div ref={moonRef} className="relative w-full h-auto">
 							<motion.div className="relative w-full h-auto origin-bottom"
-								style={{ scale: scaleMoon, translateY: yMoon }}
+								style={{ scale: scaleMoon, translateX: xMoon, translateY: yMoon }}
 							>
 								<Image 
 									className="w-full h-auto"
@@ -90,16 +89,19 @@ export default function About() {
 								/>
 							</motion.div>
 							<motion.div className="absolute w-full h-full bottom-0 origin-bottom"
-								style={{ scale: scaleSign, translateX: xSign,  translateY: ySign }}
+								style={{ scale: scaleSign, translateX: xSign, translateY: ySign }}
+								//style={{ scale: scaleSign, translateX: xSign,  translateY: ySign }}
 							>
 								<div className="absolute flex justify-center items-center w-full h-screen bottom-0">
 									<div className="absolute flex justify-center items-center w-[500px] h-[700px] z-20">
 										<Image 
-											className="absolute w-[500px] h-[700px] object-cover overflow-visible"
+											className="absolute w-[500px] h-[700px] object-cover overflow-visible will-change-transform"
 											src="/img/about/new_sign.svg"
 											width={500}
 											height={500}
 											alt="Sign"
+											quality={10}
+											priority
 										/>
 										<motion.div className="absolute flex flex-col w-full h-full pt-[15%]">
 											<div className="relative w-full h-[26%] px-[16%] text-center">
@@ -116,7 +118,7 @@ export default function About() {
 										</motion.div>
 									</div>
 									<Image 
-										className="absolute w-full h-full z-10 overflow-visible object-cover"
+										className="absolute w-full h-full z-10 min-w-[600px]"
 										src="/img/about/sign_background.svg"
 										width={500}
 										height={500}

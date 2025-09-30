@@ -1,9 +1,71 @@
-"use client";
-
 import { Person } from "./Person";
 import { Card, CardContent, CardFooter } from "../shadcn/ui/card";
 import Image from "next/image";
 import { useState } from "react";
+
+export default function TeamMember({ person }: { person: Person }) {
+	const [src, setSrc] = useState(person.imgLink);
+	// const [styling, setStyling] = useState(
+	// 	"max-w-[160px] md:max-w-[200px] lg:max-w-[240px] 2xl:max-w-[280px] h-auto rounded-lg",
+	// );
+
+	// const FallBackStyling =
+	// 	"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
+
+	return (
+		<Card className={`flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}>
+			<div className="text-[#FEF2E6]">
+				<CardContent className="flex items-center justify-center">
+					{/* This also needs to be fixed */}
+					<Image
+						className=""
+						width={400}
+						height={400}
+						src={src}
+						quality={100}
+						priority={true}
+						alt="Person Placeholder"
+					/>
+				</CardContent>
+				{/* <CardFooter>
+					<div
+						className={
+							"flex h-full w-full items-baseline justify-center gap-3"
+						}
+					>
+						<a
+							href={person.linkedin}
+							target="_blank"
+							className={person.linkedin ? "" : "hidden"}
+						>
+							<div className={"size-8"}>
+								<LinkedIn fillColor={"fill-gray-400"} />
+							</div>
+						</a>
+						<a
+							href={person.website}
+							target="_blank"
+							className={person.website ? "" : "hidden"}
+						>
+							<div className={"size-8"}>
+								<Website fillColor={"fill-gray-400"} />
+							</div>
+						</a>
+						<a
+							href={person.github}
+							target="_blank"
+							className={person.github ? "" : "hidden"}
+						>
+							<div className={"size-8"}>
+								<Github fillColor={"fill-gray-400"} />
+							</div>
+						</a>
+					</div>
+				</CardFooter> */}
+			</div>
+		</Card>
+	);
+}
 
 // function LinkedIn({ fillColor }: { fillColor: string }) {
 // 	return (
@@ -48,75 +110,3 @@ import { useState } from "react";
 // 		</svg>
 // 	);
 // }
-
-export default function TeamMember({ person }: { person: Person }) {
-	// Edit the max width and height and then set the height to auto in the styling
-
-	const [src, setSrc] = useState(person.imgLink);
-	const [styling, setStyling] = useState(
-		"max-w-[160px] md:max-w-[200px] lg:max-w-[240px] 2xl:max-w-[280px] h-auto rounded-lg",
-	);
-
-	const FallBackStyling =
-		"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
-
-	return (
-		<Card
-			className={`flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}
-		>
-			<div className="text-[#FEF2E6]">
-				<CardContent className="flex items-center justify-center">
-					{/* This also needs to be fixed */}
-					<Image
-						width={400}
-						height={400}
-						src={src}
-						className={`${styling}`}
-						quality={100}
-						priority={true}
-						alt="Person Placeholder"
-						onError={(e) => {
-							setSrc("/img/Josh_Silva.jpg");
-							setStyling(FallBackStyling);
-						}}
-					/>
-				</CardContent>
-				{/* <CardFooter>
-					<div
-						className={
-							"flex h-full w-full items-baseline justify-center gap-3"
-						}
-					>
-						<a
-							href={person.linkedin}
-							target="_blank"
-							className={person.linkedin ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<LinkedIn fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-						<a
-							href={person.website}
-							target="_blank"
-							className={person.website ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<Website fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-						<a
-							href={person.github}
-							target="_blank"
-							className={person.github ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<Github fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-					</div>
-				</CardFooter> */}
-			</div>
-		</Card>
-	);
-}

@@ -33,7 +33,7 @@ export default function Hero() {
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
 	
 	return (
-		<section className="relative w-full min-w-[375px]">
+		<section className="relative w-full min-w-[375px] min-h-[800px]">
 			<div ref={secRef} className="relative flex flex-col justify-end w-full h-[150vh]">
 				<div className="sticky bottom-0 w-full min-h-screen">
 					<div className="relative w-full h-full overflow-hidden">

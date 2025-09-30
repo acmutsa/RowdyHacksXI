@@ -44,7 +44,7 @@ export default function About() {
 
 	const scaleSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], [0.075, 1, 1, 0.075, 0.1]);
 	const xSign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], ["-10%", "0%", "0%", "-10%", "-15%"]);
-	const ySign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9], ["-30%", "40%", "-30%", "-30%", "20%"]);
+	const ySign = useTransform(relativeScroll, [0, 0.35, 0.6, 0.8, 0.9, 1], ["-30%", "40%", "-30%", "-30%", "20%", "60%"]);
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">

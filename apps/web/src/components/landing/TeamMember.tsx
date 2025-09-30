@@ -13,59 +13,77 @@ export default function TeamMember({ person }: { person: Person }) {
 	// 	"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
 
 	return (
-		<Card className={`flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}>
-			<div className="text-[#FEF2E6]">
-				<CardContent className="flex items-center justify-center">
-					{/* This also needs to be fixed */}
+		<div className="w-full h-full overflow-visible bg-transparent border-none">
+			<Card className="relative flex items-center justify-center w-full h-full bg-transparent border-none">
+				<CardContent className="flex items-center justify-center w-full h-full bg-transparent border-none">
 					<Image
-						className=""
-						width={400}
-						height={400}
+						className="w-full h-full object-cover overflow-visible bg-transparent border-none"
 						src={src}
+						width={500}
+						height={500}
 						quality={100}
 						priority={true}
-						alt="Person Placeholder"
+						alt="Person"
 					/>
 				</CardContent>
-				{/* <CardFooter>
-					<div
-						className={
-							"flex h-full w-full items-baseline justify-center gap-3"
-						}
-					>
-						<a
-							href={person.linkedin}
-							target="_blank"
-							className={person.linkedin ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<LinkedIn fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-						<a
-							href={person.website}
-							target="_blank"
-							className={person.website ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<Website fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-						<a
-							href={person.github}
-							target="_blank"
-							className={person.github ? "" : "hidden"}
-						>
-							<div className={"size-8"}>
-								<Github fillColor={"fill-gray-400"} />
-							</div>
-						</a>
-					</div>
-				</CardFooter> */}
-			</div>
-		</Card>
-	);
+			</Card>
+		</div>
+	)
 }
+// 	return (
+// 		<Card className={`relative flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}>
+// 			<div className="text-[#FEF2E6]">
+// 				<CardContent className="flex items-center justify-center">
+// 					{/* This also needs to be fixed */}
+// 					<Image
+// 						className="w-full h-full border-4"
+// 						width={400}
+// 						height={400}
+// 						src={src}
+// 						quality={100}
+// 						priority={true}
+// 						alt="Person Placeholder"
+// 					/>
+// 				</CardContent>
+// 				{/* <CardFooter>
+// 					<div
+// 						className={
+// 							"flex h-full w-full items-baseline justify-center gap-3"
+// 						}
+// 					>
+// 						<a
+// 							href={person.linkedin}
+// 							target="_blank"
+// 							className={person.linkedin ? "" : "hidden"}
+// 						>
+// 							<div className={"size-8"}>
+// 								<LinkedIn fillColor={"fill-gray-400"} />
+// 							</div>
+// 						</a>
+// 						<a
+// 							href={person.website}
+// 							target="_blank"
+// 							className={person.website ? "" : "hidden"}
+// 						>
+// 							<div className={"size-8"}>
+// 								<Website fillColor={"fill-gray-400"} />
+// 							</div>
+// 						</a>
+// 						<a
+// 							href={person.github}
+// 							target="_blank"
+// 							className={person.github ? "" : "hidden"}
+// 						>
+// 							<div className={"size-8"}>
+// 								<Github fillColor={"fill-gray-400"} />
+// 							</div>
+// 						</a>
+// 					</div>
+// 				</CardFooter> */}
+// 			</div>
+// 		</Card>
+// 	);
+// }
 
 // function LinkedIn({ fillColor }: { fillColor: string }) {
 // 	return (

@@ -26,20 +26,20 @@ const CarouselDefault = () => {
 
 	return (
 		<>
-			<Carousel className="w-[50%] border-4"
+			<Carousel className="relative flex w-full h-[245px]"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
 				plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>
-				<CarouselContent className="">
+				<CarouselContent className="relative w-full h-[245px]">
 					{team.map((p, index) => (
-					<CarouselItem
-						key={index}
-						className="overflow-visible md:basis-1/2 lg:basis-1/3 2xl:basis-1/4"
-					>
-						<TeamMember person={p} />
+						<CarouselItem
+							key={index}
+							className="basis-1/4 mx-[50px] overflow-visible"
+						>
+							<TeamMember person={p} />
 						</CarouselItem>
 					))}
 				</CarouselContent>
@@ -54,8 +54,10 @@ export default function WorkWithUs() {
 	const secRef = useRef(null);
 	const { scrollYProgress: secScroll } = useScroll({
 		target: secRef,
-		offset: ["start end", "end end"]
+		offset: ["start start", "end end"]
 	})
+	const xBillboard = useTransform(secScroll, [0, 0.5], ["0%", "-100%"]);
+	
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
@@ -64,86 +66,100 @@ export default function WorkWithUs() {
 					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden">
 						<motion.div className="relative w-full h-full">
 							<Image 
-								className="absolute w-full h-full object-cover overflow-visible bottom-0"
+								className="absolute w-full h-full object-cover object-bottom overflow-visible bottom-0"
 								src="/img/work/Ground1.png"
 								width={1920}
 								height={1080}
 								alt="Ground1"
 							/>
 							<Image 
-								className="absolute w-full h-full object-cover overflow-visible bottom-0"
+								className="absolute w-full h-full object-cover object-bottom overflow-visible bottom-0"
 								src="/img/work/Ground2.png"
 								width={1920}
 								height={1080}
 								alt="Ground2"
 							/>
 						</motion.div>
-						<motion.div className="absolute flex justify-center w-full h-full bottom-0">
-							<Image
-								className="absolute w-full h-full object-cover overflow-visible bottom-0 border-4 border-blue-500"
-								src="/img/work/Ground3.png"
-								width={1920}
-								height={1080}
-								alt="Ground3"
-							/>
-							<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
-								<Image
-									className="absolute w-full h-auto bottom-0 object-cover overflow-visible"
-									src="/img/work/billboard_new.png"
-									width={1920}
-									height={1080}
-									alt="Billboard"
-								/>
-								<div className="relative w-full h-full border-4 border-yellow-500">
-
-								</div>
-								{/* <div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-6">
-									<div className="h-[45%] w-[50%] -translate-y-[40%]">
-										<h1 className="mb-6 text-center font-spaceranger text-2xl text-[#9EFF3C] drop-shadow-xl md:text-5xl lg:text-7xl">
-											Help Wanted
-										</h1>
-										<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
-											Want to get involved?
-										</h2>
-										<div className="flex flex-col items-center justify-center gap-5 pb-5 md:flex-row">
-											<Link
-												href={
-													"https://form.rowdyhacks.org/volunteer"
-												}
-											>
-												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-													Volunteer Form
-												</button>
-											</Link>
-											<Link
-												href={
-													"https://form.rowdyhacks.org/mentor"
-												}
-											>
-												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-													Mentor Form
-												</button>
-											</Link>
-										</div>
-										<h2 className="text-center font-league text-5xl text-[#2e2e2e]">
-											Ready to become a sponsor?
-										</h2>
-										<div className="flex items-center justify-center pb-5">
-											<Link href="https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf">
-												<button className="rounded bg-[#A5836B] px-3 py-3 font-bold text-white transition-colors duration-150">
-													Partner Packet
-												</button>
-											</Link>
-										</div>
-									</div>
-								</div> */}
-							</div>
-						</motion.div>
+						<Billboard xBillboard={xBillboard}/>
+						<WantedBoard />
 					</div>
 				</div>
 			</div>
 		</section>
   	)
+}
+
+function Billboard({ xBillboard }: { xBillboard: MotionValue<string> }) {
+	return (
+		<motion.div className="absolute flex justify-center w-full h-full bottom-0"
+			style={{ translateX: xBillboard}}
+		>
+			<Image
+				className="absolute w-full h-full object-cover object-bottom object-visible bottom-0"
+				src="/img/work/Ground3.png"
+				width={1920}
+				height={1080}
+				alt="Ground3"
+			/>
+			<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
+				<Image
+					className="absolute w-full h-full bottom-0 object-cover object-bottom overflow-visible"
+					src="/img/work/billboard_new.png"
+					width={1920}
+					height={1080}
+					alt="Billboard"
+				/>
+				<div className="relative flex flex-col w-full h-[220px] mt-12">
+					<h1 className="text-center font-spaceranger text-5xl text-[#9EFF3C] drop-shadow-xl">Help Wanted</h1>
+					<div className="relative flex flex-col w-full h-full mb-2">
+						<div className="flex flex-col items-center justify-center w-full h-1/2">
+							<h1 className="text-3xl text-center font-league text-[#2e2e2e]">Interested in helping?</h1>
+							<div className="w-full flex justify-around">
+								<Link href={"https://form.rowdyhacks.org/volunteer"}>
+									<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Volunteer Form</button>
+								</Link>
+								<Link href={"https://form.rowdyhacks.org/mentor"}>
+									<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Mentor Form</button>
+								</Link>
+							</div>
+						</div>
+						<div className="flex flex-col items-center justify-center w-full h-1/2">
+							<h1 className="text-3xl text-center font-league text-[#2e2e2e]">Interested in sponsoring?</h1>
+							<Link href={"https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf"}>
+								<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Partner Packet</button>
+							</Link>
+						</div>
+					</div>
+				</div>
+			</div>
+		</motion.div>
+	)
+}
+
+function WantedBoard() {
+	return (
+		<motion.div className="absolute flex justify-center w-full h-full bottom-0">
+			<Image
+				className="absolute w-full h-full object-cover object-bottom object-visible bottom-0"
+				src="/img/work/Ground4.png"
+				width={1920}
+				height={1080}
+				alt="Ground4"
+			/>
+			<div className="absolute flex justify-center w-[375px] h-[500px] bottom-0">
+				<Image 
+					className="absolute w-full h-full bottom-0 object-cover object-bottom overflow-visible"
+					src="/img/work/wanted_new.png"
+					width={1920}
+					height={1080}
+					alt="WantedBoard"
+				/>
+				<div className="relative w-full h-[245px] mt-16 overflow-visible">
+					<CarouselDefault />
+				</div>
+			</div>
+		</motion.div>
+	)
 }
 
 
@@ -168,61 +184,6 @@ export default function WorkWithUs() {
 // import Image from "next/image";
 // import axios from "axios";
 // import Link from "next/link";
-
-// const CarouselDefault = () => {
-// 	const [team, setTeam] = useState<Person[]>([]);
-// 	const [loading, setLoading] = useState(true);
-
-// 	const plugin = React.useRef(
-// 		Autoplay({ delay: 4000, stopOnInteraction: true })
-// 	);
-
-// 	// LOAD TEAM
-// 	useEffect(() => {
-// 		setLoading(true);
-// 		axios.get("/team.json").then((res) => {
-// 			setTeam(res.data.team);
-// 			setLoading(false);
-// 		});
-// 	}, []);
-
-// 	if (loading || team === undefined) return <div>Loading...</div>;
-// 	if (team.length === 0) return <div>No team members found.</div>;
-
-// 	return (
-// 		<>
-// 			<Carousel
-// 				opts={{ align: "end", loop: true }}
-// 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
-// 				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
-// 				onMouseEnter={plugin.current.stop}
-// 				onMouseLeave={plugin.current.reset}
-// 				className="flex w-full max-w-fit flex-row overflow-hidden"
-// 			>
-// 				<CarouselContent>
-// 					{team.map((p, index) => (
-// 						<CarouselItem
-// 							key={index}
-// 							className="overflow-visible md:basis-1/2 lg:basis-1/3 2xl:basis-1/4"
-// 						>
-// 							<TeamMember person={p} />
-// 						</CarouselItem>
-// 					))}
-// 				</CarouselContent>
-// 				<CarouselPrevious className="border-none bg-transparent hover:cursor-pointer [&>svg]:h-20 [&>svg]:w-20" />
-// 				<CarouselNext className="border-none bg-transparent hover:cursor-pointer [&>svg]:h-20 [&>svg]:w-20" />
-// 			</Carousel>
-// 		</>
-// 	);
-// };
-
-
-// export default function WorkWithUs() {
-// 	const sectionRef = useRef(null);
-// 	const { scrollYProgress } = useScroll({
-// 		target: sectionRef,
-// 		offset: ["start end", "end start"],
-// 	});
 
 // 	return (
 // 		<section

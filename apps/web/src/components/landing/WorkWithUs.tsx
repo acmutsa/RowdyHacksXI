@@ -58,16 +58,30 @@ export default function WorkWithUs() {
 
 	return (
 		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={secRef} className="relative flex justify-center items-end w-full h-[200vh] min-h-[800px] border-gray-500 border-4">
-				<div className="sticky bottom-0 w-full h-screen min-h-screen border-4 border-blue-500">
-					<div className="flex justify-center items-center w-full h-full overflow-hidden">
-						<motion.div className="absolute w-full bottom-0">
+			<div ref={secRef} className="relative flex justify-center items-end w-full h-[200vh] min-h-[800px]">
+				<div className="sticky bottom-0 w-full h-screen min-h-screen">
+					<div className="flex flex-col justify-center items-center w-full h-full overflow-hidden border-4 border-blue-500">
+						<motion.div className="relative w-full h-full border-4">
 							<Image 
-								className="w-full h-auto"
+								className="absolute w-full h-auto bottom-0"
 								src="/img/work/Ground1.png"
 								width={1920}
 								height={1080}
 								alt="Ground1"
+							/>
+							<Image 
+								className="absolute w-full h-auto bottom-0"
+								src="/img/work/Ground2.png"
+								width={1920}
+								height={1080}
+								alt="Ground2"
+							/>
+							<Image 
+								className="absolute w-full h-auto bottom-0"
+								src="/img/work/Ground3.png"
+								width={1920}
+								height={1080}
+								alt="Ground3"
 							/>
 						</motion.div>
 					</div>

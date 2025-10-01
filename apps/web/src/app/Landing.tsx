@@ -1,19 +1,11 @@
 "use client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
-
 import Hero from "@/components/landing/Hero";
-
 import About from "@/components/landing/About";
-
 import Partners from "@/components/landing/Partners";
 import Footer from "@/components/landing/Footer";
-
 import WorkWithUs from "@/components/landing/WorkWithUs";
-
 import Interest from "@/components/landing/Interest";
-
-
 
 function sawtoothWave(t: number, amplitude = 1, frequency = 1, phase = 0) {
 	// Calculate the period of the wave

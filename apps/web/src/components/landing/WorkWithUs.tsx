@@ -37,7 +37,7 @@ const CarouselDefault = () => {
 					{team.map((p, index) => (
 						<CarouselItem
 							key={index}
-							className="basis-1/6 mx-[40px] overflow-visible"
+							className="basis-1/6 overflow-visible mx-10"
 						>
 							<TeamMember person={p} />
 						</CarouselItem>
@@ -166,7 +166,7 @@ function WantedBoard({ xWantedBoard, scaleWantedBoard }: { xWantedBoard: MotionV
 						height={1080}
 						alt="WantedBoard"
 					/>
-					<div className="relative w-[400px] md:w-[575px] h-[245px] mt-14 overflow-visible border-4">
+					<div className="relative w-[400px] md:w-[575px] h-[245px] mt-14 overflow-visible">
 						<CarouselDefault />
 					</div>
 				</div>

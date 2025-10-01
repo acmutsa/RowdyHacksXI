@@ -13,21 +13,19 @@ export default function TeamMember({ person }: { person: Person }) {
 	// 	"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
 
 	return (
-		<div className="w-full h-full overflow-visible bg-transparent border-none">
-			<Card className="relative flex items-center justify-center w-full h-full bg-transparent border-none">
-				<CardContent className="flex items-center justify-center w-full h-full bg-transparent border-none">
-					<Image
-						className="w-full h-full object-cover overflow-visible bg-transparent border-none"
-						src={src}
-						width={500}
-						height={500}
-						quality={100}
-						priority={true}
-						alt="Person"
-					/>
-				</CardContent>
-			</Card>
-		</div>
+		<Card className="relative w-[210px] h-full bg-transparent border-none">
+			<CardContent className="flex items-center justify-center w-full h-full bg-transparent border-none">
+				<Image
+					className="w-full h-full object-cover overflow-visible bg-transparent border-none"
+					src={src}
+					width={500}
+					height={500}
+					quality={100}
+					priority={true}
+					alt="Person"
+				/>
+			</CardContent>
+		</Card>
 	)
 }
 // 	return (

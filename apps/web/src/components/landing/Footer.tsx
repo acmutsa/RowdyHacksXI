@@ -56,7 +56,7 @@ export default function Footer() {
 					<p className="text-white-500 col-span-2 self-center justify-self-center text-center font-mono text-xs sm:col-start-2 md:py-0 lg:col-span-3 lg:col-start-2 lg:row-start-2 lg:w-11/12">
 						Made with &lt;/&gt; &amp; ♥ @ RowdyHacks
 						<br />© RowdyHacks &amp; Association of Computing
-						Machinery at UTSA 2024. All Rights Reserved.
+						Machinery at UTSA 2025. All Rights Reserved.
 					</p>
 				</div>
 			</footer>

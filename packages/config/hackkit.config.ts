@@ -912,11 +912,9 @@ const c = {
 			Overview: "/admin",
 			Users: "/admin/users",
 			Events: "/admin/events",
-			Points: "/admin/points",
 			"Hackathon Check-in": "/admin/check-in",
 			Toggles: "/admin/toggles",
 		},
-		// TODO: Can remove days? Pretty sure they're dynamic now.
 	},
 	eventTypes: {
 		Meal: "#FFC107",
@@ -976,7 +974,6 @@ const c = {
 			checked: true,
 		},
 	},
-	maxTeamSize: 4,
 	featureFlags: {
 		core: {
 			requireUsersApproval: false,
@@ -985,7 +982,6 @@ const c = {
 } as const;
 
 const staticUploads = {
-	bucketName: "acm-userdata",
 	bucketHost: "/api/upload/resume/view",
 	bucketResumeBaseUploadUrl: `${c.hackathonName}/${c.itteration}/resumes`,
 } as const;
@@ -1020,6 +1016,8 @@ const publicRoutes = [
 	/^\/user\//,
 	"/404",
 	"/bugreport",
+	/^\/sign-in(\/.*)?$/,
+	/^\/sign-up(\/.*)?$/,
 ];
 
 export default c;

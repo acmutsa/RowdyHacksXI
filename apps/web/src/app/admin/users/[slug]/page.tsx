@@ -8,9 +8,8 @@ import {
 	AccountInfo,
 	PersonalInfo,
 	ProfileInfo,
-	TeamInfo,
 } from "@/components/admin/users/ServerSections";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 import { isUserAdmin } from "@/lib/utils/server/admin";
 import ApproveUserButton from "@/components/admin/users/ApproveUserButton";
@@ -18,14 +17,14 @@ import c from "config";
 import { getHacker, getUser } from "db/functions";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-	const { userId } = auth();
+	const { userId } = await auth();
 
 	if (!userId) return notFound();
 
 	const admin = await getUser(userId);
 	if (!admin || !isUserAdmin(admin)) return notFound();
 
-	const user = await getHacker(params.slug, true);
+	const user = await getHacker(params.slug);
 
 	if (!user) {
 		return <p className="text-center font-bold">User Not Found</p>;
@@ -104,7 +103,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 					<PersonalInfo user={user} />
 					<ProfileInfo user={user} />
 					<AccountInfo user={user} />
-					<TeamInfo user={user} />
 				</div>
 			</div>
 		</main>

@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useMotionValue, useInView, animate } from "framer-motion";
 
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export default function Hero() {
 	const secRef = useRef(null);
 	

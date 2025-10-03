@@ -3,7 +3,7 @@ import type { Hacker } from "db/types";
 import { titleCase } from "title-case";
 import { Button } from "@/components/shadcn/ui/button";
 import Link from "next/link";
-import { clerkClient } from "@clerk/nextjs";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export function PersonalInfo({ user }: { user: Hacker }) {
 	return (
@@ -29,10 +29,6 @@ export function ProfileInfo({ user }: { user: Hacker }) {
 		<UserInfoSection title="Profile Info">
 			<div className="flex flex-wrap gap-x-10 gap-y-5">
 				<Cell title="Hacker Tag" value={`@${user.hackerTag}`} />
-				<Cell
-					title="Team"
-					value={user.hackerData.team ? "Yes" : "No"}
-				/>
 				<Cell title="Discord" value={user.discord ?? "N/A"} />
 				<Cell
 					title="Linkedin"
@@ -64,7 +60,7 @@ export function ProfileInfo({ user }: { user: Hacker }) {
 }
 
 export async function AccountInfo({ user }: { user: Hacker }) {
-	const clerkUser = await clerkClient.users
+	const clerkUser = await (await clerkClient()).users
 		.getUser(user.clerkID)
 		.catch(() => {});
 
@@ -82,44 +78,6 @@ export async function AccountInfo({ user }: { user: Hacker }) {
 					</div>
 				)}
 			</div>
-		</UserInfoSection>
-	);
-}
-
-export function TeamInfo({ user }: { user: Hacker }) {
-	return (
-		<UserInfoSection title="Team Info">
-			<div className="flex flex-wrap gap-x-10 gap-y-5 pb-5">
-				<Cell
-					title="Is in Team"
-					value={user.hackerData.team ? "Yes" : "No"}
-				/>
-				{user.hackerData.team ? (
-					<>
-						<Cell
-							title="Team Name"
-							value={user.hackerData.team.name}
-						/>
-						<Cell
-							title="Team Tag"
-							value={`~${user.hackerData.team.tag}`}
-						/>
-						<Cell
-							title="Is owner"
-							value={
-								user.hackerData.team.ownerID === user.clerkID
-									? "Yes"
-									: "No"
-							}
-						/>
-					</>
-				) : null}
-			</div>
-			{user.hackerData.team ? (
-				<Link href={`/~${user.hackerData.team.tag}`}>
-					<Button>View Team</Button>
-				</Link>
-			) : null}
 		</UserInfoSection>
 	);
 }

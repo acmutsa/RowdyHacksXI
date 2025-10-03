@@ -30,7 +30,7 @@ export default function TeamMember({ person }: { person: Person }) {
 						width={500}
 						height={500}
 						quality={100}
-						priority={true}
+						loading="lazy"
 						alt="Person"
 					/>
 					<h3 className="text-nowrap text-lg">

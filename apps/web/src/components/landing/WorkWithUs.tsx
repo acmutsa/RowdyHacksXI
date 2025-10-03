@@ -34,14 +34,14 @@ const CarouselDefault = () => {
 	return (
 		<>
 			<Carousel
-				className="flex h-[245px] w-full overflow-visible"
+				className="flex h-[265px] w-full  mx-auto overflow-visible"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
 				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>
-				<CarouselContent className="relative -ml-4 h-full w-full overflow-visible">
+				<CarouselContent className="relative -ml-2 h-full w-full overflow-visible">
 					{team.map((p, index) => (
 						<CarouselItem
 							key={index}
@@ -229,13 +229,13 @@ function WantedBoard({
 			>
 				<div className="absolute bottom-0 flex h-[500px] w-[375px] justify-center md:h-[550px] md:w-[800px]">
 					<Image
-						className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom md:h-auto"
-						src="/img/work/wanted_new.png"
-						width={1920}
-						height={1080}
-						alt="WantedBoard"
-					/>
-					<div className="relative mt-14 h-[245px] w-[400px] overflow-visible md:w-[575px]">
+							className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom md:h-auto"
+							src="/img/work/wanted_new.png"
+							width={1920}
+							height={1080}
+							alt="WantedBoard"
+						/>
+					<div className="relative mt-9 h-fit w-full overflow-visible md:w-[575px]">
 						<CarouselDefault />
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 import QRCode from "react-qr-code";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import c from "config";
 import { format } from "date-fns";
@@ -24,7 +24,7 @@ export default async function Page() {
 	const user = await currentUser();
 	if (!user) return null;
 
-	const userDbRecord = await getHacker(user.id, false);
+	const userDbRecord = await getHacker(user.id);
 	if (!userDbRecord) return null;
 
 	const qrPayload = createQRpayload({

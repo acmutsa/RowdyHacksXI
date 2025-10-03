@@ -32,17 +32,6 @@ export const toggleRegistrationMessageEnabled = adminAction
 		return { success: true, statusSet: enabled };
 	});
 
-export const toggleSecretRegistrationEnabled = adminAction
-	.schema(defaultRegistrationToggleSchema)
-	.action(async ({ parsedInput: { enabled }, ctx: { user, userId } }) => {
-		await redisSet(
-			"config:registration:secretRegistrationEnabled",
-			enabled,
-		);
-		revalidatePath("/admin/toggles/registration");
-		return { success: true, statusSet: enabled };
-	});
-
 export const toggleRSVPs = adminAction
 	.schema(defaultRegistrationToggleSchema)
 	.action(async ({ parsedInput: { enabled }, ctx: { user, userId } }) => {

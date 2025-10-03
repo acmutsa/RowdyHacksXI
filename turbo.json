@@ -13,7 +13,6 @@
         "AWS_SES_SECRET_ACCESS_KEY",
         "BACKUP_CRON_SCHEDULE",
         "BACKUP_DATABASE_URL",
-        "BLOB_READ_WRITE_TOKEN",
         "BOT_API_URL",
         "CLERK_SECRET_KEY",
         "DISCORD_CLIENT_ID",

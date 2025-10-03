@@ -13,20 +13,36 @@ export default function TeamMember({ person }: { person: Person }) {
 	// 	"max-w-[150px] md:max-w-[180px] lg:max-w-[220px] xl:max-w-[220px] 2xl:max-w-[270px] rounded-lg";
 
 	return (
-		<Card className="relative w-[210px] h-full bg-transparent border-none">
-			<CardContent className="flex items-center justify-center w-full h-full bg-transparent border-none">
+		<Card className="h-full border-none bg-transparent pr-0">
+			<CardContent className="font-rye relative h-full w-full overflow-visible border-none bg-transparent p-0 text-black">
 				<Image
-					className="w-full h-full object-cover overflow-visible bg-transparent border-none"
-					src={src}
-					width={500}
-					height={500}
-					quality={100}
-					priority={true}
-					alt="Person"
+					className="wanted_bg absolute bottom-0 -z-10 h-full w-full object-cover object-bottom"
+					src="/img/work/wanted_bg.png"
+					width={1920}
+					height={1080}
+					alt="WantedBG"
 				/>
+				<div className="z-10 flex h-full min-w-fit max-w-full flex-col items-center justify-center p-4 text-center">
+					<h3 className="text-xl font-black uppercase">Wanted</h3>
+					<Image
+						className="object-fit max-w-[60%] border-none bg-transparent"
+						src={src}
+						width={500}
+						height={500}
+						quality={100}
+						priority={true}
+						alt="Person"
+					/>
+					<h3 className="text-nowrap text-lg">
+						{person.fname} {person.lname}
+					</h3>
+					<p className="text-sm">
+						{person.team} - {person.bounty}
+					</p>
+				</div>
 			</CardContent>
 		</Card>
-	)
+	);
 }
 // 	return (
 // 		<Card className={`relative flex w-full items-center justify-center overflow-visible border-transparent bg-transparent duration-300`}>

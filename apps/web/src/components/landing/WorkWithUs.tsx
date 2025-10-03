@@ -33,14 +33,14 @@ const CarouselDefault = () => {
 	return (
 		<>
 			<Carousel
-				className="flex h-[245px] w-full"
+				className="flex h-[245px] w-full overflow-visible"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
 				// plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>
-				<CarouselContent className="relative -ml-4 h-full w-full">
+				<CarouselContent className="relative -ml-4 h-full w-full overflow-visible">
 					{team.map((p, index) => (
 						<CarouselItem
 							key={index}

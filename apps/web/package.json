@@ -6,7 +6,7 @@
     "dev": "pnpm with-env next dev",
     "build": "pnpm with-env next build",
     "start": "pnpm with-env next start",
-    "lint": "next lint",
+    "lint": "SKIP_ENV_VALIDATION=true next lint",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
@@ -103,6 +103,8 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.10",
     "@cloudflare/workers-types": "^4.20250319.0",
-    "esbuild-register": "^3.5.0"
+    "esbuild-register": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5"
   }
 }

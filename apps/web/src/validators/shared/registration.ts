@@ -17,9 +17,8 @@ const countryList = Object.freeze(
 	c.registration.countries.map((countryObject) => countryObject.code),
 ) as readonly [string, ...string[]];
 
-export const hackerRegistrationFormValidator = z
-	.object({
-		...userWithHackerDataInsertSchema.shape,
+export const hackerRegistrationFormValidator = userWithHackerDataInsertSchema
+	.extend({
 		firstName: z.string().min(1, defaultInputPrettyError).max(50, {
 			message: "First name must be between 1 and 50 characters",
 		}),

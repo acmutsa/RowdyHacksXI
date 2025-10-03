@@ -41,7 +41,10 @@ export default async function Page({ params }: { params: { tag: string } }) {
 				)}
 				<div className="mt-2 w-full max-w-[350px] border-t-2 border-t-primary/[0.09] pt-2">
 					{team.members.map((member) => (
-						<Link href={`/@${member.commonData.hackerTag}`}>
+						<Link
+							key={member.commonData.hackerTag}
+							href={`/@${member.commonData.hackerTag}`}
+						>
 							<div className="flex h-[60px] cursor-pointer items-center rounded-xl px-2 backdrop-blur hover:dark:bg-white/[0.08]">
 								<Image
 									src={member.commonData.profilePhoto}

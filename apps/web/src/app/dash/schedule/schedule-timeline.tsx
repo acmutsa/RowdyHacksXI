@@ -63,6 +63,7 @@ export default function ScheduleTimeline({
 								{arr?.map(
 									(event): ReactNode => (
 										<EventRow
+											key={String(event.id)}
 											event={event}
 											userTimeZone={timezone}
 										/>

@@ -7,7 +7,11 @@ import { Settings } from "lucide-react";
 import ClientToast from "@/components/shared/ClientToast";
 import { getUser } from "db/functions/user";
 
-export default async function ({ children }: { children: ReactNode }) {
+export default async function SettingsLayout({
+	children,
+}: {
+	children: ReactNode;
+}) {
 	const { userId } = await auth();
 	const user = await currentUser();
 

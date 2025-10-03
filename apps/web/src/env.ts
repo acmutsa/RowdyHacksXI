@@ -33,4 +33,6 @@ export const env = createEnv({
 	},
 	// Enable the flag to treat empty strings as undefined
 	emptyStringAsUndefined: true,
+	// Allow disabling validation for tooling like lint via SKIP_ENV_VALIDATION
+	skipValidation: process.env.SKIP_ENV_VALIDATION === "true",
 });

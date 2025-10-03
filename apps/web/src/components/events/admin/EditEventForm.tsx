@@ -30,7 +30,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ONE_HOUR_IN_MILLISECONDS } from "@/lib/constants";
 import { type eventEditType } from "@/lib/types/events";
-import { newEventFormSchema } from "@/validators/event";
+import { editEventFormSchema } from "@/validators/event";
 import { ThreeCircles } from "react-loader-spinner";
 import { useAction } from "next-safe-action/hooks";
 import { editEvent } from "@/actions/admin/event-actions";
@@ -75,8 +75,8 @@ export default function EditEventForm({
 		},
 	});
 
-	const form = useForm<z.infer<typeof newEventFormSchema>>({
-		resolver: zodResolver(newEventFormSchema),
+	const form = useForm<z.infer<typeof editEventFormSchema>>({
+		resolver: zodResolver(editEventFormSchema),
 		defaultValues: {
 			id,
 			title,
@@ -91,9 +91,10 @@ export default function EditEventForm({
 	});
 
 	const onSubmit = useCallback(
-		(values: z.infer<typeof newEventFormSchema>) => {
+		(values: z.infer<typeof editEventFormSchema>) => {
 			if (form.formState.isDirty) {
-				execute(values);
+				const payload = editEventFormSchema.parse(values);
+				execute(payload);
 			} else {
 				toast.error("Failed to edit event", {
 					description:
@@ -101,7 +102,7 @@ export default function EditEventForm({
 				});
 			}
 		},
-		[form.formState.isDirty],
+		[form.formState.isDirty, execute],
 	);
 
 	return (

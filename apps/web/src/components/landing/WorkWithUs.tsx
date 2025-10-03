@@ -161,7 +161,7 @@ function Billboard({
 								<div className="flex items-center justify-center gap-3">
 									<Link
 										href={
-											"https://form.rowdyhacks.org/volunteer"
+											"https://form.rowdyhacks.org/volunteerform"
 										}
 									>
 										<button className="bg-earth rounded-full border-2 border-[#4E9642] px-[5px] py-4 font-league font-bold text-white transition-colors duration-150">
@@ -173,7 +173,7 @@ function Billboard({
 									</Link>
 									<Link
 										href={
-											"https://form.rowdyhacks.org/mentor"
+											"https://form.rowdyhacks.org/mentorform"
 										}
 									>
 										<button className="bg-moon rounded-full border-2 border-[#7C6D66] px-2 py-2 font-league font-bold text-[#282220] transition-colors duration-150">
@@ -185,16 +185,12 @@ function Billboard({
 									</Link>
 									<Link
 										href={
-											"https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf"
+											"https://form.rowdyhacks.org/judgeform"
 										}
 									>
 										<button className="bg-og-planet rounded-full border-2 border-[#9d3300] px-2 py-2 font-league font-bold text-white transition-colors duration-150">
-											<span className="block">
-												Partner
-											</span>
-											<span className="block">
-												Packet
-											</span>
+											<span className="block">Judge</span>
+											<span className="block">Form</span>
 										</button>
 									</Link>
 								</div>

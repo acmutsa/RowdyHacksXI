@@ -1,25 +1,34 @@
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useScroll, useTransform, useMotionValue, useInView, animate } from "framer-motion";
-
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import {
+	motion,
+	useScroll,
+	useTransform,
+	useMotionValue,
+	useInView,
+	animate,
+} from "framer-motion";
 
 export default function Hero() {
 	const secRef = useRef(null);
-	
+
 	const { scrollYProgress } = useScroll({
 		target: secRef,
-		offset: ["start start", "end center"]
+		offset: ["start start", "end center"],
 	});
 
-	const translateYSand = useTransform(scrollYProgress, [0, 0.9], ["0%", "200%"]);
+	const translateYSand = useTransform(
+		scrollYProgress,
+		[0, 0.9],
+		["0%", "200%"],
+	);
 
 	// Figure 8 COW
 	const oscillation = useMotionValue(0);
 	const isInView = useInView(secRef);
 	useEffect(() => {
 		let controls: ReturnType<typeof animate> | undefined;
-		if (isInView){
+		if (isInView) {
 			controls = animate(oscillation, 2 * Math.PI, {
 				repeat: Infinity,
 				duration: 4,
@@ -33,15 +42,21 @@ export default function Hero() {
 	}, [isInView, oscillation]);
 	const floatX = useTransform(oscillation, (v) => 15 * Math.sin(v));
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
-	
+
 	return (
-		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={secRef} className="relative flex flex-col justify-end w-full h-[150vh]">
-				<div className="sticky bottom-0 w-full min-h-screen">
-					<div className="relative w-full h-full overflow-hidden">
-						<div className="relative flex flex-col justify-center items-center w-full h-full">
-							<motion.div className="absolute bottom-0" style={{ translateY: translateYSand }}>
-								<Image 
+		<section className="relative min-h-[800px] w-full min-w-[375px]">
+			<div
+				ref={secRef}
+				className="relative flex h-[150vh] w-full flex-col justify-end"
+			>
+				<div className="sticky bottom-0 min-h-screen w-full">
+					<div className="relative h-full w-full overflow-hidden">
+						<div className="relative flex h-full w-full flex-col items-center justify-center">
+							<motion.div
+								className="absolute bottom-0"
+								style={{ translateY: translateYSand }}
+							>
+								<Image
 									className="w-full"
 									src={"/img/hero/sands.png"}
 									alt="Sands"
@@ -74,7 +89,11 @@ export default function Hero() {
 										[0, 1],
 										["0%", "150%"],
 									),
-									rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+									rotate: useTransform(
+										scrollYProgress,
+										[0, 1],
+										[0, 360],
+									),
 									x: floatX,
 									y: floatY,
 								}}
@@ -101,7 +120,11 @@ export default function Hero() {
 										[0, 1],
 										["0%", "-100%"],
 									),
-									scale: useTransform(scrollYProgress, [0, 1], [1, 2]),
+									scale: useTransform(
+										scrollYProgress,
+										[0, 1],
+										[1, 2],
+									),
 									rotate: useTransform(
 										scrollYProgress,
 										[0, 1],
@@ -133,5 +156,5 @@ export default function Hero() {
 				</div>
 			</div>
 		</section>
-  	)
+	);
 }

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useInView, useMotionValue, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function About() {
 	const moonRef = useRef(null);
@@ -21,9 +21,9 @@ export default function About() {
 	const scaleUfoTransition = useTransform(moonScroll, [0.21, 0.5], [1, 0.7]);
 	const xUfoTransition = useTransform(moonScroll, [0.21, 0.5], ["0%", "100%"]);
 
-	const scaleMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 1], [1, 8, 8, 1, 1.5, 3, 5]);
+	const scaleMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.99, 1], [1, 8, 8, 1, 1.5, 3, 5, 1]);
 	const xMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7], ["0%", "50%", "50%", "0%"]);
-	const yMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 1], ["0%", "250%", "50%", "0%", "50%", "300%", "600%"]);
+	const yMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.99, 1], ["0%", "250%", "50%", "0%", "50%", "300%", "600%", "0%"]);
 	const opacityMoon = useTransform(moonScroll, [0.99, 1], [1, 0]);
 
 	const scaleSign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7], [0.075, 1, 1, 0.075]);
@@ -61,7 +61,7 @@ export default function About() {
 			<div ref={moonRef} className="relative flex flex-col justify-end w-full h-[200vh] min-h-[calc(800px*2)]">
 				<div className="sticky bottom-0 w-full h-[50vh]">
 					<div className="relative w-full h-full overflow-x-clip">					
-						<motion.div className="w-full h-full origin-bottom"
+						<motion.div className="relative w-full h-full origin-bottom"
 							style={{ scale: scaleMoon, translateX: xMoon, translateY: yMoon, opacity: opacityMoon }}
 						>
 							<Image 

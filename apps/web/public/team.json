@@ -3,7 +3,7 @@
         {
             "fname": "Alex",
             "lname": "Mugica",
-            "imgLink": "/img/team/Alex.png",
+            "imgLink": "/img/team/Alex.webp",
             "team": "Director",
             "bounty": "$1,000,000",
             "linkedin": "",
@@ -55,7 +55,7 @@
             "lname": "Huerta",
             "bounty": "$300,000",
             "team": "Tech",
-            "imgLink": "/img/team/Aby.png",
+            "imgLink": "/img/team/Aby.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -65,7 +65,7 @@
             "lname": "Santos",
             "bounty": "$300,000",
             "team": "Tech",
-            "imgLink": "/img/team/Adan.png",
+            "imgLink": "/img/team/Adan.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -145,7 +145,7 @@
             "lname": "Doan",
             "bounty": "$300,000",
             "team": "Logistics",
-            "imgLink": "/img/team/Anh.png",
+            "imgLink": "/img/team/Anh.webp",
             "linkedin": "",
             "website": "",
             "github": ""

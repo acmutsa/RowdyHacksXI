@@ -2,34 +2,49 @@
     "team": [
         {
             "fname": "Alex",
+            "lname": "Mugica",
             "imgLink": "/img/team/Alex.png",
+            "team": "Director",
+            "bounty": "$1,000,000",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
             "fname": "Trae",
+            "lname": "Ramirez",
+            "team": "Co-Director",
+            "bounty": "$1,000,000",
             "imgLink": "/img/team/Trae.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Josh",
+            "fname": "Joshua",
+            "lname": "Silva",
             "imgLink": "/img/team/Josh.png",
+            "team": "Tech Lead",
+            "bounty": "$650,000",
             "linkedin": "https://www.linkedin.com/in/joshuasilva414/",
-            "website": "",
+            "website": "https://joshuasilva.me",
             "github": "https://github.com/joshuasilva414"
         },
         {
             "fname": "Carter",
+            "lname": "Lavigne",
             "imgLink": "/img/team/Carter.png",
+            "team": "Tech",
+            "bounty": "$300,000",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
             "fname": "Eric",
+            "lname": "Lee",
+            "bounty": "$300,000",
+            "team": "Tech",
             "imgLink": "/img/team/Eric.png",
             "linkedin": "",
             "website": "",
@@ -37,6 +52,9 @@
         },
         {
             "fname": "Aby",
+            "lname": "Huerta",
+            "bounty": "$300,000",
+            "team": "Tech",
             "imgLink": "/img/team/Aby.png",
             "linkedin": "",
             "website": "",
@@ -44,20 +62,39 @@
         },
         {
             "fname": "Adan",
+            "lname": "Santos",
+            "bounty": "$300,000",
+            "team": "Tech",
             "imgLink": "/img/team/Adan.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Anh",
-            "imgLink": "/img/team/Anh.png",
+            "fname": "Inor",
+            "lname": "Wang",
+            "bounty": "$650,000",
+            "team": "Media Lead",
+            "imgLink": "/img/team/Inor.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Sean",
+            "lname": "Jauregui",
+            "bounty": "$650,000",
+            "team": "Media Co-Lead",
+            "imgLink": "/img/team/Sean.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
             "fname": "Arnav",
+            "lname": "Ubgade",
+            "bounty": "$300,000",
+            "team": "Media",
             "imgLink": "/img/team/Arnav.png",
             "linkedin": "",
             "website": "",
@@ -65,62 +102,69 @@
         },
         {
             "fname": "Atticus",
+            "lname": "Ramirez",
+            "bounty": "$300,000",
+            "team": "Media",
             "imgLink": "/img/team/Atticus.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Bidisha",
-            "imgLink": "/img/team/Bidisha.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
             "fname": "Bill",
+            "lname": "Shields",
+            "bounty": "$300,000",
+            "team": "Media",
             "imgLink": "/img/team/Bill.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Diego",
-            "imgLink": "/img/team/Diego.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
             "fname": "Ilana",
+            "lname": "Pankey",
+            "bounty": "$300,000",
+            "team": "Media",
             "imgLink": "/img/team/Ilana.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Inor",
-            "imgLink": "/img/team/Inor.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
-            "fname": "Jibril",
-            "imgLink": "/img/team/Jibril.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
             "fname": "Joseph",
+            "lname": "Benavidez",
+            "bounty": "$300,000",
+            "team": "Media",
             "imgLink": "/img/team/Joseph.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
+            "fname": "Anh",
+            "lname": "Doan",
+            "bounty": "$300,000",
+            "team": "Logistics",
+            "imgLink": "/img/team/Anh.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Bidisha",
+            "lname": "Dalai",
+            "bounty": "$300,000",
+            "team": "Logistics",
+            "imgLink": "/img/team/Bidisha.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
             "fname": "Miguel",
+            "lname": "Oseguera",
+            "bounty": "$300,000",
+            "team": "Logistics",
             "imgLink": "/img/team/Miguel.png",
             "linkedin": "",
             "website": "",
@@ -128,6 +172,9 @@
         },
         {
             "fname": "Rashi",
+            "lname": "Rautela",
+            "bounty": "$300,000",
+            "team": "Logistics",
             "imgLink": "/img/team/Rashi.png",
             "linkedin": "",
             "website": "",
@@ -135,29 +182,50 @@
         },
         {
             "fname": "Reese",
+            "lname": "Sylvester",
+            "bounty": "$650,000",
+            "team": "PR Lead",
             "imgLink": "/img/team/Reese.png",
             "linkedin": "",
             "website": "",
             "github": ""
         },
         {
-            "fname": "Savannah",
-            "imgLink": "/img/team/Savannah.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-        {
-            "fname": "Sean",
-            "imgLink": "/img/team/Sean.png",
-            "linkedin": "",
-            "website": "",
-            "github": ""
-        },
-
-        {
             "fname": "Vivian",
+            "lname": "Tran",
+            "bounty": "$650,000",
+            "team": "PR Co-Lead",
             "imgLink": "/img/team/Vivian.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Diego",
+            "lname": "Medina",
+            "bounty": "$300,000",
+            "team": "Public Relations",
+            "imgLink": "/img/team/Diego.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Jibril",
+            "lname": "Pascua",
+            "bounty": "$300,000",
+            "team": "Public Relations",
+            "imgLink": "/img/team/Jibril.png",
+            "linkedin": "",
+            "website": "",
+            "github": ""
+        },
+        {
+            "fname": "Savannah",
+            "lname": "Schaefer",
+            "bounty": "$300,000",
+            "team": "Public Relations",
+            "imgLink": "/img/team/Savannah.png",
             "linkedin": "",
             "website": "",
             "github": ""

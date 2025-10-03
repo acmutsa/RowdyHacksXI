@@ -93,6 +93,7 @@ module.exports = {
 				league: ["League Spartan", "sans-serif"],
 				bitter: ["Bitter", "sans-serif"],
 				spaceranger: ["Space Ranger", "sans-serif"],
+				rye: ["Rye", "serif"],
 			},
 		},
 	},

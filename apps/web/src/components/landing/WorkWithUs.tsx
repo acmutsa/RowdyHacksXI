@@ -1,17 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import axios from "axios";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "../shadcn/ui/carousel";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "../shadcn/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-import TeamMember from './TeamMember';
+import TeamMember from "./TeamMember";
 
 const CarouselDefault = () => {
 	const plugin = React.useRef(
-		Autoplay({ delay: 4000, stopOnInteraction: true })
- 	);
+		Autoplay({ delay: 4000, stopOnInteraction: true }),
+	);
 	const [team, setTeam] = useState<Person[]>([]);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
@@ -26,151 +32,217 @@ const CarouselDefault = () => {
 
 	return (
 		<>
-			<Carousel className="relative flex w-full h-[245px]"
+			<Carousel
+				className="flex h-[245px] w-full"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
-				plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+				// plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>
-				<CarouselContent className="relative w-full h-full">
+				<CarouselContent className="relative -ml-4 h-full w-full">
 					{team.map((p, index) => (
 						<CarouselItem
 							key={index}
-							className="basis-1/6 overflow-visible mx-10"
+							className="ml-4 basis-1/2 overflow-visible pl-0 md:basis-1/3"
 						>
 							<TeamMember person={p} />
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPrevious className="border-none bg-transparent"/>
-				<CarouselNext className="border-none bg-transparent"/>
+				<CarouselPrevious className="border-none bg-transparent" />
+				<CarouselNext className="border-none bg-transparent" />
 			</Carousel>
 		</>
-	)
-}
+	);
+};
 
 export default function WorkWithUs() {
 	const secRef = useRef(null);
 	const { scrollYProgress: secScroll } = useScroll({
 		target: secRef,
-		offset: ["start start", "end end"]
-	})
+		offset: ["start start", "end end"],
+	});
 	const scaleBillBoard = useTransform(secScroll, [0.2, 0.9], [1, 0.5]);
 	const xBillBoard = useTransform(secScroll, [0.2, 0.9], ["0%", "-100%"]);
-	const scaleWantedBoard = useTransform(secScroll, [0, 0.2, 0.9], [0.5, 0.5, 1]);
-	const xWantedBoard = useTransform(secScroll, [0, 0.2, 0.9], ["100%", "100%", "0%"])
-
+	const scaleWantedBoard = useTransform(
+		secScroll,
+		[0, 0.2, 0.9],
+		[0.5, 0.5, 1],
+	);
+	const xWantedBoard = useTransform(
+		secScroll,
+		[0, 0.2, 0.9],
+		["100%", "100%", "0%"],
+	);
 
 	return (
-		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={secRef} className="relative flex justify-center items-end w-full h-[175vh] min-h-[800px]">
-				<div className="sticky bottom-0 w-full h-screen min-h-screen">
-					<div className="relative flex flex-col justify-center items-center w-full h-full overflow-hidden">
-						<motion.div className="absolute w-full h-full bottom-0">
-							<Image 
-								className="absolute w-full h-auto md:h-full md:object-cover object-bottom overflow-visible bottom-0"
+		<section className="relative min-h-[800px] w-full min-w-[375px]">
+			<div
+				ref={secRef}
+				className="relative flex h-[175vh] min-h-[800px] w-full items-end justify-center"
+			>
+				<div className="sticky bottom-0 h-screen min-h-screen w-full">
+					<div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
+						<motion.div className="absolute bottom-0 h-full w-full">
+							<Image
+								className="absolute bottom-0 h-auto w-full overflow-visible object-bottom md:h-full md:object-cover"
 								src="/img/work/Ground1.png"
 								width={1920}
 								height={1080}
 								alt="Ground1"
 							/>
-							<Image 
-								className="absolute w-full h-auto md:h-full md:object-cover object-bottom overflow-visible bottom-0"
+							<Image
+								className="absolute bottom-0 h-auto w-full overflow-visible object-bottom md:h-full md:object-cover"
 								src="/img/work/Ground2.png"
 								width={1920}
 								height={1080}
 								alt="Ground2"
 							/>
 						</motion.div>
-						<Billboard scaleBillBoard={scaleBillBoard} xBillBoard={xBillBoard}/>
-						<WantedBoard scaleWantedBoard={scaleWantedBoard} xWantedBoard={xWantedBoard}/>
+						<Billboard
+							scaleBillBoard={scaleBillBoard}
+							xBillBoard={xBillBoard}
+						/>
+						<WantedBoard
+							scaleWantedBoard={scaleWantedBoard}
+							xWantedBoard={xWantedBoard}
+						/>
 					</div>
 				</div>
 			</div>
 		</section>
-  	)
+	);
 }
 
-function Billboard({ xBillBoard, scaleBillBoard }: { xBillBoard: MotionValue<string>, scaleBillBoard: MotionValue<number>}) {
+function Billboard({
+	xBillBoard,
+	scaleBillBoard,
+}: {
+	xBillBoard: MotionValue<string>;
+	scaleBillBoard: MotionValue<number>;
+}) {
 	return (
-		<motion.div className="absolute flex justify-center w-full h-full bottom-0"
+		<motion.div
+			className="absolute bottom-0 flex h-full w-full justify-center"
 			style={{ translateX: xBillBoard }}
 		>
 			<Image
-				className="absolute w-full h-auto object-cover object-bottom object-visible bottom-0"
+				className="object-visible absolute bottom-0 h-auto w-full object-cover object-bottom"
 				src="/img/work/Ground3.png"
 				width={1920}
 				height={1080}
 				alt="Ground3"
 			/>
-			<motion.div className="absolute flex justify-center w-[375px] h-[500px] md:w-[600px] md:h-[600px] bottom-0 origin-bottom"
+			<motion.div
+				className="absolute bottom-0 flex h-[500px] w-[375px] origin-bottom justify-center md:h-[600px] md:w-[600px]"
 				style={{ scale: scaleBillBoard }}
 			>
-				<div className="absolute flex justify-center w-[375px] h-[500px] md:w-[600px] md:h-[600px] bottom-0">
+				<div className="absolute bottom-0 flex h-[500px] w-[375px] justify-center md:h-[600px] md:w-[600px]">
 					<Image
-						className="absolute w-full h-full bottom-0 object-cover object-bottom overflow-visible"
-						src="/img/work/billboard_new.png"
+						className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom"
+						src="/img/work/billboard_new_background.png"
 						width={1920}
 						height={1080}
 						alt="BillBoard"
 					/>
-					<div className="relative flex flex-col w-full h-[220px] md:h-[275px] mt-12 md:mt-14">
-						<h1 className="text-center font-spaceranger text-5xl text-[#9EFF3C] drop-shadow-xl">Help Wanted</h1>
-						<div className="relative flex flex-col w-full h-full mb-2">
-							<div className="flex flex-col items-center justify-center w-full h-1/2">
-								<h1 className="text-3xl text-center font-league text-[#2e2e2e]">Interested in helping?</h1>
-								<div className="w-full flex justify-around">
-									<Link href={"https://form.rowdyhacks.org/volunteer"}>
-										<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Volunteer Form</button>
+					<div className="relative m-8 mt-12 flex h-[220px] w-full flex-col p-2 md:mt-14 md:h-[275px]">
+						<h1 className="text-outline pt-3 text-center font-texas-tango text-3xl text-[#E2C394] drop-shadow-xl md:text-5xl">
+							Help Wanted
+						</h1>
+						<div className="relative mb-3 flex h-full w-full flex-col md:px-0">
+							<div className="flex h-full w-full flex-row items-center justify-center px-8 md:px-0">
+								<div className="rounded-lg border-4 border-[#94391F] bg-white bg-opacity-50 p-3">
+									<h1 className="text-outline-other text-1xl text-center font-gota text-white md:text-2xl">
+										Interested in helping or sponsoring?
+									</h1>
+								</div>
+
+								<div className="flex items-center justify-center gap-3">
+									<Link
+										href={
+											"https://form.rowdyhacks.org/volunteer"
+										}
+									>
+										<button className="bg-earth rounded-full border-2 border-[#4E9642] px-[5px] py-4 font-league font-bold text-white transition-colors duration-150">
+											<span className="block">
+												Volunteer
+											</span>
+											<span className="block">Form</span>
+										</button>
 									</Link>
-									<Link href={"https://form.rowdyhacks.org/mentor"}>
-										<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Mentor Form</button>
+									<Link
+										href={
+											"https://form.rowdyhacks.org/mentor"
+										}
+									>
+										<button className="bg-moon rounded-full border-2 border-[#7C6D66] px-2 py-2 font-league font-bold text-[#282220] transition-colors duration-150">
+											<span className="block">
+												Mentor
+											</span>
+											<span className="block">Form</span>
+										</button>
+									</Link>
+									<Link
+										href={
+											"https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf"
+										}
+									>
+										<button className="bg-og-planet rounded-full border-2 border-[#9d3300] px-2 py-2 font-league font-bold text-white transition-colors duration-150">
+											<span className="block">
+												Partner
+											</span>
+											<span className="block">
+												Packet
+											</span>
+										</button>
 									</Link>
 								</div>
-							</div>
-							<div className="flex flex-col items-center justify-center w-full h-1/2">
-								<h1 className="text-3xl text-center font-league text-[#2e2e2e]">Interested in sponsoring?</h1>
-								<Link href={"https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf"}>
-									<button className="rounded bg-[#A5836B] px-2 py-2 font-bold text-white transition-colors duration-150">Partner Packet</button>
-								</Link>
 							</div>
 						</div>
 					</div>
 				</div>
 			</motion.div>
 		</motion.div>
-	)
+	);
 }
 
-function WantedBoard({ xWantedBoard, scaleWantedBoard }: { xWantedBoard: MotionValue<string>, scaleWantedBoard: MotionValue<number> }) {
+function WantedBoard({
+	xWantedBoard,
+	scaleWantedBoard,
+}: {
+	xWantedBoard: MotionValue<string>;
+	scaleWantedBoard: MotionValue<number>;
+}) {
 	return (
-		<motion.div className="absolute flex justify-center w-full h-full bottom-0"
+		<motion.div
+			className="absolute bottom-0 flex h-full w-full justify-center"
 			style={{ translateX: xWantedBoard }}
 		>
 			<Image
-				className="absolute w-full h-auto object-cover object-bottom object-visible bottom-0"
+				className="object-visible absolute bottom-0 h-auto w-full object-cover object-bottom"
 				src="/img/work/Ground4.png"
 				width={1920}
 				height={1080}
 				alt="Ground4"
 			/>
-			<motion.div className="absolute flex justify-center w-[375px] h-[500px] md:w-[800px] md:h-[550px] bottom-0 origin-bottom"
-				style={{ scale: scaleWantedBoard}}
+			<motion.div
+				className="absolute bottom-0 flex h-[500px] w-[375px] origin-bottom justify-center md:h-[550px] md:w-[800px]"
+				style={{ scale: scaleWantedBoard }}
 			>
-				<div className="absolute flex justify-center w-[375px] h-[500px] md:w-[800px] md:h-[550px] bottom-0">
-					<Image 
-						className="absolute w-full h-full md:h-auto bottom-0 object-cover object-bottom overflow-visible"
+				<div className="absolute bottom-0 flex h-[500px] w-[375px] justify-center md:h-[550px] md:w-[800px]">
+					<Image
+						className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom md:h-auto"
 						src="/img/work/wanted_new.png"
 						width={1920}
 						height={1080}
 						alt="WantedBoard"
 					/>
-					<div className="relative w-[400px] md:w-[575px] h-[245px] mt-14 overflow-visible">
+					<div className="relative mt-14 h-[245px] w-[400px] overflow-visible md:w-[575px]">
 						<CarouselDefault />
 					</div>
 				</div>
 			</motion.div>
 		</motion.div>
-	)
+	);
 }

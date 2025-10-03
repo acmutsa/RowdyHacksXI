@@ -37,7 +37,7 @@ export const registerHacker = authenticatedAction
 			hasSharedDataWithMLH,
 			isEmailable,
 			...userData
-		} = parsedInput;
+		} = parsedInput as z.infer<typeof registerUserSchema>;
 
 		const currUser = await currentUser();
 		if (!currUser) {

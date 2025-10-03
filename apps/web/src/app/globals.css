@@ -55,9 +55,10 @@
 
 @font-face {
 	font-family: "BangBang";
-	src: url("/fonts/Western/WesternBangBangClean-Regular.ttf") format("truetype");
+	src: url("/fonts/Western/WesternBangBangClean-Regular.ttf")
+		format("truetype");
 	font-weight: 400;
-	font-style: normal
+	font-style: normal;
 }
 
 @font-face {
@@ -297,7 +298,28 @@
 }
 
 .text-outline {
-	-webkit-text-stroke: 4px #6f3800;
+	-webkit-text-stroke: 2px #705128;
+}
+.text-outline-other {
+	-webkit-text-stroke: 2px #94391f;
+}
+.bg-moon {
+	background-image: url("/img/moon_bg.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-og-planet {
+	background-image: url("/img/og_planet.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-earth {
+	background-image: url("/img/earth_planet.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 @keyframes pulseRing {

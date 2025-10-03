@@ -21,9 +21,9 @@ export default function About() {
 	const scaleUfoTransition = useTransform(moonScroll, [0.21, 0.5], [1, 0.7]);
 	const xUfoTransition = useTransform(moonScroll, [0.21, 0.5], ["0%", "100%"]);
 
-	const scaleMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.99, 1], [1, 8, 8, 1, 1.5, 3, 5, 1]);
+	const scaleMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.99, 1], [1, 8, 8, 1, 1.5, 3, 5, 2]);
 	const xMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7], ["0%", "50%", "50%", "0%"]);
-	const yMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.99, 1], ["0%", "250%", "50%", "0%", "50%", "300%", "600%", "0%"]);
+	const yMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.9999, 1], ["0%", "250%", "50%", "0%", "50%", "300%", "600%", "0%"]);
 	const opacityMoon = useTransform(moonScroll, [0.99, 1], [1, 0]);
 
 	const scaleSign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7], [0.075, 1, 1, 0.075]);

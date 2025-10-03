@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
 import {
 	Carousel,
 	CarouselContent,
@@ -12,24 +11,15 @@ import {
 } from "../shadcn/ui/carousel";
 import { Person } from "./Person";
 import Autoplay from "embla-carousel-autoplay";
-
+import team from "./team.json";
 import TeamMember from "./TeamMember";
 
 const CarouselDefault = () => {
 	const plugin = React.useRef(
 		Autoplay({ delay: 4000, stopOnInteraction: true }),
 	);
-	const [team, setTeam] = useState<Person[]>([]);
-	const [loading, setLoading] = useState(true);
-	useEffect(() => {
-		setLoading(true);
-		axios.get("/team.json").then((res) => {
-			setTeam(res.data.team);
-			setLoading(false);
-		});
-	}, []);
-	if (loading || team === undefined) return <div>Loading...</div>;
-	if (team.length === 0) return <div>No team members found.</div>;
+	const members = team.team || [];
+	if (members.length === 0) return <div>No team members found.</div>;
 
 	return (
 		<>
@@ -42,7 +32,7 @@ const CarouselDefault = () => {
 				onMouseLeave={plugin.current.reset}
 			>
 				<CarouselContent className="relative -ml-2 h-full w-full overflow-visible">
-					{team.map((p, index) => (
+					{members.map((p, index) => (
 						<CarouselItem
 							key={index}
 							className="ml-4 basis-1/2 overflow-visible pl-0 md:basis-1/3"
@@ -153,8 +143,8 @@ function Billboard({
 						</h1>
 						<div className="relative mb-3 flex h-full w-full flex-col md:px-0">
 							<div className="flex h-full w-full flex-row items-center justify-center px-8 md:px-0">
-								<div className="rounded-lg border-4 border-[#94391F] bg-white bg-opacity-50 p-3">
-									<h1 className="text-outline-other text-1xl text-center font-gota text-white md:text-2xl">
+								<div className="rounded-lg bg-white bg-opacity-50 p-3">
+									<h1 className=" text-1xl text-center font-league text-white md:text-2xl">
 										Interested in helping or sponsoring?
 									</h1>
 								</div>

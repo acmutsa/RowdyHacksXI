@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -10,6 +10,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "../shadcn/ui/carousel";
+import { Person } from "./Person";
 import Autoplay from "embla-carousel-autoplay";
 
 import TeamMember from "./TeamMember";
@@ -36,7 +37,7 @@ const CarouselDefault = () => {
 				className="flex h-[245px] w-full overflow-visible"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
-				// plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>

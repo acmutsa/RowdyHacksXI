@@ -12,7 +12,7 @@ export const editEvent = adminAction
 	.action(async ({ parsedInput }) => {
 		const { id, ...options } = parsedInput;
 
-		if (id === undefined) {
+		if (id === undefined || id === null) {
 			throw new Error("The event's ID is not defined");
 		}
 

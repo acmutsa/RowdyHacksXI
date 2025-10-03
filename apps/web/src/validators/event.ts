@@ -16,4 +16,8 @@ export const newEventFormSchema = createInsertSchema(events, {
 	path: ["startTime"],
 });
 
+export const editEventFormSchema = newEventFormSchema.extend({
+	id: z.coerce.number().int().positive(),
+});
+
 export const eventDataTableValidator = createSelectSchema(events);

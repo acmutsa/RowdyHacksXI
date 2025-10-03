@@ -25,10 +25,10 @@ export default async function Navbar({ className }: NavbarProps) {
 	const registrationIsComplete =
 		user != null && (await getUser(user.id)) != undefined;
 	return (
-		<div className="z-50 w-screen">
+		<div className="z-50 w-full">
 			<div
 				className={cn(
-					`relative top-0 z-50 h-16 w-screen border-b border-b-border bg-background ${oswald.variable}`,
+					`relative top-0 z-50 h-16 w-full border-b border-b-border bg-background ${oswald.variable}`,
 					className,
 				)}
 			>

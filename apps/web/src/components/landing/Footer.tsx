@@ -9,7 +9,7 @@ import FooterLinks, { footerSections } from "./FooterLinks";
 export default function Footer() {
 	return (
 		<>
-			<footer className="relative bottom-0 z-50 min-h-[25vh] w-full items-center justify-center border-muted-foreground bg-[#3B3486] p-1 py-8 sm:p-8 md:px-10">
+			<footer className="relative bottom-0 bg-[#3B3486] min-h-[375px] w-full items-center justify-center border-muted-foreground p-1 py-8 sm:p-8 md:px-10 overflow-hidden">
 				<div className="grid grid-cols-2 gap-y-8 sm:grid-cols-4 md:justify-items-center lg:grid-cols-5 lg:justify-items-start">
 					<div className="col-span-2 row-span-1 flex items-center justify-self-center font-black sm:row-span-3 lg:row-span-1 lg:justify-self-start">
 						<Image

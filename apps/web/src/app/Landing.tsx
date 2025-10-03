@@ -1,16 +1,10 @@
 "use client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
-
 import Hero from "@/components/landing/Hero";
-
 import About from "@/components/landing/About";
-
 import Partners from "@/components/landing/Partners";
 import Footer from "@/components/landing/Footer";
-
 import WorkWithUs from "@/components/landing/WorkWithUs";
-
 import Interest from "@/components/landing/Interest";
 import WorkWithUsMobile from "@/components/landing/WorkWithUsMobile";
 
@@ -48,7 +42,7 @@ function starOpacity(t: number, frequency = 1, phase = 0) {
 export default function Landing() {
 	const { scrollYProgress } = useScroll();
 	return (
-		<div className="night relative overflow-hidden">
+		<div className="night relative">
 			<motion.div
 				className="star-bg fixed left-0 top-0 z-0 h-full w-full bg-transparent"
 				style={{
@@ -90,15 +84,8 @@ export default function Landing() {
 			/>
 			<Hero />
 			<About />
-			<Partners />
-			<>
-				<span className="hidden md:block">
-					<WorkWithUs />
-				</span>
-				<span className="block md:hidden">
-					<WorkWithUsMobile />
-				</span>
-			</>
+			{/* <Partners /> */}
+			<WorkWithUs />
 			<Footer />
 		</div>
 	);

@@ -136,14 +136,14 @@ export default function Hero() {
 									<Image
 										src={"/img/hero/HeroTitle.svg"}
 										alt={"Rowdy Hacks hero title"}
-										className="w-full"
+										className="w-full  "
 										width={1000}
 										height={1000}
 										unoptimized={true}
 									/>
 									<Image
 										src={"/img/hero/cactus.svg"}
-										className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+										className="title-cactus absolute -bottom-6 md:-bottom-6 left-0 z-30 w-fit -translate-x-1/2"
 										alt={"Cactus"}
 										width={1000}
 										height={1000}

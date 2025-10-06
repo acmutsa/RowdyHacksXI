@@ -13,11 +13,34 @@ import { Person } from "./Person";
 import Autoplay from "embla-carousel-autoplay";
 import team from "./team.json";
 import TeamMember from "./TeamMember";
+import { set } from "date-fns";
 
 const CarouselDefault = () => {
-	const plugin = React.useRef(
-		Autoplay({ delay: 4000, stopOnInteraction: true }),
-	);
+	const plugin = React.useRef(Autoplay({ delay: 4000, stopOnInteraction: true }),);
+	const [inView, setInView] = useState(false);
+	const carouselRef = useRef<HTMLDivElement | null>(null);
+	useEffect(() => {
+		if(!carouselRef.current) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setInView(true);
+						plugin.current.reset();
+					} else {
+						setInView(false);
+						plugin.current.stop();
+					}
+				});
+			},
+			{ threshold: 0.5 },
+		);
+		observer.observe(carouselRef.current);
+
+		return () => {
+			if(carouselRef.current) observer.unobserve(carouselRef.current);
+		};
+	}, []);
 	const members = team.team || [];
 	if (members.length === 0) return <div>No team members found.</div>;
 

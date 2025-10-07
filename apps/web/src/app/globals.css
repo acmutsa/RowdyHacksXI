@@ -325,21 +325,21 @@
 }
 
 .bg-moon {
-	background-image: url("/img/moon_bg.png");
+	background-image: url("/img/work/moon_bg.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 .bg-og-planet {
-	background-image: url("/img/og_planet.png");
+	background-image: url("/img/work/og_planet.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 .bg-earth {
-	background-image: url("/img/earth_planet.png");
+	background-image: url("/img/work/earth_planet.png");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

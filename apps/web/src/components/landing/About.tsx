@@ -26,9 +26,9 @@ export default function About() {
 	const yMoon = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.8, 0.9, 0.9999, 1], ["0%", "250%", "50%", "0%", "50%", "300%", "600%", "0%"]);
 	const opacityMoon = useTransform(moonScroll, [0.99, 1], [1, 0]);
 
-	const scaleSign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7], [0.075, 1, 1, 0.075]);
+	const scaleSign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.9], [0.075, 1, 1, 0.075, 0.2]);
 	const xSign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.9], ["-10%", "0%", "0%", "-10%", "-15%"])
-	const ySign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.9, 1], ["-30%", "40%", "-25%", "-30%", "40%", "60%"])
+	const ySign = useTransform(moonScroll, [0.21, 0.4, 0.55, 0.7, 0.9, 1], ["-30%", "40%", "-25%", "-30%", "85%", "60%"])
 	const opacitySign = useTransform(moonScroll, [0.99, 1], [1, 0]);
 
 	return (
@@ -47,7 +47,7 @@ export default function About() {
 							height={500}
 							alt="UFO"
 						/>
-						<motion.div className="absolute top-[35%] px-20 text-center">
+						<motion.div className="absolute top-[33%] px-20 text-center">
 		 					<h1 className="font-space-ranger text-4xl/8 text-black">About Us</h1>
 		 					<p className="w-[17ch] font-xolonium text-lg text-black tracking-tight">
 		 						RowdyHacks is UTSA's annual hackathon, hosted by the Association for Computing Machinery (ACM) at UTSA.
@@ -66,7 +66,7 @@ export default function About() {
 						>
 							<Image 
 								className="absolute w-full h-full object-cover object-bottom md:object-center overflow-visible"
-								src="/img/about/moon_test.svg"
+								src="/img/about/moon.svg"
 								width={500}
 								height={500}
 								alt="Moon"
@@ -79,7 +79,7 @@ export default function About() {
 							<div className="absolute flex justify-center items-center w-[500px] h-[700px] z-20">
 								<Image 
 									className="absolute w-[500px] h-[700px] object-cover overflow-visible will-change-transform"
-									src="/img/about/new_sign.svg"
+									src="/img/about/sign.svg"
 									width={500}
 									height={500}
 									alt="Sign"

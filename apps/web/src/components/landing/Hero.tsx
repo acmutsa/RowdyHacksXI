@@ -134,7 +134,7 @@ export default function Hero() {
 							>
 								<div className="relative mx-auto">
 									<Image
-										src={"/img/hero/HeroTitle.svg"}
+										src={"/img/hero/HeroTitleFixed.png"}
 										alt={"Rowdy Hacks hero title"}
 										className="w-full  "
 										width={1000}

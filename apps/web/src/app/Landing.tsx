@@ -84,7 +84,7 @@ export default function Landing() {
 			/>
 			<Hero />
 			<About />
-			{/* <Partners /> */}
+			<Partners />
 			<WorkWithUs />
 			<Footer />
 		</div>

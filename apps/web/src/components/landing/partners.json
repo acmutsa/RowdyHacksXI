@@ -4,49 +4,64 @@
 			"name": "SWIVEL",
 			"logo": "swivel.svg",
 			"url": "https://www.getswivel.io/",
-			"tier": "Title Sponsor"
+			"tier": "Title Sponsor",
+			"img": "sun.png"
 		},
 		{
 			"name": "Yahoo",
 			"logo": "yahoo.png",
 			"url": "https://www.yahooinc.com/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+			"img": "yahooplanet.png"
 		},
 		{
 			"name": "Union Pacific",
 			"logo": "union_pacific.svg",
 			"url": "https://www.up.com/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+						"img": "planet2.png"
 		},
 		{
 			"name": "Dell",
 			"logo": "dell.svg",
 			"url": "https://www.dell.com/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+			"wordmark": true,
+						"img": "planet3.png"
 		},
 		{
 			"name": "H-E-B",
-			"logo": "heb.svg",
+			"logo": "HEB.svg",
 			"url": "https://www.heb.com/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+			"img": "planet1.png"
 		},
 		{
 			"name": "Swri",
 			"logo": "swri.png",
 			"url": "https://www.swri.org/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+			"wordmark": true,
+			"logoTone": "light",
+			"img": "planet4.png"
 		},
 		{
 			"name": "UTSA - Computer Science Department",
 			"logo": "utsa_cs.svg",
 			"url": "https://sciences.utsa.edu/computer-science/",
-			"tier": "Bronze Sponsor"
+			"tier": "Bronze Sponsor",
+			"wordmark": true,
+			"logoTone": "dark",
+						"img": "planet5.png"
 		},
 		{
 			"name": "College of AI, Cyber and Computing",
 			"logo": "caicc.png",
 			"url": "https://caic.utsa.edu/",
-			"tier": "Rowdy Partner"
+			"tier": "Rowdy Partner",
+			"wordmark": true,
+			"logoTone": "light",
+						"img": "planet1.png"
 		}
 	]
 }

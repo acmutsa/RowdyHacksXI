@@ -892,7 +892,7 @@ const c = {
 		facebook: "https://facebook.com/rowdyhacks",
 		twitter: "https://twitter.com/rowdyhacks",
 		github: "https://github.com/acmutsa",
-		guide: "https://go.rowdyhacks.org/discord",
+		guide: "https://acmutsa.notion.site/RHX-Survival-Guide-186c7f3b374281c2a72edb1df6e4daa6",
 	},
 	icon: {
 		sm: "/img/logo/rhxi-logo.png",

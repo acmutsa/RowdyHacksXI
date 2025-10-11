@@ -64,6 +64,47 @@ export default function Hero() {
 									height={1000}
 									unoptimized={true}
 								/>
+								<div
+									className="
+										absolute bottom-[20%] right-[2.5%] w-[400px] h-[400px] rotate-6 p-5
+										sm:bottom-[20%] sm:right-[2.5%]
+										md:bottom-[20%] md:right-[2.5%]
+										lg:bottom-[20%] lg:right-[2.5%]
+										/* mobile overrides */
+										max-md:inset-0 max-md:m-auto max-md:rotate-0 max-md:w-[250px] max-md:h-[250px] max-md:p-0 max-md:translate-y-[-60%]
+									"
+								>
+									<Image
+										className="absolute inset-0 z-20 w-full h-full object-contain"
+										src="/img/work/billboard_new.png"
+										alt="Sign"
+										width={400}
+										height={400}
+										unoptimized
+									/>
+									<Image
+										className="absolute bottom-[-20%] right-[27%] z-20 w-[50%] h-[50%] -rotate-6"
+										src="/img/hero/rock.png"
+										alt="rock"
+										width={100}
+										height={100}
+										unoptimized
+									/>
+									<div className="mt-8 relative flex flex-col items-center justify-center p-5">
+										<h1 className="z-30 text-center font-texas-tango text-black text-[1.5rem] md:text-[2rem]">
+											Presented By
+										</h1>
+										<Image
+											src={`img/sponsors/swivel.svg`}
+											alt={"Swivel Logo"}
+											width={200}
+											height={200}
+											className="mt-2 w-auto h-auto object-contain z-30"
+											unoptimized
+										/>
+									</div>
+								</div>
+
 								<Image
 									className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
 									src={"/img/hero/tumbleweed.svg"}
@@ -80,6 +121,7 @@ export default function Hero() {
 									height={80}
 									unoptimized={true}
 								/>
+
 							</motion.div>
 							<motion.div
 								className="absolute right-[10%] top-[10%] z-20 w-[120px]"
@@ -149,6 +191,7 @@ export default function Hero() {
 										height={1000}
 										unoptimized={true}
 									/>
+
 								</div>
 							</motion.div>
 						</div>

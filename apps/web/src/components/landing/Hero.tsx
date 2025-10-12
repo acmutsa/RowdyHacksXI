@@ -20,7 +20,7 @@ export default function Hero() {
 	const translateYSand = useTransform(
 		scrollYProgress,
 		[0, 0.9],
-		["0%", "200%"],
+		["0%", "500%"],
 	);
 
 	// Figure 8 COW
@@ -64,18 +64,9 @@ export default function Hero() {
 									height={1000}
 									unoptimized={true}
 								/>
-								<div
-									className="
-										absolute bottom-[20%] right-[2.5%] w-[400px] h-[400px] rotate-6 p-5
-										sm:bottom-[20%] sm:right-[2.5%]
-										md:bottom-[20%] md:right-[2.5%]
-										lg:bottom-[20%] lg:right-[2.5%]
-										/* mobile overrides */
-										max-md:inset-0 max-md:m-auto max-md:rotate-0 max-md:w-[250px] max-md:h-[250px] max-md:p-0 max-md:translate-y-[-60%]
-									"
-								>
+								<div className="/* mobile overrides */ absolute bottom-[20%] right-[2.5%] h-[350px] w-[300px] rotate-6 p-5 max-md:inset-0 max-md:m-auto max-md:h-[250px] max-md:w-[250px] max-md:translate-y-[-60%] max-md:rotate-0 max-md:p-0 sm:bottom-[10%] sm:right-[2.5%] md:bottom-[20%] md:right-[2.5%] lg:bottom-[20%] lg:right-[2.5%]">
 									<Image
-										className="absolute inset-0 z-20 w-full h-full object-contain"
+										className="absolute inset-0 z-20 h-full w-full object-contain"
 										src="/img/work/billboard_new.png"
 										alt="Sign"
 										width={400}
@@ -83,15 +74,15 @@ export default function Hero() {
 										unoptimized
 									/>
 									<Image
-										className="absolute bottom-[-20%] right-[27%] z-20 w-[50%] h-[50%] -rotate-6"
+										className="absolute bottom-[-20%] right-[27%] z-20 h-[50%] w-[50%] -rotate-6"
 										src="/img/hero/rock.png"
 										alt="rock"
 										width={100}
 										height={100}
 										unoptimized
 									/>
-									<div className="mt-8 relative flex flex-col items-center justify-center p-5">
-										<h1 className="z-30 text-center font-texas-tango text-black text-[1.5rem] md:text-[2rem]">
+									<div className="relative mt-8 flex flex-col items-center justify-center p-5 md:mt-11">
+										<h1 className="z-30 text-center font-texas-tango text-[1rem] text-black md:text-xl">
 											Presented By
 										</h1>
 										<Image
@@ -99,7 +90,7 @@ export default function Hero() {
 											alt={"Swivel Logo"}
 											width={200}
 											height={200}
-											className="mt-2 w-auto h-auto object-contain z-30"
+											className="z-30 mt-2 h-auto w-auto object-contain"
 											unoptimized
 										/>
 									</div>
@@ -121,7 +112,6 @@ export default function Hero() {
 									height={80}
 									unoptimized={true}
 								/>
-
 							</motion.div>
 							<motion.div
 								className="absolute right-[10%] top-[10%] z-20 w-[120px]"
@@ -178,20 +168,19 @@ export default function Hero() {
 									<Image
 										src={"/img/hero/HeroTitleFixed.png"}
 										alt={"Rowdy Hacks hero title"}
-										className="w-full  "
+										className="w-full"
 										width={1000}
 										height={1000}
 										unoptimized={true}
 									/>
 									<Image
 										src={"/img/hero/cactus.svg"}
-										className="title-cactus absolute -bottom-6 md:-bottom-6 left-0 z-30 w-fit -translate-x-1/2"
+										className="title-cactus absolute -bottom-6 left-0 z-30 w-fit -translate-x-1/2 md:-bottom-6"
 										alt={"Cactus"}
 										width={1000}
 										height={1000}
 										unoptimized={true}
 									/>
-
 								</div>
 							</motion.div>
 						</div>

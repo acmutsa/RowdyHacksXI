@@ -174,7 +174,7 @@ export default function Hero() {
 									),
 								}}
 							>
-								<div className="relative mx-auto">
+								<div className="relative mx-auto max-md:translate-y-[-30%]">
 									<Image
 										src={"/img/hero/HeroTitleFixed.png"}
 										alt={"Rowdy Hacks hero title"}

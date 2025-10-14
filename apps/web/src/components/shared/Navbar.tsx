@@ -91,6 +91,33 @@ export default async function Navbar({ className }: NavbarProps) {
 								</>
 							)}
 						</div>
+						{!user ? (
+							<div className="block md:hidden">
+								<Link href={"/register"}>
+									<Button>Register</Button>
+								</Link>
+							</div>
+						) : (
+							<div className="block md:hidden">
+								<Link
+									href={
+										registrationIsComplete
+											? "/dash"
+											: "/register"
+									}
+								>
+									<Button
+										variant={"outline"}
+										className="bg-nav hover:bg-background"
+									>
+										{registrationIsComplete
+											? "Dashboard"
+											: "Complete Registration"}
+									</Button>
+								</Link>
+							</div>
+						)}
+
 						<ProfileButton />
 					</div>
 				</div>

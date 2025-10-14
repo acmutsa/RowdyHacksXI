@@ -36,7 +36,7 @@ export function TitleBubble() {
 				style={{ backgroundSize: "25%" }}
 			></div>
 			<div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-y-2 rounded-xl">
-				<h1 className="text-7xl font-black text-white">
+				<h1 className="xs:text-6xl text-center text-5xl font-black text-white">
 					{c.hackathonName} {c.itteration}
 				</h1>
 				<h2 className="text-center font-mono text-xs text-white sm:text-sm">

@@ -325,7 +325,7 @@ function MergedOrbit({
 											src={`/img/${f.logo}`}
 											alt={f.type}
 											fill
-											className="pointer-events-auto absolute object-contain"
+											className="pointer-events-auto absolute object-fill"
 										/>
 									</div>
 								)}

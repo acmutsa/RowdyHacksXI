@@ -105,7 +105,7 @@ export default function Partners() {
 	const rockImgs = ["rock1.png", "rock2.png", "rock3.png"];
 
 	return (
-		<section className="min-h-screen w-full">
+		<section className="min-h-screen w-full overflow-x-hidden">
 			{/* Sun Hero section with sticky scroll-shrink animation */}
 			{titlePartner && <SunHero partner={titlePartner} />}
 
@@ -154,10 +154,10 @@ function SunHero({ partner }: { partner: Partner }) {
 	return (
 		<section
 			ref={heroRef}
-			className="relative w-full overflow-visible"
+			className="relative w-full overflow-x-hidden"
 			// Section height controls scroll distance for animation
 			style={{
-				height: "200vh",
+				height: "150vh",
 				paddingTop: "5vh",
 				paddingBottom: "12vh",
 			}}
@@ -255,7 +255,7 @@ function MergedOrbit({
 			className="mb-[-32px] flex w-full flex-col items-center justify-center pb-40"
 			style={{ scale }}
 		>
-			<h2 className="font-texatbold mt-12 text-center text-4xl font-black tracking-wide text-blue-100 drop-shadow-lg md:text-5xl">
+			<h2 className="font-texatbold text-center text-4xl font-black tracking-wide text-blue-100 drop-shadow-lg md:text-5xl">
 				{title}
 			</h2>
 

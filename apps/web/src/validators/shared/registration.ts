@@ -17,9 +17,8 @@ const countryList = Object.freeze(
 	c.registration.countries.map((countryObject) => countryObject.code),
 ) as readonly [string, ...string[]];
 
-export const hackerRegistrationFormValidator = z
-	.object({
-		...userWithHackerDataInsertSchema.shape,
+export const hackerRegistrationFormValidator = userWithHackerDataInsertSchema
+	.extend({
 		firstName: z.string().min(1, defaultInputPrettyError).max(50, {
 			message: "First name must be between 1 and 50 characters",
 		}),
@@ -182,10 +181,8 @@ export const hackerRegistrationFormValidator = z
 		isRSVPed: true,
 		isApproved: true,
 		group: true,
-		points: true,
 		profilePhoto: true,
 		checkinTimestamp: true,
-		teamID: true,
 	});
 
 export const hackerRegistrationValidatorLocalStorage =
@@ -204,9 +201,6 @@ export const hackerRegistrationValidatorLocalStorage =
 						text: z.string().min(1).max(50),
 					}),
 				)
-				.min(1, {
-					message: "You must have at least one skill",
-				})
 				.max(c.registration.maxNumberOfSkills, {
 					message: `You cannot have more than ${c.registration.maxNumberOfSkills} skills`,
 				}),
@@ -219,10 +213,8 @@ export const hackerRegistrationValidatorLocalStorage =
 			isRSVPed: true,
 			isApproved: true,
 			group: true,
-			points: true,
 			profilePhoto: true,
 			checkinTimestamp: true,
-			teamID: true,
 		});
 
 export const hackerRegistrationResumeValidator = z.object({

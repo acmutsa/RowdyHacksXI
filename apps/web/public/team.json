@@ -3,7 +3,7 @@
         {
             "fname": "Alex",
             "lname": "Mugica",
-            "imgLink": "/img/team/Alex.png",
+            "imgLink": "/img/team/Alex.webp",
             "team": "Director",
             "bounty": "$1,000,000",
             "linkedin": "",
@@ -15,7 +15,7 @@
             "lname": "Ramirez",
             "team": "Co-Director",
             "bounty": "$1,000,000",
-            "imgLink": "/img/team/Trae.png",
+            "imgLink": "/img/team/Trae.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -23,7 +23,7 @@
         {
             "fname": "Joshua",
             "lname": "Silva",
-            "imgLink": "/img/team/Josh.png",
+            "imgLink": "/img/team/Josh.webp",
             "team": "Tech Lead",
             "bounty": "$650,000",
             "linkedin": "https://www.linkedin.com/in/joshuasilva414/",
@@ -33,7 +33,7 @@
         {
             "fname": "Carter",
             "lname": "Lavigne",
-            "imgLink": "/img/team/Carter.png",
+            "imgLink": "/img/team/Carter.webp",
             "team": "Tech",
             "bounty": "$300,000",
             "linkedin": "",
@@ -45,7 +45,7 @@
             "lname": "Lee",
             "bounty": "$300,000",
             "team": "Tech",
-            "imgLink": "/img/team/Eric.png",
+            "imgLink": "/img/team/Eric.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -55,7 +55,7 @@
             "lname": "Huerta",
             "bounty": "$300,000",
             "team": "Tech",
-            "imgLink": "/img/team/Aby.png",
+            "imgLink": "/img/team/Aby.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -65,7 +65,7 @@
             "lname": "Santos",
             "bounty": "$300,000",
             "team": "Tech",
-            "imgLink": "/img/team/Adan.png",
+            "imgLink": "/img/team/Adan.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -75,7 +75,7 @@
             "lname": "Wang",
             "bounty": "$650,000",
             "team": "Media Lead",
-            "imgLink": "/img/team/Inor.png",
+            "imgLink": "/img/team/Inor.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -85,7 +85,7 @@
             "lname": "Jauregui",
             "bounty": "$650,000",
             "team": "Media Co-Lead",
-            "imgLink": "/img/team/Sean.png",
+            "imgLink": "/img/team/Sean.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -95,7 +95,7 @@
             "lname": "Ubgade",
             "bounty": "$300,000",
             "team": "Media",
-            "imgLink": "/img/team/Arnav.png",
+            "imgLink": "/img/team/Arnav.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -105,7 +105,7 @@
             "lname": "Ramirez",
             "bounty": "$300,000",
             "team": "Media",
-            "imgLink": "/img/team/Atticus.png",
+            "imgLink": "/img/team/Atticus.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -115,7 +115,7 @@
             "lname": "Shields",
             "bounty": "$300,000",
             "team": "Media",
-            "imgLink": "/img/team/Bill.png",
+            "imgLink": "/img/team/Bill.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -125,7 +125,7 @@
             "lname": "Pankey",
             "bounty": "$300,000",
             "team": "Media",
-            "imgLink": "/img/team/Ilana.png",
+            "imgLink": "/img/team/Ilana.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -135,7 +135,7 @@
             "lname": "Benavidez",
             "bounty": "$300,000",
             "team": "Media",
-            "imgLink": "/img/team/Joseph.png",
+            "imgLink": "/img/team/Joseph.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -145,7 +145,7 @@
             "lname": "Doan",
             "bounty": "$300,000",
             "team": "Logistics",
-            "imgLink": "/img/team/Anh.png",
+            "imgLink": "/img/team/Anh.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -155,7 +155,7 @@
             "lname": "Dalai",
             "bounty": "$300,000",
             "team": "Logistics",
-            "imgLink": "/img/team/Bidisha.png",
+            "imgLink": "/img/team/Bidisha.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -165,7 +165,7 @@
             "lname": "Oseguera",
             "bounty": "$300,000",
             "team": "Logistics",
-            "imgLink": "/img/team/Miguel.png",
+            "imgLink": "/img/team/Miguel.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -175,7 +175,7 @@
             "lname": "Rautela",
             "bounty": "$300,000",
             "team": "Logistics",
-            "imgLink": "/img/team/Rashi.png",
+            "imgLink": "/img/team/Rashi.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -185,7 +185,7 @@
             "lname": "Sylvester",
             "bounty": "$650,000",
             "team": "PR Lead",
-            "imgLink": "/img/team/Reese.png",
+            "imgLink": "/img/team/Reese.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -195,7 +195,7 @@
             "lname": "Tran",
             "bounty": "$650,000",
             "team": "PR Co-Lead",
-            "imgLink": "/img/team/Vivian.png",
+            "imgLink": "/img/team/Vivian.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -205,7 +205,7 @@
             "lname": "Medina",
             "bounty": "$300,000",
             "team": "Public Relations",
-            "imgLink": "/img/team/Diego.png",
+            "imgLink": "/img/team/Diego.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -215,7 +215,7 @@
             "lname": "Pascua",
             "bounty": "$300,000",
             "team": "Public Relations",
-            "imgLink": "/img/team/Jibril.png",
+            "imgLink": "/img/team/Jibril.webp",
             "linkedin": "",
             "website": "",
             "github": ""
@@ -225,7 +225,7 @@
             "lname": "Schaefer",
             "bounty": "$300,000",
             "team": "Public Relations",
-            "imgLink": "/img/team/Savannah.png",
+            "imgLink": "/img/team/Savannah.webp",
             "linkedin": "",
             "website": "",
             "github": ""

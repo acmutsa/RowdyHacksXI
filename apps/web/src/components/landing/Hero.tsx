@@ -1,23 +1,34 @@
-import React, { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useScroll, useTransform, useMotionValue, useInView, animate } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import {
+	motion,
+	useScroll,
+	useTransform,
+	useMotionValue,
+	useInView,
+	animate,
+} from "framer-motion";
 
 export default function Hero() {
 	const secRef = useRef(null);
-	
+
 	const { scrollYProgress } = useScroll({
 		target: secRef,
-		offset: ["start start", "end center"]
+		offset: ["start start", "end center"],
 	});
 
-	const translateYSand = useTransform(scrollYProgress, [0, 0.9], ["0%", "200%"]);
+	const translateYSand = useTransform(
+		scrollYProgress,
+		[0, 0.9],
+		["0%", "500%"],
+	);
 
 	// Figure 8 COW
 	const oscillation = useMotionValue(0);
 	const isInView = useInView(secRef);
 	useEffect(() => {
 		let controls: ReturnType<typeof animate> | undefined;
-		if (isInView){
+		if (isInView) {
 			controls = animate(oscillation, 2 * Math.PI, {
 				repeat: Infinity,
 				duration: 4,
@@ -31,15 +42,21 @@ export default function Hero() {
 	}, [isInView, oscillation]);
 	const floatX = useTransform(oscillation, (v) => 15 * Math.sin(v));
 	const floatY = useTransform(oscillation, (v) => 8 * Math.sin(2 * v));
-	
+
 	return (
-		<section className="relative w-full min-w-[375px] min-h-[800px]">
-			<div ref={secRef} className="relative flex flex-col justify-end w-full h-[150vh]">
-				<div className="sticky bottom-0 w-full min-h-screen">
-					<div className="relative w-full h-full overflow-hidden">
-						<div className="relative flex flex-col justify-center items-center w-full h-full">
-							<motion.div className="absolute bottom-0" style={{ translateY: translateYSand }}>
-								<Image 
+		<section className="relative min-h-[800px] w-full min-w-[375px]">
+			<div
+				ref={secRef}
+				className="relative flex h-[150vh] w-full flex-col justify-end"
+			>
+				<div className="sticky bottom-0 min-h-screen w-full">
+					<div className="relative h-full w-full overflow-hidden">
+						<div className="relative flex h-full w-full flex-col items-center justify-center">
+							<motion.div
+								className="absolute bottom-0"
+								style={{ translateY: translateYSand }}
+							>
+								<Image
 									className="w-full"
 									src={"/img/hero/sands.png"}
 									alt="Sands"
@@ -47,6 +64,38 @@ export default function Hero() {
 									height={1000}
 									unoptimized={true}
 								/>
+								<div className="/* mobile overrides */ absolute bottom-[20%] right-[2.5%] h-[350px] w-[300px] rotate-6 p-5 max-md:inset-0 max-md:m-auto max-md:h-[250px] max-md:w-[250px] max-md:translate-y-[-60%] max-md:rotate-0 max-md:p-0 sm:bottom-[10%] sm:right-[2.5%] md:bottom-[20%] md:right-[2.5%] lg:bottom-[20%] lg:right-[2.5%]">
+									<Image
+										className="absolute inset-0 z-20 h-full w-full object-contain"
+										src="/img/work/billboard_new.png"
+										alt="Sign"
+										width={400}
+										height={400}
+										unoptimized
+									/>
+									<Image
+										className="absolute bottom-[-20%] right-[27%] z-20 h-[50%] w-[50%] -rotate-6"
+										src="/img/hero/rock.png"
+										alt="rock"
+										width={100}
+										height={100}
+										unoptimized
+									/>
+									<div className="relative mt-8 flex flex-col items-center justify-center p-5 md:mt-11">
+										<h1 className="z-30 text-center font-texas-tango text-[1rem] text-black md:text-xl">
+											Presented By
+										</h1>
+										<Image
+											src={`img/sponsors/swivel.svg`}
+											alt={"Swivel Logo"}
+											width={200}
+											height={200}
+											className="z-30 mt-2 h-auto w-auto object-contain"
+											unoptimized
+										/>
+									</div>
+								</div>
+
 								<Image
 									className="absolute bottom-[20%] left-[20%] z-20 w-[100px]"
 									src={"/img/hero/tumbleweed.svg"}
@@ -72,7 +121,11 @@ export default function Hero() {
 										[0, 1],
 										["0%", "150%"],
 									),
-									rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+									rotate: useTransform(
+										scrollYProgress,
+										[0, 1],
+										[0, 360],
+									),
 									x: floatX,
 									y: floatY,
 								}}
@@ -99,7 +152,11 @@ export default function Hero() {
 										[0, 1],
 										["0%", "-100%"],
 									),
-									scale: useTransform(scrollYProgress, [0, 1], [1, 2]),
+									scale: useTransform(
+										scrollYProgress,
+										[0, 1],
+										[1, 2],
+									),
 									rotate: useTransform(
 										scrollYProgress,
 										[0, 1],
@@ -107,10 +164,10 @@ export default function Hero() {
 									),
 								}}
 							>
-								<div className="relative mx-auto">
+								<div className="relative mx-auto max-md:translate-y-[-30%]">
 									<Image
-										src={"/img/hero/hero-title.svg"}
-										alt={"Rowdy Hacks Coming Fall '25"}
+										src={"/img/hero/HeroTitleFixed.png"}
+										alt={"Rowdy Hacks hero title"}
 										className="w-full"
 										width={1000}
 										height={1000}
@@ -118,7 +175,7 @@ export default function Hero() {
 									/>
 									<Image
 										src={"/img/hero/cactus.svg"}
-										className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+										className="title-cactus absolute -bottom-6 left-0 z-30 w-fit -translate-x-1/2 md:-bottom-6"
 										alt={"Cactus"}
 										width={1000}
 										height={1000}
@@ -131,5 +188,5 @@ export default function Hero() {
 				</div>
 			</div>
 		</section>
-  	)
+	);
 }

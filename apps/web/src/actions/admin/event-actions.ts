@@ -1,6 +1,6 @@
 "use server";
 
-import { adminAction, superAdminAction } from "@/lib/safe-action";
+import { adminAction } from "@/lib/safe-action";
 import { newEventFormSchema as editEventFormSchema } from "@/validators/event";
 import { editEvent as modifyEvent } from "db/functions";
 import { deleteEvent as removeEvent } from "db/functions";
@@ -12,7 +12,7 @@ export const editEvent = adminAction
 	.action(async ({ parsedInput }) => {
 		const { id, ...options } = parsedInput;
 
-		if (id === undefined) {
+		if (id === undefined || id === null) {
 			throw new Error("The event's ID is not defined");
 		}
 

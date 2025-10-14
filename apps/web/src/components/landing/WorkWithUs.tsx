@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
 import {
 	Carousel,
 	CarouselContent,
@@ -10,38 +9,53 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "../shadcn/ui/carousel";
+import { Person } from "./Person";
 import Autoplay from "embla-carousel-autoplay";
-
+import team from "./team.json";
 import TeamMember from "./TeamMember";
+import { set } from "date-fns";
 
 const CarouselDefault = () => {
-	const plugin = React.useRef(
-		Autoplay({ delay: 4000, stopOnInteraction: true }),
-	);
-	const [team, setTeam] = useState<Person[]>([]);
-	const [loading, setLoading] = useState(true);
+	const plugin = React.useRef(Autoplay({ delay: 4000, stopOnInteraction: true }),);
+	const [inView, setInView] = useState(false);
+	const carouselRef = useRef<HTMLDivElement | null>(null);
 	useEffect(() => {
-		setLoading(true);
-		axios.get("/team.json").then((res) => {
-			setTeam(res.data.team);
-			setLoading(false);
-		});
+		if(!carouselRef.current) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setInView(true);
+						plugin.current.reset();
+					} else {
+						setInView(false);
+						plugin.current.stop();
+					}
+				});
+			},
+			{ threshold: 0.5 },
+		);
+		observer.observe(carouselRef.current);
+
+		return () => {
+			if(carouselRef.current) observer.unobserve(carouselRef.current);
+		};
 	}, []);
-	if (loading || team === undefined) return <div>Loading...</div>;
-	if (team.length === 0) return <div>No team members found.</div>;
+	const members = team.team || [];
+	if (members.length === 0) return <div>No team members found.</div>;
 
 	return (
 		<>
 			<Carousel
-				className="flex h-[245px] w-full overflow-visible"
+				className="flex h-[265px] w-full  mx-auto overflow-visible"
 				opts={{ align: "start", loop: true }}
 				// @ts-ignore - TypeScript complains, but this usage is correct per docs
-				// plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
+				plugins={[Autoplay({ delay: 3500, stopOnInteraction: true })]}
 				onMouseEnter={plugin.current.stop}
 				onMouseLeave={plugin.current.reset}
 			>
-				<CarouselContent className="relative -ml-4 h-full w-full overflow-visible">
-					{team.map((p, index) => (
+				<CarouselContent className="relative -ml-2 h-full w-full overflow-visible">
+					{members.map((p, index) => (
 						<CarouselItem
 							key={index}
 							className="ml-4 basis-1/2 overflow-visible pl-0 md:basis-1/3"
@@ -152,8 +166,8 @@ function Billboard({
 						</h1>
 						<div className="relative mb-3 flex h-full w-full flex-col md:px-0">
 							<div className="flex h-full w-full flex-row items-center justify-center px-8 md:px-0">
-								<div className="rounded-lg border-4 border-[#94391F] bg-white bg-opacity-50 p-3">
-									<h1 className="text-outline-other text-1xl text-center font-gota text-white md:text-2xl">
+								<div className="rounded-lg bg-white bg-opacity-50 p-3">
+									<h1 className=" text-1xl text-center font-league text-white md:text-2xl">
 										Interested in helping or sponsoring?
 									</h1>
 								</div>
@@ -161,7 +175,7 @@ function Billboard({
 								<div className="flex items-center justify-center gap-3">
 									<Link
 										href={
-											"https://form.rowdyhacks.org/volunteer"
+											"https://form.rowdyhacks.org/volunteerform"
 										}
 									>
 										<button className="bg-earth rounded-full border-2 border-[#4E9642] px-[5px] py-4 font-league font-bold text-white transition-colors duration-150">
@@ -173,7 +187,7 @@ function Billboard({
 									</Link>
 									<Link
 										href={
-											"https://form.rowdyhacks.org/mentor"
+											"https://form.rowdyhacks.org/mentorform"
 										}
 									>
 										<button className="bg-moon rounded-full border-2 border-[#7C6D66] px-2 py-2 font-league font-bold text-[#282220] transition-colors duration-150">
@@ -185,16 +199,12 @@ function Billboard({
 									</Link>
 									<Link
 										href={
-											"https://static.rowdyhacks.org/docs%2FRowdyHacks%202024%20Partner%20Packet.pdf"
+											"https://form.rowdyhacks.org/judgeform"
 										}
 									>
 										<button className="bg-og-planet rounded-full border-2 border-[#9d3300] px-2 py-2 font-league font-bold text-white transition-colors duration-150">
-											<span className="block">
-												Partner
-											</span>
-											<span className="block">
-												Packet
-											</span>
+											<span className="block">Judge</span>
+											<span className="block">Form</span>
 										</button>
 									</Link>
 								</div>
@@ -232,13 +242,13 @@ function WantedBoard({
 			>
 				<div className="absolute bottom-0 flex h-[500px] w-[375px] justify-center md:h-[550px] md:w-[800px]">
 					<Image
-						className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom md:h-auto"
-						src="/img/work/wanted_new.png"
-						width={1920}
-						height={1080}
-						alt="WantedBoard"
-					/>
-					<div className="relative mt-14 h-[245px] w-[400px] overflow-visible md:w-[575px]">
+							className="absolute bottom-0 h-full w-full overflow-visible object-cover object-bottom md:h-auto"
+							src="/img/work/wanted_new.png"
+							width={1920}
+							height={1080}
+							alt="WantedBoard"
+						/>
+					<div className="relative mt-9 h-fit w-full overflow-visible md:w-[575px]">
 						<CarouselDefault />
 					</div>
 				</div>

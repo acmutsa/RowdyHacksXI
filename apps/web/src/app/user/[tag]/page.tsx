@@ -7,10 +7,14 @@ import { Github, Linkedin, Globe } from "lucide-react";
 import Navbar from "@/components/shared/Navbar";
 import { getHackerByTag } from "db/functions";
 
-export default async function ({ params }: { params: { tag: string } }) {
+export default async function UserPage({
+	params,
+}: {
+	params: { tag: string };
+}) {
 	if (!params.tag || params.tag.length <= 1) return notFound();
 
-	const user = await getHackerByTag(params.tag, false);
+	const user = await getHackerByTag(params.tag);
 	if (!user) return notFound();
 
 	return (

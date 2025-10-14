@@ -1,4 +1,4 @@
-import { auth, currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 import SettingsSection from "@/components/settings/SettingsSection";
@@ -7,7 +7,11 @@ import { Settings } from "lucide-react";
 import ClientToast from "@/components/shared/ClientToast";
 import { getUser } from "db/functions/user";
 
-export default async function ({ children }: { children: ReactNode }) {
+export default async function SettingsLayout({
+	children,
+}: {
+	children: ReactNode;
+}) {
 	const { userId } = await auth();
 	const user = await currentUser();
 

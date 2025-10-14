@@ -133,7 +133,7 @@ function SunHero({ partner }: { partner: Partner }) {
 	const sunScale = useTransform(
 		scrollYProgress,
 		[0, 0.75, 0.95, 1],
-		[2, 1.75, 1.1, 1.1],
+		[1.5, 1.25, 1.1, 1.1],
 	);
 	// Sun: Vertical movement (horizon peek to center, clamped at 0)
 	const sunY = useTransform(scrollYProgress, [0, 0.95, 1], [200, 0, 0]);

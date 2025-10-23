@@ -135,7 +135,7 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 					<div className="flex flex-wrap items-center justify-start gap-x-2 text-left">
 						<p className="flex-shrink text-xl font-black sm:text-3xl sm:font-normal">
 							{event.title}{" "}
-							<span>
+							<span className="h-fit">
 								<Badge
 									variant={"outline"}
 									className="h-fit"

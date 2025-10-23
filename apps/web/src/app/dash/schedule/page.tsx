@@ -9,7 +9,9 @@ export default async function Page() {
 	const userTimeZone = getClientTimeZone(userTimeZoneHeaderKey);
 	return (
 		<>
-			<h1 className="mx-auto my-8 w-3/4 text-8xl font-black">Schedule</h1>
+			<h1 className="w-7/8 text-center font-black mx-auto my-3 text-5xl sm:text-6xl md:my-8 md:w-3/4 md:text-left md:text-8xl">
+				Schedule
+			</h1>
 			<ScheduleTimeline schedule={sched} timezone={userTimeZone} />
 		</>
 	);

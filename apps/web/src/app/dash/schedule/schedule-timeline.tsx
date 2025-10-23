@@ -46,7 +46,7 @@ export default function ScheduleTimeline({
 						([dayName, arr]): ReactNode => (
 							<>
 								<tr key={dayName + " title"} className="py-8">
-									<td></td>
+									<td className="hidden md:block"></td>
 									<td
 										className="w-1"
 										style={{
@@ -55,7 +55,7 @@ export default function ScheduleTimeline({
 										}}
 									></td>
 									<td>
-										<h2 className="ml-16 w-full border-b py-4 text-6xl font-black">
+										<h2 className="w-7/8 ms:w-full ml-16 border-b py-4 text-4xl font-black md:text-6xl">
 											{dayName}
 										</h2>
 									</td>
@@ -103,9 +103,9 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 	return (
 		<Link href={href} legacyBehavior>
 			<tr className="cursor-pointer text-center text-xl text-foreground">
-				<td className="pr-16">{`${startTimeFormatted} - ${endTimeFormatted}`}</td>
+				<td className="hidden pr-16 md:block">{`${startTimeFormatted} - ${endTimeFormatted}`}</td>
 				<td
-					className={"relative h-20 w-1"}
+					className={"relative my-4 h-20 w-1 md:my-auto"}
 					style={{
 						background: `radial-gradient(circle, ${color} 0%, hsl(var(--secondary)) 99%)`,
 						// backgroundColor: color,
@@ -131,19 +131,24 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 						</div>
 					)}
 				</td>
-				<td className="pl-16">
-					<div className="flex flex-wrap items-center justify-start gap-x-2 text-left text-3xl">
-						{event.title}{" "}
-						<Badge
-							variant={"outline"}
-							className="h-fit"
-							style={{
-								borderColor: color,
-							}}
-						>
-							<p className="text-sm">{event.type}</p>
-						</Badge>
+				<td className="py-4 pl-16">
+					<div className="flex flex-wrap items-center justify-start gap-x-2 text-left">
+						<p className="flex-shrink text-xl font-black sm:text-3xl sm:font-normal">
+							{event.title}{" "}
+							<span>
+								<Badge
+									variant={"outline"}
+									className="h-fit"
+									style={{
+										borderColor: color,
+									}}
+								>
+									<p className="text-sm">{event.type}</p>
+								</Badge>
+							</span>
+						</p>
 					</div>
+					<p className="block text-left md:hidden">{`${startTimeFormatted} - ${endTimeFormatted}`}</p>
 				</td>
 			</tr>
 		</Link>

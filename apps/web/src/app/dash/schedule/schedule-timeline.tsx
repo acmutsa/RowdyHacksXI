@@ -1,4 +1,5 @@
 import { Badge } from "@/components/shadcn/ui/badge";
+import { getRequestContext } from "@cloudflare/next-on-pages";
 import { type EventType as Event } from "@/lib/types/events";
 import { cn } from "@/lib/utils/client/cn";
 import c from "config";
@@ -17,19 +18,6 @@ const daysOfWeek = [
 	"Saturday",
 ];
 
-function splitByDay(schedule: Event[]) {
-	const days: Map<string, Event[]> = new Map<string, Event[]>();
-	schedule.forEach((event) => {
-		const day = daysOfWeek[new Date(event.startTime).getDay()];
-		if (days.get(day)) {
-			days.get(day)?.push(event);
-		} else {
-			days.set(day, [event]);
-		}
-	});
-	return days;
-}
-
 type ScheduleTimelineProps = {
 	schedule: Event[];
 	timezone: string;
@@ -39,6 +27,26 @@ export default function ScheduleTimeline({
 	schedule,
 	timezone,
 }: ScheduleTimelineProps) {
+	function splitByDay(schedule: Event[]) {
+		const days: Map<string, Event[]> = new Map<string, Event[]>();
+		schedule.forEach((event) => {
+			const day =
+				daysOfWeek[
+					new Date(
+						Intl.DateTimeFormat("en-US", {
+							timeZone: timezone,
+						}).format(new Date(event.startTime)),
+					).getDay()
+				];
+			if (days.get(day)) {
+				days.get(day)?.push(event);
+			} else {
+				days.set(day, [event]);
+			}
+		});
+		return days;
+	}
+
 	return (
 		<div className="mx-auto mt-5 w-3/4">
 			<table className="p-4">

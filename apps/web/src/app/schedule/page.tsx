@@ -2,6 +2,7 @@ import ScheduleTimeline from "../dash/schedule/schedule-timeline";
 import { getAllEvents } from "db/functions";
 import { getClientTimeZone } from "@/lib/utils/client/shared";
 import { getRequestContext } from "@cloudflare/next-on-pages";
+
 export default async function Page() {
 	const sched = await getAllEvents();
 	const { cf } = getRequestContext();

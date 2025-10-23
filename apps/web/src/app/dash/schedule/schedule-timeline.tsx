@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils/client/cn";
 import c from "config";
 import { formatInTimeZone } from "date-fns-tz";
 import Link from "next/link";
+import { format } from "path";
 import { ReactNode } from "react";
 
 const daysOfWeek = [
@@ -19,7 +20,7 @@ const daysOfWeek = [
 function splitByDay(schedule: Event[]) {
 	const days: Map<string, Event[]> = new Map<string, Event[]>();
 	schedule.forEach((event) => {
-		const day = daysOfWeek[event.startTime.getDay()];
+		const day = daysOfWeek[new Date(event.startTime).getDay()];
 		if (days.get(day)) {
 			days.get(day)?.push(event);
 		} else {
@@ -103,7 +104,13 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 	return (
 		<Link href={href} legacyBehavior>
 			<tr className="cursor-pointer text-center text-xl text-foreground">
-				<td className="hidden pr-16 md:block">{`${startTimeFormatted} - ${endTimeFormatted}`}</td>
+				<td className="my-auto hidden h-20 flex-col justify-center pr-16 align-middle md:flex">
+					<span>
+						<span className="text-nowrap">{`${startTimeFormatted}`}</span>
+						{" - "}
+						<span className="text-nowrap">{`${endTimeFormatted}`}</span>
+					</span>
+				</td>
 				<td
 					className={"relative my-4 h-20 w-1 md:my-auto"}
 					style={{
@@ -133,7 +140,7 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 				</td>
 				<td className="py-4 pl-16">
 					<div className="flex flex-wrap items-center justify-start gap-x-2 text-left">
-						<p className="flex-shrink text-xl font-black sm:text-3xl sm:font-normal">
+						<div className="flex-shrink text-xl font-black sm:text-3xl sm:font-normal">
 							{event.title}{" "}
 							<span className="h-fit">
 								<Badge
@@ -146,9 +153,13 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 									<p className="text-sm">{event.type}</p>
 								</Badge>
 							</span>
-						</p>
+						</div>
 					</div>
-					<p className="block text-left md:hidden">{`${startTimeFormatted} - ${endTimeFormatted}`}</p>
+					<p className="block text-left md:hidden">
+						<span className="text-nowrap">{`${startTimeFormatted}`}</span>
+						{" - "}
+						<span className="text-nowrap">{`${endTimeFormatted}`}</span>
+					</p>
 				</td>
 			</tr>
 		</Link>

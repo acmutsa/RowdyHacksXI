@@ -19,7 +19,7 @@
 			"logo": "union_pacific.svg",
 			"url": "https://www.up.com/",
 			"tier": "Bronze Sponsor",
-						"img": "planet2.png"
+			"img": "planet2.png"
 		},
 		{
 			"name": "Dell",
@@ -27,7 +27,8 @@
 			"url": "https://www.dell.com/",
 			"tier": "Bronze Sponsor",
 			"wordmark": true,
-						"img": "planet3.png"
+			"logoTone": "light",
+			"img": "planet3.png"
 		},
 		{
 			"name": "H-E-B",
@@ -52,7 +53,7 @@
 			"tier": "Bronze Sponsor",
 			"wordmark": true,
 			"logoTone": "dark",
-						"img": "planet5.png"
+			"img": "planet5.png"
 		},
 		{
 			"name": "College of AI, Cyber and Computing",
@@ -61,7 +62,15 @@
 			"tier": "Rowdy Partner",
 			"wordmark": true,
 			"logoTone": "light",
-						"img": "planet1.png"
+			"img": "planet1.png"
+		},
+		{
+			"name": "Schroeder",
+			"logo": "schroeder.png",
+			"url": "#",
+			"tier": "Bronze Sponsor",
+			"wordmark": true,
+			"img": "planet2.png"
 		}
 	]
 }

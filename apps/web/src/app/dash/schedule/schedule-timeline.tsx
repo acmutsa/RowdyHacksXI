@@ -147,20 +147,18 @@ export function EventRow({ event, userTimeZone }: EventRowProps) {
 					)}
 				</td>
 				<td className="py-4 pl-16">
-					<div className="flex flex-wrap items-center justify-start gap-x-2 text-left">
-						<div className="flex-shrink text-xl font-black sm:text-3xl sm:font-normal">
-							{event.title}{" "}
-							<span className="h-fit">
-								<Badge
-									variant={"outline"}
-									className="h-fit"
-									style={{
-										borderColor: color,
-									}}
-								>
-									<p className="text-sm">{event.type}</p>
-								</Badge>
-							</span>
+					<div className="flex flex-wrap items-center text-left">
+						<div className="flex flex-shrink items-center gap-x-2 text-xl font-black sm:text-3xl sm:font-normal">
+							{event.title}
+							<Badge
+								variant={"outline"}
+								className="h-fit"
+								style={{
+									borderColor: color,
+								}}
+							>
+								<p className="text-sm">{event.type}</p>
+							</Badge>
 						</div>
 					</div>
 					<p className="block text-left md:hidden">
